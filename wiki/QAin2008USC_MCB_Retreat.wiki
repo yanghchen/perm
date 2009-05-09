@@ -1,0 +1,47 @@
+The more completed answer for the questions that I have been asked in the USC MCB retreat, 2008.
+== Introduction ==
+In the retreat of our MCB program this year, many biologists have many good questions and valuable suggestions. Here I list the questions and the more completed answer for them. 
+
+== Q & A ==
+=== Q1 How could you find the special pattern (spaced seed)? ===
+Originally, we attempted to reduce the problem to the integer programming problem, which is the Integer Version of Linear Programming [http://en.wikipedia.org/wiki/Integer_programming]. It is widely used to approximate many NP-hard problems. We used a package called LP_solve to solve the problem. However, upon finding that the solver gave us repeated patterns for different read lengths, we realized that the optimal solutions repeated as many times as we allowed them to shift.  With this realization we are able to easily enumerate all possible patterns in the small search space and choose that which best suits are needs.  
+=== Q2 What if you switched the non-masked (care )position into the masked (don't care) positions? ===
+
+This will give us a pattern (spaced seed) with less unmasked (care) positions which will cause more random hits, resulting in a slower running time. 
+
+One should bear in mind that there could be more than one optimal pattern (the sliding masked windows), for a fixed length read. In fact, all configurations of our seed pattern, {{{111*1**}}}, includes; {{{11*1**1}}}, {{{1*1**11}}}, {{{*1**111}}}, {{{1**111*}}} and {{{**111*1}}} achieve full sensitivity to two substitutions. Since we would like to extend the pattern for different read lengths, we choose the pattern that has most "care position" in the front.  
+
+Remember, the task requires that we have a seed of both high weight and sensitivity. Changing a masked ("don't care") position to an unmasked ("care") position will always increase the weight, however the cost may be reduced sensitivity.  Our seeds balance the desire for maximum weight while still achieving sensitivity. 
+
+=== Q3 Why does the repeat pattern has a length of seven ? ===
+The length of the repeat pattern is equal to the number of shifts plus one.  This property is important to realize to understand that necessity to repeat. Each base on a read is subject to an initial seed state ("care" or "don't care") and then six additional shifts, which totals seven seed positions.  Thus, repeating the pattern every seven positions provides that each base will "experience" the same seven states, a property necessary to minimize the masking necessary to achieve full sensitivity for any number of mismatches greater than one.   
+
+We choose the number of six shifts because it is the smallest number to achieve the maximal weight.  For example, if we chose a repeat of length 5, we would have only 2 our of 5 don't care positions (40%), while a length of six gives us 3 out of six (50%).  A length of seven gives us four of seven (~57%), while a length of 8 gives and 4 of 8 (50%) and a length of nine gives 5 of 9 (55%).   Thus, six shifts which corresponds to a repeat of length seven maximizes the weight while maintaining full sensitivity to two mismatches.
+
+For other numbers of mismatches the number of shifts required to maximize the weight vary.  For example, we provide a seed with repeat length of 11 to achieve sensitivity to three mismatches as well as a seed with repeat length 17 for four mismatches. 
+
+
+=== Q4 What is the shortest unique string in the human genome ? ===
+
+The shortest unique substring the human genome is 11bp (Haubold, 2004), questions such as this can be solved using extract string matching algorithms such as Suffix Array and Suffix Tree.  RE-SEQ provides an approximate matching mapping algorithm, it's purpose is to map reads to genome location which are similar but not exact.  However, the question is interesting when one considers what is the shortest substring length which is expected to be unique. 
+
+Clearly, a very small read length will result in many false positives and should be avoided.  Under a null background model, the probability that their exists two identical strings of length 20 is approximately one half of one percent. Under this model, read lengths of 36 should map uniquely even when require two mismatches to be allowed to correct for sequencing errors (affecting 1% of bases) and SNPs (affecting 0.1% of bases). 
+Unfortunately,  genomes include many repetitive regions much longer than predicted by a null model, and many regions of high similarity, so there is no reasonable read length that will assure unique mapping of substrings.   
+
+The results from our test data show that for reads of length 36, 96% of the mapped reads were assigned to a single location.  However, 30% of reads were mapped to no location suggesting that read lengths provided less of a problem than other issues such as correlated sequencing errors or contamination.  
+
+ 
+=== Q5 Is it conventional to allow two substitutions ? ===
+Eland, MAQ and SOAP use this criteria for short reads with 32 or 36 base pair. Again, if we assume each base has a 1% probability of sequencing error and a 0.1% probability of a SNP, then we should expect 98% of reads with length 36 to be within zero (67%), one (26%) or two (5%) mismatches of the parent substring on the reference genome.  We will need more mismatches if the sequencing error rate is higher, the read lengths are longer, or the organism similarity is less. The distribution of sequencing errors is also a reason to support more mismatches.  Thus, two is conventional, but the application and the data may dictate that many more mismatches are necessary.  
+
+For this reason we provide seeds sensitive to three and four mismatches.  RMAP, a program designed by professor Andrew Smith provides seeds sensitive to as many as twelve mismatches.    
+
+=== Q6 How do you deal with the quality score ? ===
+We map reads with respect to the number of mismatches their consensus sequence has in comparison to the reference genome. To incorporate quality scores, we set up threshold to pre-filter the low quality reads and post filter for mapping which are not statistically significant, using the p-value computed with the sum of the quality scores. It is unlikely we find alignment using quality score without using a slower Smith-Waterman like algorithm.
+
+=== Q7 You have mentioned about that your program saved space, how about the running time? ===
+The running time is decided by many steps, including preprocessing, looking up tables, and alignment verification after hits. In theory, we use only 1/3 of the preprocessing time, however, we need 7 lookups instead of 6 compared to ELANDs method.. For reads with 32 base pair, we have 16 "care" positions in our "seed" which is the same as Eland's seed. Therefore, the expected random hit number is equal, so we achieve the same running time is similar. 
+If we pre-process reads set instead of pre-process the genome, we require 7/6 more time to preprocessing. However, only one instead of 6 look-ups for each base on the reference genome.  Thus, depending on the pre-processing we either use 1/3 of the preprocessing time at a sacrifice of 7/6 for looking up, or sacrifice 7/6 of the time for preprocessing to save 5/6 of the lookup time.  
+
+=== Q8 Does this model find small Indel as SOAP ? ===
+We have implemented finding of short indels as well, using many consecutive seed. It is quite similar to their method. It was not part of the presentation because it did not introduce any new ideas.  
