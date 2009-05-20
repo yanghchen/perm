@@ -1,5 +1,5 @@
 = Introduction =
-PerM uses both config file and simple command line options, which should be easy enough to make test as we did. We are still working hard to standardize our I/O and options with other mapper, especially with Applied Biosystems pipeline.
+PerM uses both configure file and simple command line options, which should be easy enough to make test as we did. We are still working hard to standardize our I/O and options with other mapper, especially with Applied Biosystems pipeline.
 = The command line options =
 Given no command line option, PerM will try to open a default configure file name "config.pref". Given only one command line option, it should be the name of the configure file. The configure file format is described in the next section.
 
