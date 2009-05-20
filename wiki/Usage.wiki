@@ -21,7 +21,15 @@ Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 25}}}
 
 == The configuration file ==  
 Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described as the examples:
+{{{
+}}}
 
+= Test Data =
+=== Reference ===
+  #The anthracis.fasta can be download in SOCS webpage: [http://socs.biology.gatech.edu/Download.html] 
+  #The repeated masked and non-masked human genome can be downloaded from UCSC's website: [http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips]. With file chromFaMasked.zip   and chromFa.zip respectively. I rename the *.fa file to *.fasta file manually. 
 
+=== Reads file ===
+We used real SOLiD data down from SOCS page and the simulated data gen
 
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
