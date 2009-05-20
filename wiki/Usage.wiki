@@ -1,4 +1,6 @@
-PerM uses both configuration file and command line options. 
+
+= Options =
+PerM uses both configuration file and command line options. The input files and configuration files should be put besides the program.
 
 == The command line options ==  
 The currently command line option requires input in order. It needs 
@@ -19,6 +21,8 @@ PerM support normal full sensitivity including 2, 3, 4 mismatches. For the speci
 Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 25}}}
 
 == The configuration file ==  
-Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described as follows.
+Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described as the examples:
+
+
 
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
