@@ -4,4 +4,4 @@
   * The anthracis.fasta can be download in SOCS webpage: [http://socs.biology.gatech.edu/Download.html] 
   * The repeated masked and non-masked human genome can be downloaded from UCSC's genome browser website with file chromFaMasked.zip and chromFa.zip respectively:  [http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips]. `*`.fa files are rename to `*`.fasta file manually. 
 === Reads file ===
-We used real SOLiD data down from SOCS page which can be downloaded from [http://socs.biology.gatech.edu/Download.html]. The simulated SOLiD or Solexa reads can be generated using the small program in the download section. 
+The real SOLiD reads from B anthracis.fasta can be downloaded from SOCS page [http://socs.biology.gatech.edu/Download.html]. The simulated SOLiD or Solexa reads can be generated using the small program in the download section. 
