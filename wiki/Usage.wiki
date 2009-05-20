@@ -1,9 +1,8 @@
-
 = Options =
 PerM uses both configuration file and command line options. The input files and configuration files should be put besides the program.
 
 == The command line options ==  
-The currently command line option requires input in order. It needs 
+The currently command line option requires input in order as follows:
   # A reference in .fasta file or a .txt which has many fasta file names, each in a row. 
   # The reads file in .fasta, .prb or .csfasta formats or a .txt file as the list of those files.
   # The full sensitivity threshold.
