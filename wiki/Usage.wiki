@@ -7,11 +7,14 @@ The currently command line option requires input in order. It needs
   * The reads file in .fasta, .prb or .csfasta formats or a .txt file as the list of those files.
   * The full sensitivity threshold.
 == Reference ==
+
 == Reads file ==
+PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the extend name ".csfasta", PerM expects all reads are from SOLiD. PerM expects 
+all reads have the same length, which is detected using the first read in the first read file by PerM.
 == Full sensitivity threshold ==
 
 
-Note PerM use the extend file name of the first read file to decide it is mapping a SOLiD reads or Solexa reads. That
+ That
 The type of the reads (SOLiD or Solexa) are decided
 
 Note PerM will get the read length use the first reads file to 
