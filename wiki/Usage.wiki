@@ -1,5 +1,5 @@
 = Introduction =
-PerM uses both configuration file and command line options. We are still working hard to standardize I/O and options with other mapper, especially Applied Biosystems pipeline.
+PerM uses both configuration file and command line options. 
 
 = The command line options =  
 The currently command line option requires input in order. It needs 
@@ -30,3 +30,7 @@ Note PerM will get the read length use the first reads file to
 
 
 Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described in the next section.
+
+= The configuration file =  
+
+Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
