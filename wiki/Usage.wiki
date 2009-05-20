@@ -20,7 +20,7 @@ PerM support normal full sensitivity including 2, 3, 4 mismatches. For the speci
 Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 25}}}
 
 == The configuration file ==  
-Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described as the examples:
+Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The follow is the examples, as an attached with the code tar-ball :
 {{{
 anthracis.fasta
 7B.csfasta
@@ -33,7 +33,7 @@ false
 1
 0
 }}}
-which is attached with the code tar ball. The first two are the *Reference* and *Read file*. The fifth row are the full sensitive threshold. The reads are used by the preprocessed reads version only. 
+The first two rows are the *Reference* and *Read file*. The fifth row shows the full sensitive threshold. The rest parameters are used by the preprocessed reads version only. 
 
 = Test Data =
 === Reference ===
