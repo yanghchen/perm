@@ -36,4 +36,10 @@ false
 }}}
 The first two rows are the *Reference* and *Read file*. The fifth row shows the full sensitive threshold. The rest parameters are used by the preprocessed reads version only. 
 
+=OUTPUT=
+==Index==
+==Mapping Results==
+====Solexa Reads ====
+====SOLiD Reads ====
+
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
