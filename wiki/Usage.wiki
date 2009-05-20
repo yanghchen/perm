@@ -10,23 +10,14 @@ The currently command line option requires input in order. It needs
   * Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 3}}}
   * Ex: {{{./PerM_P HumanGenome.txt IlluminaReadSim2.txt 2}}}
 == Reference ==
-Be careful about the number of references in the list. Because PerM concatenates all input file names to generate the output file name, the output file name could be longer the O/S limit, say 256 characters or less. If this happens, try to rename and limit the length of reference file names. 
+Be careful about the number of references in the list. Because PerM concatenates all input file names to generate the output file name, the output file name could be longer then the O/S limit, say 256 characters. If this happens, try to rename and limit the length of reference files' names. 
 
 == Reads file ==
-PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the extend name ".csfasta", PerM expects all reads are from SOLiD. PerM expects 
-all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
+PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the filename extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
 
 == Full sensitivity threshold ==
-PerM support full sens
-
- That
-The type of the reads (SOLiD or Solexa) are decided
-
-Note PerM will get the read length use the first reads file to 
-
-
-, which can be 2, 3, 4 mismatches or the special threshold for SOLiD, ex: "one color + one base", which 
-
+PerM support normal full sensitivity including 2, 3, 4 mismatches. For the special threshold of SOLiD, "one color + one base", *25* is used as the input parameter. For the special threshold of SOLiD, "Two base", *33* is used as the input parameter.   
+Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 25}}}
 
 Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described in the next section.
 
