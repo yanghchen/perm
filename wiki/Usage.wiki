@@ -2,17 +2,23 @@
 PerM uses both configure file and command line options, which is simple for testing. We are still working hard to standardize I/O and options with other mapper, especially Applied Biosystems pipeline.
 
 = The command line options =
+Ex: ./PerM_P anthracis.fasta 7B.csfasta 3
+Ex: ./PerM_P HumanGenome.txt IlluminaReadSim2.txt 2
+
 The currently command line option requires input in order. It needs 
   * A reference in .fasta file or a .txt which has many fasta file names, each in a row. 
   * The reads file in .fasta, .prb or .csfasta formats or a .txt file as the list of those files.
   * The full sensitivity threshold.
+
 == Reference ==
+Be careful about the number of references in the list. Because PerM concatenates all input file names to generate the output file name, the output file name could be longer the O/S limit, say 256 characters or less. If this happens, try to rename and limit the length of reference file names. 
 
 == Reads file ==
 PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the extend name ".csfasta", PerM expects all reads are from SOLiD. PerM expects 
-all reads have the same length, which is detected using the first read in the first read file by PerM.
-== Full sensitivity threshold ==
+all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
 
+== Full sensitivity threshold ==
+PerM support full sens
 
  That
 The type of the reads (SOLiD or Solexa) are decided
