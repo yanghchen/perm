@@ -1,5 +1,5 @@
 = Introduction =
-PerM uses both configuration file and command line options, which is simple for testing. We are still working hard to standardize I/O and options with other mapper, especially Applied Biosystems pipeline.
+PerM uses both configuration file and command line options. We are still working hard to standardize I/O and options with other mapper, especially Applied Biosystems pipeline.
 
 = The command line options =  
 The currently command line option requires input in order. It needs 
