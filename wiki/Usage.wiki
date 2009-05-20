@@ -19,8 +19,8 @@ PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first
 PerM support normal full sensitivity including 2, 3, 4 mismatches. For the special threshold of SOLiD, "one color + one base", *25* is used as the input parameter. For the special threshold of SOLiD, "Two base", *33* is used as the input parameter.   
 Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 25}}}
 
-Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described in the next section.
-
 = The configuration file =  
+Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described as follows.
+
 
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
