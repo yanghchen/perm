@@ -9,13 +9,13 @@ The currently command line option requires input in order as follows:
 
   * Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 3}}}
   * Ex: {{{./PerM_P HumanGenome.txt IlluminaReadSim2.txt 2}}}
-=== Reference ===
+===Reference===
 Be careful about the number of references in the list. Because PerM concatenates all input file names to generate the output file name, the output file name could be longer then the O/S limit, say 256 characters. If this happens, try to rename and limit the length of reference files' names. 
 
-=== Reads file ===
+===Reads file===
 PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the filename extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
 
-=== Full sensitivity threshold ===
+===Full sensitivity threshold===
 PerM support normal full sensitivity including 2, 3, 4 mismatches. For the special threshold of SOLiD, "one color + one base", *25* is used as the input parameter. For the special threshold of SOLiD, "Two base", *33* is used as the input parameter.   
 Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 25}}}
 
