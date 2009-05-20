@@ -11,10 +11,10 @@ The currently command line options are required to be in the order as follows:
   * Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 3}}}
   * Ex: {{{./PerM_P HumanGenome.txt IlluminaReadSim2.txt 2}}}
 ====Reference====
-Be careful about the number of references in the list. Because PerM concatenates all input file names to generate the output file name, the output file name could be longer then the O/S limit, say 256 characters. If this happens, try to rename and limit the length of reference files' names. 
+Be careful about the file name length of the references in the list. Because PerM concatenates all input reference file names to generate the output file name, the output file name could be longer then the OS limitation, say 256 characters. If this happens, try to rename the length of reference file names to make them shorter. 
 
 ====Reads file====
-PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the filename extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
+PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the file name extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
 PerM uses *parallel for* in openMP, which assigns each core/CPU a read set simultaneously . Once a read set is done, another read set in the list will be assigned to the available CPU. To fully utilize your computing power, large read set can be divided into many small read sets manually.
 
 ====Full sensitivity threshold====
