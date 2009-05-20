@@ -1,6 +1,6 @@
 #labels Featured
 = Options =
-PerM uses both configuration file and command line options. The input files and configuration files should be put beside the program.
+PerM uses both configuration file or command line options. The input files and the configuration file should be put beside the program.
 
 == The command line options ==  
 The currently command line options are required to be in the order as follows:
@@ -15,6 +15,7 @@ Be careful about the number of references in the list. Because PerM concatenates
 
 ====Reads file====
 PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the filename extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
+PerM uses *parallel for* in openMP, which assigns each core/CPU a read set simultaneously . Once a read set is done, another read set in the list will be assigned to the available CPU. To fully utilize your computing power, large read set can be divided into many small read sets manually.
 
 ====Full sensitivity threshold====
 PerM support normal full sensitivity including 2, 3, 4 mismatches. For the special threshold of SOLiD, "one color + one base", *25* is used as the input parameter. For the special threshold of SOLiD, "Two base", *33* is used as the input parameter.   
