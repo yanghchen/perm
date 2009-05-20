@@ -7,10 +7,10 @@ The currently command line option requires input in order. It needs
   # The reads file in .fasta, .prb or .csfasta formats or a .txt file as the list of those files.
   # The full sensitivity threshold.
 
-{{{
-  * Ex: ./PerM_P anthracis.fasta 7B.csfasta 3
-  * Ex: ./PerM_P HumanGenome.txt IlluminaReadSim2.txt 2
-}}}
+
+  * Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 3}}}
+  * Ex: {{{./PerM_P HumanGenome.txt IlluminaReadSim2.txt 2}}}
+
   The details are as follows:
 == Reference ==
 Be careful about the number of references in the list. Because PerM concatenates all input file names to generate the output file name, the output file name could be longer the O/S limit, say 256 characters or less. If this happens, try to rename and limit the length of reference file names. 
