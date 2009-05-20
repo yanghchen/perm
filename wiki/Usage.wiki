@@ -1,5 +1,5 @@
 = Introduction =
-PerM uses both configure file and command line options, which is simple for testing. We are still working hard to standardize I/O and options with other mapper, especially Applied Biosystems pipeline.
+PerM uses both configuration file and command line options, which is simple for testing. We are still working hard to standardize I/O and options with other mapper, especially Applied Biosystems pipeline.
 
 = The command line options =  
 The currently command line option requires input in order. It needs 
@@ -29,4 +29,4 @@ Note PerM will get the read length use the first reads file to
 , which can be 2, 3, 4 mismatches or the special threshold for SOLiD, ex: "one color + one base", which 
 
 
-Given no command line option, PerM will try to open a default configure file name "config.pref". Given only one command line option, it should be the name of the configure file. The configure file format is described in the next section.
+Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The format is described in the next section.
