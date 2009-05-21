@@ -1,6 +1,6 @@
 #labels Featured
 = Options =
-PerM uses both configuration file or command line options. The input files and the configuration file should be put beside the program.
+PerM uses both configuration file and command line options. The input files and configuration files should be put beside the program.
 
 == The command line options ==  
 The currently command line options are required to be in the order as follows:
@@ -11,11 +11,10 @@ The currently command line options are required to be in the order as follows:
   * Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 3}}}
   * Ex: {{{./PerM_P HumanGenome.txt IlluminaReadSim2.txt 2}}}
 ====Reference====
-Be careful about the file name length of the references in the list. Because PerM concatenates all input reference file names to generate the output file name, the output file name could be longer then the OS limitation, say 256 characters. If this happens, try to rename the length of reference file names to make them shorter. 
+Be careful about the number of references in the list. Because PerM concatenates all input file names to generate the output file name, the output file name could be longer then the O/S limit, say 256 characters. If this happens, try to rename and limit the length of reference files' names. 
 
 ====Reads file====
-PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the file name extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
-PerM uses *parallel for* in openMP, which assigns each core/CPU a read set simultaneously . Once a read set is done, another read set in the list will be assigned to the available CPU. To fully utilize your computing power, large read set can be divided into many small read sets manually.
+PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the filename extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
 
 ====Full sensitivity threshold====
 PerM support normal full sensitivity including 2, 3, 4 mismatches. For the special threshold of SOLiD, "one color + one base", *25* is used as the input parameter. For the special threshold of SOLiD, "Two base", *33* is used as the input parameter.   
@@ -35,17 +34,14 @@ false
 1
 0
 }}}
-The first two rows are the *Reference* and *Read file* respectively. The fifth row shows the full sensitive threshold. The rest parameters are used by the preprocessed reads version only. 
+The first two rows are the *Reference* and *Read file*. The fifth row shows the full sensitive threshold. The rest parameters are used by the preprocessed reads version only. 
 
 =OUTPUT=
 ==Index==
-In the first time of mapping reads to a reference genome, PerM will create and save the index of the reference for future reuse. Make sure your computer has enough memory and disk quota, even PerM uses only 4.5 bytes per bases on the reference genome. If you want PerM to build the index again, simply delete the index on disk. 
+The genome-preprocessed version will save the index of the reference by default. It needs 4.5 bytes (one integer + 4 bits) + 256M memory to do the mapping. Make sure the memory and disk has enough capacity.
 ==Mapping Results==
-The mapping result will be stored in a `*`.mapping file with name corresponding to the reference and read files. By default, it only outputs the non-ambiguous mapping in terms of number of mismatches, so each row is a reads with its unique mapping. The format of the reads is as follows
-====SOLiD Reads ====
 
 ====Solexa Reads ====
-
-
+====SOLiD Reads ====
 
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
