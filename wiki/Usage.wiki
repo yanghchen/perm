@@ -37,10 +37,11 @@ false
 The first two rows are the *Reference* and *Read file*. The fifth row shows the full sensitive threshold. The rest parameters are used by the preprocessed reads version only. 
 
 =OUTPUT=
+The summary of the mapping are printed out on the screen directly, including the number of reads mapped within the number of mismatches and the running time of each steps.
 ==Index==
 The genome-preprocessed version will save the index of the reference by default. It needs 4.5 bytes (one integer + 4 bits) + 256M memory to do the mapping. Make sure the memory and disk has enough capacity.
 ==Mapping Results==
-The summary of the mapping are printed out on the screen directly, including the number of reads mapped within the number of mismatches and the running time of each steps. The result of mapping are printed in a `*`.mapping file with name corresponding to the reference and reads. By default, the output includes non-ambiguous reads only. Each lines is the result of a best mapping in terms of number of mismatches. The info of each line is in the following orders:
+ The result of mapping are printed in a `*`.mapping file with name corresponding to the reference and reads. By default, the output includes non-ambiguous reads only. Each lines is the result of a best mapping in terms of number of mismatches. The info of each line is in the following orders:
   * ReadID (the order of the read in the read set)
   * The reads. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
   * Chromosome ID (start from 0 and is numbered according to the order in the reference list.
