@@ -14,7 +14,7 @@ The command line options should be as follows:
 Because PerM concatenates all input file names to generate the output file name, the output file name could be longer then the OS limit, say 256 characters. If this happens, rename and limit the length of reference files.
 
 ====Reads file====
-PerM expects reads are all from SOLiD or all from Solexa sequencer. If the first read file has the filename extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length, which is detected automatically using the first read in the first read file by PerM.
+PerM expects reads are all from SOLiD or all from Solexa sequencers. If the first read file has the file name extension ".csfasta", PerM expects all reads are from SOLiD. PerM expects all reads have the same length as the first read in the first read set.
 
 ====Full sensitivity threshold====
 PerM support normal full sensitivity including 2, 3, 4 mismatches. For the special threshold of SOLiD, "one color + one base", *25* is used as the input parameter. For the special threshold of SOLiD, "Two base", *33* is used as the input parameter.   
@@ -40,16 +40,14 @@ The first two rows are the *Reference* and *Read file*. The fifth row shows the 
 ==Index==
 The genome-preprocessed version will save the index of the reference by default. It needs 4.5 bytes (one integer + 4 bits) + 256M memory to do the mapping. Make sure the memory and disk has enough capacity.
 ==Mapping Results==
-The summary of the mapping are printed out on the screen directly, including the number of reads mapped within the number of mismatches and the running time of each steps. The result of mapping are printed in a `*`.mapping file with name corresponding to the reference and reads. By default, the output includes non-ambiguous reads only. Each lines is the result of a best mapping in terms of number of mismatches.
-====Solexa Reads ====
-The info of each line is in the following orders:
+The summary of the mapping are printed out on the screen directly, including the number of reads mapped within the number of mismatches and the running time of each steps. The result of mapping are printed in a `*`.mapping file with name corresponding to the reference and reads. By default, the output includes non-ambiguous reads only. Each lines is the result of a best mapping in terms of number of mismatches. The info of each line is in the following orders:
   * ReadID (the order of the read in the read set)
-  * The SOLiD reads (eliminate the first base from the agent and translate the first color into a base.
+  * The reads. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
   * Chromosome ID (start from 0 and is numbered according to the order in the reference list.
   * Chromosome Locus ID (start from 0 and the first position of each chromosome. 
-  * The colors translated from the reference genome which aligned to the read.
-  * Positive (forward) or negative (backward) strand of the reference
+  * The mapped reference region. For SOLiD reads, this region is translated into colors to compared with reads.
+  * Positive (forward) or negative (backward) strand that the reads mapped to.
   * Number of mismatches in the mapping. 
-====SOLiD Reads ====
+
 
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
