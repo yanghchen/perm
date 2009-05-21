@@ -49,7 +49,7 @@ The info of each line is in the following orders:
   * Chromosome Locus ID (start from 0 and the first position of each chromosome. 
   * The colors translated from the reference genome which aligned to the read.
   * Positive (forward) or negative (backward) strand of the reference
-  * How many mismatches are in the mapping. 
+  * Number of mismatches in the mapping. 
 ====SOLiD Reads ====
 
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
