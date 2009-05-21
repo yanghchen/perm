@@ -40,9 +40,16 @@ The first two rows are the *Reference* and *Read file*. The fifth row shows the 
 ==Index==
 The genome-preprocessed version will save the index of the reference by default. It needs 4.5 bytes (one integer + 4 bits) + 256M memory to do the mapping. Make sure the memory and disk has enough capacity.
 ==Mapping Results==
-
+The summary of the mapping are printed out on the screen directly, including the number of reads mapped within the number of mismatches and the running time of each steps. The result of mapping are printed in a `*`.mapping file with name corresponding to the reference and reads. By default, the output includes non-ambiguous reads only. Each lines is the result of a best mapping in terms of number of mismatches.
 ====Solexa Reads ====
-
+The info of each line is in the following orders:
+  * ReadID (the order of the read in the read set)
+  * The SOLiD reads (eliminate the first base from the agent and translate the first color into a base.
+  * Chromosome ID (start from 0 and is numbered according to the order in the reference list.
+  * Chromosome Locus ID (start from 0 and the first position of each chromosome. 
+  * The colors translated from the reference genome which aligned to the read.
+  * Positive (forward) or negative (backward) strand of the reference
+  * How many mismatches are in the mapping. 
 ====SOLiD Reads ====
 
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
