@@ -42,6 +42,7 @@ The genome-preprocessed version will save the index of the reference by default.
 ==Mapping Results==
 
 ====Solexa Reads ====
+
 ====SOLiD Reads ====
 
 Changes are expected in the near future for I/O and options standardization with other mapper, especially Applied Biosystems pipeline.
