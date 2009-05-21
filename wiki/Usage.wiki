@@ -22,7 +22,7 @@ Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 25}}}
 
 == The configuration file ==  
 Given no command line option, PerM will try to open a default configuration file name "config.pref". Given only one command line option, it should be the name of the configuration file. The follow is the examples, as an attached with the code tar-ball :
-{{
+{{{
 anthracis.fasta
 7B.csfasta
 #DummyQualitySCORE
@@ -33,7 +33,7 @@ output.txt
 false
 1
 0
-}}
+}}}
 The first two rows are the *Reference* and *Read file*. The fifth row shows the full sensitive threshold. The rest parameters are used by the preprocessed reads version only. 
 
 =OUTPUT=
