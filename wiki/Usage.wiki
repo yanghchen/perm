@@ -14,7 +14,7 @@ The command line options include a reference, a data set, and sensitivity thresh
 PerM concatenates all input file names to generate the output file name.  If this causes  the length of the output file name to exceed the OS limit, rename and limit the length of the reference file names.
 
 ====Read Files====
-PerM expects from either the SOLiD or Solexa sequencer. If the first read file has the  extension ".csfasta", then all reads are assumed to be from the SOLiD sequencer. Other file types are treated as Solexa data.  Read lengths are assumed to be equal to the first read in the first data file.
+PerM expects reads from either the SOLiD or Solexa sequencer. If the first read file has the  extension ".csfasta", then all reads are assumed to be from the SOLiD sequencer. Other file types are treated as Solexa data.  Read lengths are assumed to be equal to the first read in the first data file.
 
 
 ====Full Sensitivity Thresholds====
