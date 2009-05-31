@@ -18,39 +18,37 @@ PerM expects reads from either the SOLiD or Solexa sequencer. If the first read 
 
 
 ====Full Sensitivity Thresholds====
-PerM supports full sensitivity for 2, 3, or 4 mismatches as well as sensitivity thresholds specific to the SOLiD sequencer which changes consecutive colors in the presence of a SNP.  The SOLiD specific sensitivity thresholds of  "one SNP candidate + 1 color error" and "two SNP candidates" are denoted as *25* and *33*. 
+PerM supports full sensitivity for 2, 3, or 4 mismatches as well as sensitivity thresholds specific to the SOLiD sequencer which changes consecutive colors in the presence of a SNP.  The SOLiD specific sensitivity thresholds of  "one SNP candidate + 1 color error" and "two SNP candidates" are denoted as *11* and *20*. 
   
-Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 25}}}
+Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 11}}}
 
 == Configuration File ==  
 A configuration file can be given as the only command line option. If no command line options are given PerM will attempt to open the default configuration file,  "config.pref". Following is an example of a configuration file as an attached zip file:
 {{{
 anthracis.fasta
 7B.csfasta
-#Dummy-line
-#Dummy-line
-25
-10000
-1
+3
+true
 false
-1
-0
+true
 }}}
-The first two rows are the *Reference* and *Read file*. The third and fourth rows are dummy lines while the fifth provides the sensitivity threshold.  The sixth through tenth line are relevant only for the read-processing version.    
+The first two rows are the *Reference* and *Read file*. The third row provides the sensitivity threshold. The fourth rows should be "true" if ambiguous reads are excluded in the output; otherwise, set it false. The fifth row is to reconstruct the index or not.
+The sixth row is to save the index or not. 
 
 =OUTPUT=
-The summary of the mapping results are printed directly to the screen. They include the  number of reads mapped with each number of mismatches and the running time of each step.
+The summary of the mapping results are printed directly to the screen. They include the  number of reads mapped with each number of mismatches and the running time of each step. 
+One can "grep" the summary info by redirect the standard output. 
 ==Index==
-The genome-preprocessing version saves the reference index by default. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity.
+The genome-preprocessing version saves the reference index by default. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity. 
 ==Mapping Results==
-The mapping results are printed in a `*`.mapping file which is named by concatenating the input files. By Default, the output includes non-ambiguous reads only. Each line is the result of the best mapping (fewest mismatches) The info in each line is read in the following order:
-  * ReadID (the order of the read in the read set)
+The mapping results are printed in a `*`.mapping file which is named by concatenating the input files. Each line is the result of the best mapping (fewest mismatches). The info in each line is read in the following order:
+  * Read Tag (Extract from the previous line of the reads input file. If the tag is missing, a fake tag will be used.)
+  * Read Order(the order of the read in the read set, where reads with 'N' are skipped.)
   * The read sequence. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
   * Chromosome ID (begins at 0 and numbered according to the order in the reference list)
   * Chromosome Locus ID (the first position in each chromosome begins at 0) 
   * The mapped reference sequence. For SOLiD reads, this region is translated into colors for comparison to the read.
   * Positive (forward) or negative (backward) strand that the reads mapped to.
   * Number of mismatches in the mapping. 
-
 
 Changes are expected in the near future for I/O and options standardization with other mapping programs, especially Applied Biosystems pipeline.
