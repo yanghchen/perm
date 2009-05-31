@@ -1,4 +1,8 @@
 #labels Featured
+= Compile =
+The attached make file is for linux with gcc 4.2 or later. Because OpenMP are support after gcc 4.2, use an alternative makefile "(no openMP)" by remove the flag "-fopenmp". 
+The code has also been test compiled with visual c++ on a Win32 machine, without "openmp".
+
 = Options =
 PerM uses both a configuration file and command line options. The input and configuration files should be in the same path.  
 
