@@ -11,7 +11,7 @@ The command line options include a reference, a data set, and sensitivity thresh
   # A read set in FASTA, PRB or CFSATA format or a text file which lists many read sets.  
   # An integer for the mapping sensitivity (ie. full sensitivity to 3 mismatches)
   # A flag "-A" if ALL mappings will be printed; "-E" if ambiguous reads and their mapping are EXCLUDED.
-  # An integer for the truncated read length, say 30. Leave blank if full read should be used.
+  # An integer to truncate read length, say 30 means use only first 30 bases (signals). Don't put the number if the full read is meant to be used.
   * Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 3 -A}}}
   * Ex: {{{./PerM_P HumanGenome.txt IlluminaReadSim2.txt 2 -E 30}}}
 ====Reference Files====
