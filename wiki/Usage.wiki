@@ -20,16 +20,15 @@ PerM concatenates the reference and the read file names to generate the output f
 ====Read Files====
 PerM expects reads from either the SOLiD or Solexa sequencer. If the first read file has the  extension ".csfasta", then all reads are assumed to be from the SOLiD sequencer. Other file types are treated as Solexa data.  Read lengths are assumed to be equal to the first read in the first data file. 
 
+For SOLiD reads, PerM will try to read the quality file with the same base name as the read set file name, however with the ext name ".QUAL" or ".qual". That is, if the read file name is 7B.csfasta, the quality files should be named as "7B.QUAL" and put beside the read file.
+If quality score file is not available, or the number of reads can't be matched, only the sequences will be used for mapping. 
+
 ====Full Sensitivity Thresholds====
 PerM supports full sensitivity for 2, 3, or 4 mismatches as well as sensitivity thresholds specific to the SOLiD sequencer which changes consecutive colors in the presence of a SNP.  The SOLiD specific sensitivity thresholds of  "one SNP candidate + 1 color error" and "two SNP candidates" are denoted as *11* and *20*.  
 Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 11 -E}}}
 
 ====Include or Exclude Ambiguous Mapping====
 The default setting will exclude the output of ambiguous reads. Use "-A" flag as the forth parameter to output all mappings. In this case, a maximum 100 mapping per read will be print consecutively in the output file. 
-
-====Quality Score Files====
-For SOLiD reads, PerM will try to read the quality file with the same base name as the read set file name, however with ".QUAL" or ".qual". That is, if the read file name is 7B.csfasta, the quality files should be named as 7B.QUAL and put beside the read file.
-If quality score file is not available, or the number of reads can't be matched, only the sequences will be used for mapping. 
 
 == Configuration File ==  
 A configuration file can be given as the only command line option. If no command line options are given PerM will attempt to open the default configuration file,  "config.pref". Following is an example of a configuration file as an attached zip file:
