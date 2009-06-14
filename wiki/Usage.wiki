@@ -1,6 +1,6 @@
 #labels Featured
 = Compile =
-The attached make file is for linux with gcc 4.2 or later. Because OpenMP are supported after gcc 4.2, if your available compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp".
+Download unzip the source code. (Type gunzip  in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.2 or later. Because OpenMP are supported after gcc 4.2, if your available compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp".
 
 = Options =
 PerM uses both a configuration file and command line options. The input and configuration files should be in the same path.  
