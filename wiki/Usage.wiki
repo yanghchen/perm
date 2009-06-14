@@ -1,14 +1,14 @@
 #labels Featured
 = Compile =
-The attached make file is for linux with gcc 4.2 or later. Because OpenMP are supported after gcc 4.2, if your available compiler is earlier version, use an alternative makefile (no openMP) by remove the flag "-fopenmp", and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp".
+The attached make file is for linux with gcc 4.2 or later. Because OpenMP are supported after gcc 4.2, if your available compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp".
 
 = Options =
 PerM uses both a configuration file and command line options. The input and configuration files should be in the same path.  
 
 == Command Line Options ==  
-The command line options include a reference, a data set, and sensitivity threshold. They should be listed in the the following order: 
-  # Reference File in FASTA format or a text file which lists many consecutive FASTA files.  
-  # A read set in FASTA, PRB or CSFASTA format or a text file which lists many read sets.  
+The command line options include a reference, a read data set, sensitivity threshold and a flag to include or exclude the ambiguous reads. An optional fifth parameter can be used to indicate the valid read length used to truncate reads. Parameters should be listed in the the following order: 
+  # Reference File in FASTA format or a text file which lists many FASTA files, one in each row.  
+  # A read set in FASTA, PRB or CSFASTA format or a text file which lists many read sets, each read should be separated by a line with its "tag" start with ">". If the tag is missing, PerM will made a fake tag for the read.
   # An integer for the mapping sensitivity (ie. full sensitivity to 3 mismatches)
   # A flag "-A" if ALL mappings will be printed; "-E" if ambiguous reads and their mapping are EXCLUDED.
   # An integer to truncate read length, say 30 means use only first 30 bases (signals). Don't put the number if the full read is meant to be used.
