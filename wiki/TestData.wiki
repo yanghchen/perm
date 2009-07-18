@@ -6,5 +6,13 @@
 [http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips]. 
 `*`.fa files should be renamed to `*`.fasta files manually. 
 === Read files ===
+  * Illumina Test data used in the revision paper
+[http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=SRR001154]
+  * SOLiD Read Test data used in the revision paper.
+[http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=ERR000455&search=&x=&y=&show_read=on&show_graph=on&space=color]
+The data downloaded from the short read archive is in ACGT instead of the color signals.
+We did the color translation and provide the used proportion in our download section.
+
+The data set is too large for many people to download.   
   * Real SOLiD reads from B anthracis. can be downloaded from SOCS's page [http://socs.biology.gatech.edu/Download.html]. 
   * Simulated SOLiD or Solexa reads can be generated using the small program in the download section. 
