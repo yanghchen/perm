@@ -5,10 +5,8 @@
   * Repeat masked and non-masked human genomes can be downloaded from UCSC's genome browser.  File names are chromFaMasked.zip and chromFa.zip: [http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips Human Genome from UCSC]. 
 `*`.fa files should be renamed to `*`.fasta files manually. 
 === Read files ===
-  * Illumina Test data used in the revision paper
-[http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=SRR001154 SRR001154]
-  * SOLiD Read Test data used in the revision paper.
-[http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=ERR000455&search=&x=&y=&show_read=on&show_graph=on&space=color ERR00455]
+  * Illumina Test data used in the revision paper [http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=SRR001154 SRR001154]
+  * SOLiD Read Test data used in the revision paper. [http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=ERR000455&search=&x=&y=&show_read=on&show_graph=on&space=color ERR00455]
 The data downloaded from the NCBI SRA is in base formate. We translated the data into 
 color signals in CSFASTA format and provided the proportion of data used in the download section.
 
