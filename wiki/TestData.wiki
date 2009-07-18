@@ -2,17 +2,16 @@
 = Test Data =
 === Reference ===
   * The anthracis.fasta file can be download from SOCS's webpage: [http://socs.biology.gatech.edu/Download.html SOCS ] 
-  * Repeat masked and non-masked human genomes can be downloaded from UCSC's genome browser.  File names are chromFaMasked.zip and chromFa.zip:  
-[http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips Human Genome from UCSC]. 
+  * Repeat masked and non-masked human genomes can be downloaded from UCSC's genome browser.  File names are chromFaMasked.zip and chromFa.zip: [http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips Human Genome from UCSC]. 
 `*`.fa files should be renamed to `*`.fasta files manually. 
 === Read files ===
   * Illumina Test data used in the revision paper
-[http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=SRR001154]
+[http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=SRR001154 SRR001154]
   * SOLiD Read Test data used in the revision paper.
-[http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=ERR000455&search=&x=&y=&show_read=on&show_graph=on&space=color]
+[http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=viewer&m=data&s=viewer&run=ERR000455&search=&x=&y=&show_read=on&show_graph=on&space=color ERR00455]
 The data downloaded from the NCBI SRA is in base formate. We translated the data into 
 color signals in CSFASTA format and provided the proportion of data used in the download section.
 
 The data set is too large for many people to download.   
-  * Real SOLiD reads from B anthracis. can be downloaded from SOCS's page [http://socs.biology.gatech.edu/Download.html]. 
+  * Real SOLiD reads from B anthracis. can be downloaded from SOCS's page [http://socs.biology.gatech.edu/Download.html SOCS]. 
   * Simulated SOLiD or Solexa reads can be generated using the small program in the download section. 
