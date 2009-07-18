@@ -1,7 +1,7 @@
 #labels Featured
 = Test Data =
 === Reference ===
-  * The anthracis.fasta file can be download from SOCS's webpage: [http://socs.biology.gatech.edu/Download.html] 
+  * The anthracis.fasta file can be download from SOCS's webpage: [http://socs.biology.gatech.edu/Download.html SOCS ] 
   * Repeat masked and non-masked human genomes can be downloaded from UCSC's genome browser.  File names are chromFaMasked.zip and chromFa.zip:  
 [http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips]. 
 `*`.fa files should be renamed to `*`.fasta files manually. 
