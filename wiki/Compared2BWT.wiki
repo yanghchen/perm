@@ -1,4 +1,4 @@
-#labels Featured
+#labels Deprecated
 Bowtie and other other programs, used Burrows-Wheeler Transform to achieve a super memory efficient and fast reads mapping, especially for high quality, short reads, with no full sensitivity guaranteed. We are also thinking about how to use similar data compression algorithm to achieve the memory efficiency.
 
 Compared to the BWT based method, PerM still has advantages as follows. 
