@@ -79,7 +79,7 @@ PerM takes two format of paired end reads.
 For input format (1), each file name should be listed in a row as single-end read file. 
 For input format (2), the two paired file should be listed together in a row, separated by tab. Ex: reads_F3.csfasta \t reads_R3.csfasta. 
 
-The output is in the ABI F3_R3.mates format.(Described in the SOLiD System Application Document: AB Re-sequencing Analysis Pipeline. Page 15)
+The output is in the ABI F3_R3\.mates format.(Described in the SOLiD System Application Document: AB Re-sequencing Analysis Pipeline. Page 15)
 
 = Limitation =
 PerM currently will discard any reads with 'N'. Similarly, no reads will be mapped to any reference region with 'N'. This is the reason that users may observe that the total alignments founded by PerM is less than other mappers, given the same full sensitivity threshold. 
