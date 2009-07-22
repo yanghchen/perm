@@ -1,4 +1,6 @@
 #labels Featured
+If you have any usage question, please email "yanghoch@usc.edu".
+
 = Compile =
 Download and unzip the source code. (Type unzip ./PerM\ 0.0.7\ GCC.zip in linux) in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.2 or later. Because OpenMP are supported after gcc 4.2, if your available compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
 
@@ -73,7 +75,7 @@ PerM deals with mate-paired reads by mapping each end separately. To keep most i
 The upper bound and the lower bound of the mated-pair separation should be specified in the first line of the read files list, in a format # lowerBound upperBound
 Ex: # 100 180. The following lines should be the file names of read sets
 
-PerM takes two format of paired end reads. 
+PerM takes two format of the paired end reads. 
 (1) Concatenated 5'-3' end 3'-5' fasta file. 
 (2) Two separated file of with _F3 and _R3. Each corresponding line is paired.
 For input format (1), each file name should be listed in a row as single-end read file. 
@@ -82,4 +84,4 @@ For input format (2), the two paired file should be listed together in a row, se
 The output is in the ABI F3_R3\.mates format.(Described in the SOLiD System Application Document: AB Re-sequencing Analysis Pipeline. Page 15)
 
 = Limitation =
-PerM currently will discard any reads with 'N'. Similarly, no reads will be mapped to any reference region with 'N'. This is the reason that users may observe that the total alignments founded by PerM is less than other mappers, given the same full sensitivity threshold. 
+Currently, PerM will discard any reads with 'N'. Similarly, no reads will be mapped to any reference region with 'N'. This is the reason that users may experience that the total alignments founded by PerM is less than other mappers, given the same full sensitivity threshold. 
