@@ -1,17 +1,17 @@
 #labels Featured
 == Compared to Seed-Based Method ==
-Many program, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite all use similar seed method. The reason PerM can outperformed them is because its higher weight seed. Most of the program limit their seed weight to 13 or 14, limited by the memory for hashing. To break the limit, PerM not only use hash but also binary search in our "periodic spaced seed array". The high seed weight is necessary for large genome with highly repetitive regions, which is typically the bottleneck of genome scale mapping. 
+Many program, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite all use similar seed method. The reason that PerM can outperform them is because its higher seed weight. Most of the program have seed weight 13 or 14, limited by the memory for hashing. To break the limit, PerM use both hash and binary search on the "periodic spaced seed array". The high seed weight is necessary for large genome with highly repetitive regions, which is typically the bottleneck of genome scale mapping. 
 
 == Compared to BWT-Based Method ==
 Bowtie and other other programs, used Burrows-Wheeler Transform to achieve a super memory efficient and fast reads mapping, especially for high quality, short reads, with no full sensitivity guaranteed. We are also thinking about how to use similar data compression algorithm to achieve the memory efficiency.
 
 Compared to the BWT based method, PerM still has advantages as follows. 
-(0) PerM is designed for SOLiD reads. Although one can use 'ACGT' to present colors signal and use Bowtie to mapped the so-called "double encoded" SOLiD reads, this will lose the first base information. Ex: it will map the read "AAAAA...A" to a read "TTTT...TTT", because their color signal are all '0'(Blue).
+(1) PerM is designed for SOLiD reads. Although one can use 'ACGT' to present colors signal and use Bowtie to mapped the so-called "double encoded" SOLiD reads, this will lose the first base information. Ex: it will map the read "AAAAA...A" to a reference with "CCCC...CCC", because their color signal are all '0'(Blue).
 
-(1) PerM is fast even if most of the reads are not mapped. This may be the case for many poor SOLiD data. While Bowtie may fruitlessly exhaust its back tracking limit, PerM has a fixed number of shifts and expected random hit, which is not effected by those up mapped reads.
+(2) PerM is fast even if most of the reads are not mapped. This may be the case for many poor quality SOLiD data. While Bowtie may fruitlessly exhaust its back tracking limit, PerM has a fixed number of shifts and expected random hit, which is not effected by those un-mapped reads.
 
-(2) PerM has high partial sensitivity for four (85%) and five (65%) substitutions. Although Bowtie can ignore the mismatches in the tail region, the maximum number of mismatches allowed in the "cared region" is limited to three. This may not enough for SOLiD reads, especially when SOLiD reads are getting longer.
+(3) PerM has high partial sensitivity for four (85%) and five (65%) substitutions. Although Bowtie can ignore the mismatches in the tail region, the maximum number of mismatches allowed in the "cared region" is limited to three. This may not enough for SOLiD reads, especially when SOLiD reads are getting longer.
 
-(3) PerM's mapping speed increases with the read length; Bowtie's mapping speed decreases with read length. This is because that PerM has a much more higher weight in long reads; in contrast to Bowtie has a larger backtracking search space for long reads. For read length is long enough to provide sufficient weight, PerM is faster than Bowtie. 
+(4) PerM's mapping speed increases with the read length; Bowtie's mapping speed decreases with read length. This is because that PerM has a much more higher weight in long reads; in contrast to Bowtie has a larger backtracking search space for long reads. For read length is long enough to provide sufficient weight, PerM is faster than Bowtie. 
 
-(4) Bowtie uses a ”quality-aware” backtracking algorithm, favoring mismatches on low quality posi tions and increasing the probability that alignments which suggest true SNP loci will be ignored. By contrast, PerM used a special seed full sensitive to one base and one color, finding all trusty SNP-supporting alignments with high efficiency. 
+(5) Bowtie uses a ”quality-aware” backtracking algorithm, favoring mismatches on low quality positions and increasing the probability that alignments which suggest true SNP loci will be ignored. By contrast, PerM used a special seed full sensitive to one base and one color, finding all trusty SNP-supporting alignments with high efficiency. 
