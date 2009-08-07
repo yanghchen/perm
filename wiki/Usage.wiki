@@ -2,7 +2,7 @@
 If you have any usage question, please email "yanghoch at usc.edu".
 
 = Compile =
-Download and unzip the source code. (Type unzip ./PerM\ 0.0.7\ GCC.zip in linux) in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.2 or later. Because OpenMP are supported after gcc 4.2, if your available compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
+Download and unzip the source code. (Type unzip ./PerM\ 0.0.7\ GCC.zip in linux) in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.2 or later. Because OpenMP are supported after gcc 4.2, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
 
 = Options =
 PerM uses both a configuration file and command line options. The input and configuration files should be in the same path.  
@@ -84,4 +84,4 @@ For input format (2), the two paired file should be listed together in a row, se
 The output is in the ABI F3_R3\.mates format.(Described in the SOLiD System Application Document: AB Re-sequencing Analysis Pipeline. Page 15)
 
 = Limitation =
-Currently, PerM will discard any reads with 'N'. Similarly, no reads will be mapped to any reference region with 'N'. This is the reason that users may experience that the total alignments founded by PerM is less than other mappers, given the same full sensitivity threshold. 
+PerM currently support only reads less than 64 base pair. This is enough for the coming SOLiD reads, however it is not enough for current Illumina reads. Set the truncated read length to 64 in the 5th parameter to mapped long reads with their first 64 bases. Currently, PerM will discard any reads with 'N'. Similarly, no reads will be mapped to any reference region with 'N'. This is the reason that users may experience that the total alignments founded by PerM is less than other mappers, given the same full sensitivity threshold. 
