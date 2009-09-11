@@ -10,8 +10,11 @@ PerM uses both a configuration file and command line options. The input and conf
 == Command Line Options ==  
 To use command line, type PerM with the args in the order.
 (1) reference file (2)read set (3) mismatch threshold (4) options flags
-{{{Ex:  ./PerM Ref.fasta Reads.fasta 5 -A -s}}}
-{{{Ex:  ./PerM RefFilesList.txt ReadsSetFilesList.txt 2 -E -m}}}
+
+Ex: {{{./PerM Ref.fasta Reads.fasta 5 -A -s}}}
+
+Ex: {{{./PerM RefFilesList.txt ReadsSetFilesList.txt 2 -E -m}}}
+
 PerM chooses different ways to parse the input files based on their ext name.
 # Reference file should be a .fasta or .fa file. Otherwise, PerM assumes
 it is a file listed a path of a .fasta or .fa file in each line.
@@ -34,6 +37,7 @@ It will try to use the saved index. If not found, reconstruct the index.
 -T L, where L is an integer to truncate read length, say 30 means use only first 30 bases (signals). Don't put the number if the full read is meant to be used.
 
 Ex: {{{./PerM ref.fasta reads.csfasta 3 -E -s -T 32}}}
+
 will reports only uniquely mapped reads within three mismatches in their first 32 bases and saved the index for future mapping. The following is some detail description for each argument.
   
 ====Reference Files====
