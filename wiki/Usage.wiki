@@ -14,19 +14,16 @@ To use command line, type PerM with the args in the order.
 For example:
  # {{{./PerM Ref.fasta Reads.fasta 5 -A -s}}}
  # {{{./PerM RefFilesList.txt ReadsSetFilesList.txt 2 -E -m}}}
-
-PerM chooses different ways to parse each input file based on its ext name.
-# Reference file should be a .fasta or .fa file. Otherwise, PerM assumes
+PerM chooses different ways to parse input files based on their ext names.
+The following are the short description for each augments. 
+ # Reference file should be a .fasta or .fa file. Otherwise, PerM assumes
 it is a file listed paths for many fasta file, with one path in each line.
-
-# Reads file should be in .fasta, .fastq, .csfasta or .prb format.
+ # Reads file should be in .fasta, .fastq, .csfasta or .prb format.
 PerM parses the file according to it's ext file name. Otherwise, PerM assumes
 it is a file listed a path to other read files in each line.
-
-# Mismatch threshold could be 2 to 5. For reads over 64, 
+ # Mismatch threshold could be 2 to 5. For reads over 64, 
 PerM allows double the number of mismatches threshold.
-
-# Options:
+ # Options:
 By default, PerM outputs all the best alignments in terms of the mismatches number with in the threshold, end-to-end. It will try to use the saved index. If not found, reconstruct the index. The following option flag can changed the default setting.
 It will try to use the saved index. If not found, reconstruct the index.
 
