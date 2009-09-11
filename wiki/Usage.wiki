@@ -8,14 +8,14 @@ Download and unzip the source code. (Type unzip ./PerM\ 0.1.0\ GCC.zip in linux)
 PerM uses both a configuration file and command line options. The input and configuration files should be in the same path.  
 
 == Command Line Options ==  
-The command line options include a reference, a read data set, sensitivity threshold and a flag to include or exclude the ambiguous reads. An optional fifth parameter can be used to indicate the valid read length used to truncate reads. Parameters should be listed in the the following order: 
-  # Reference File in FASTA format or a text file which lists many FASTA files, one in each row.  
-  # A read set in FASTA, PRB or CSFASTA format or a text file which lists many read sets, each read should be separated by a line with its "tag" start with ">". If the tag is missing, PerM will made a fake tag for the read.
+The command line options include a reference, a read data set, sensitivity threshold and addition flag options. Parameters should be listed in the the following order: 
+  # Reference File in FASTA format (with .fa or .fasta ext name) or a text file which lists many FASTA files, one in each row.  
+  # A read set in FASTA, PRB or CSFASTA format (with .fa .fasta .prb. csfasta) or a text file which lists many read sets, each read should be separated by a line with its "tag" start with ">". If the tag is missing, PerM will made a fake tag for the read.
   # An integer for the mapping sensitivity (ie. full sensitivity to 3 mismatches)
   # A flag "-A" if ALL mappings will be printed; "-E" if ambiguous reads and their mapping are EXCLUDED.
   # An integer to truncate read length, say 30 means use only first 30 bases (signals). Don't put the number if the full read is meant to be used.
-  * Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 3 -A}}}
-  * Ex: {{{./PerM_P HumanGenome.txt IlluminaReads.txt 2 -E 30}}}
+  * Ex: {{{./PerM_P anthracis.fasta 7B.csfasta 3 -A -s}}}
+  * Ex: {{{./PerM_P HumanGenome.txt IlluminaReads.txt 2 -E -T 30}}}
 ====Reference Files====
 PerM takes single or multiple fasta files as the reference. If there are multiple fasta files, make a list file, say {{{HumanGenome.txt}}}, with each fasta file name in a row, as the command line input example as the above. PerM also takes fasta with multiple sequences separated by a line start with "> Sequence Name", as input which typically is a transcripts or contigs. The first word after ">" will be used as a "Sequence Name", which will be showed with the corresponding alignments. Inside our program, sequences are concatenated and separated by "N", so no junction will be aligned. Only ACGT and N are allowed in the reference file. Other valid nucleotide symbol such as U, R, Y, M, K, S, W, B, D, H, V will be modified to "N" after 0.0.6 version. Note PerM concatenates the file names in the list to generate the file name for index. Limited by OS the system, the index file name could be too long to be saved. 
 
