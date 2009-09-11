@@ -10,10 +10,10 @@ PerM uses both a configuration file and command line options. The input and conf
 == Command Line Options ==  
 To use command line, type PerM with the args in the order.
 (1) reference file (2)read set (3) mismatch threshold (4) options flags
-For example:
-{{{./PerM Ref.fasta Reads.fasta 5 -A -s}}} or
 
-{{{./PerM RefFilesList.txt ReadsSetFilesList.txt 2 -E -m}}}
+For ex
+ # {{{./PerM Ref.fasta Reads.fasta 5 -A -s}}} or
+ # {{{./PerM RefFilesList.txt ReadsSetFilesList.txt 2 -E -m}}}
 
 PerM chooses different ways to parse the input files based on their ext name.
 # Reference file should be a .fasta or .fa file. Otherwise, PerM assumes
