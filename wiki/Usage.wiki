@@ -27,6 +27,7 @@ The following are the short description for each arguments:
  * -T L, where L is an integer to truncate read length, say 30 means use only first 30 bases (signals). Don't put the number if the full read is meant to be used.
 
 Ex: {{{./PerM ref.fasta reads.csfasta 3 -E -s -T 32}}}
+
 In the example, PerM will report only the uniquely mapped reads within three mismatches in their first 32 bases. It will save the indexes for future mappings. 
 
 The following is some detail description for each argument. 
@@ -103,4 +104,4 @@ PerM doesn't support single-end Illumina reads with more than 128 base pair.
 PerM doesn't support mate-paired Illumina reads with more than 64 base pair in each end.
 We suggest users to set the truncated read length less than 64, using -T 64 to mapped long reads with their first 64 bases. 
 
-Currently, PerM will discard any reads with 'N'. Similarly, no reads will be mapped to any reference region with 'N'. This is the reason that users may experience that the total alignments founded by PerM is less than other mappers, given the same full sensitivity threshold. PerM switches di-nucleotide symbol (not ACGT) to N and removed other character from the reference. 
+Currently, PerM will discard any reads with 'N'. Similarly, no reads will be mapped to any reference region with 'N'. This is the reason that users may experience that the total alignments founded by PerM is less than other mappers, given the same full sensitivity threshold. 
