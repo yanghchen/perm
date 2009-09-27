@@ -102,6 +102,7 @@ For input format (2), the two paired file should be listed together in a row, se
 The output is in the ABI F3_R3\.mates format.(Described in the SOLiD System Application Document: AB Re-sequencing Analysis Pipeline. Page 15)
 
 = Limitation =
+PerM doesn't support reads shorter than 25 base pairs.
 PerM doesn't support SOLiD reads with more than 64 base pair.
 PerM doesn't support single-end Illumina reads with more than 128 base pair.
 PerM doesn't support mate-paired Illumina reads with more than 64 base pair in each end.
