@@ -5,7 +5,7 @@ If you have any usage question, please email "yanghoch at usc.edu".
 Download and unzip the source code. (Type unzip ./PerM\ 0.1.0\ GCC.zip in linux) in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.2 or later. Because OpenMP are supported after gcc 4.2, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
 
 = Options =
-PerM uses both a configuration file and command line options. The input and configuration files should be in the same path.  
+PerM uses both command options line and a configuration file. The input and configuration files should be in the same path.  
 
 == Command Line Options ==  
 To use command line, type PerM with the args in the order.
@@ -78,7 +78,7 @@ The mapping results are printed in a `*`.mapping file which is named by concaten
   * Positive (forward) or negative (backward) strand that the reads mapped to.
   * Number of mismatches or the mismatches score (the sum of quality scores in the mis-matched bases) if available. 
   * Number of mappings that this read aligns to, including the current one. 
-  * Reads qualities, numbers printed in characters with a Phred score shift (33).
+  * Reads qualities, numbers printed in characters with a Illimina Quality score shift (This has been changed, not the Phred quality shift anymore).
   * Indicated SNP types (For SOLiD reads only)
 
 Changes are expected in the near future for I/O and options standardization with other mapping programs, especially Applied Biosystems pipeline.
