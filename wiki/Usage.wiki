@@ -81,6 +81,8 @@ The mapping results are printed in a `*`.mapping file which is named by concaten
   * Number of mappings that this read aligns to, including the current one. 
   * Reads qualities, numbers printed in characters with a Illimina Quality score shift (This has been changed, not the Phred quality shift anymore).
   * Indicated SNP types (For SOLiD reads only)
+==Unmapped reads==
+  PerM output the un-maped reads to a .miss.fa file when -u option is specified. 
 
 Changes are expected in the near future for I/O and options standardization with other mapping programs, especially Applied Biosystems pipeline.
 
