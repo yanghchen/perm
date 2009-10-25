@@ -16,7 +16,7 @@ For example:
  * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt 2 -E }}}
 PerM chooses different ways to parse input files based on their ext names.
 The following are the short description for each arguments:
- # The reference file should be a .fasta or .fa file. If there are multiple refernce list, ex: chr1.fa to chrY.fa, list them in a *.txt file. PerM parses a file according to it's ext file name.
+ # The reference file should be a .fasta or .fa file. If there are multiple reference list, ex: chr1.fa to chrY.fa, list them in a .txt file. PerM parses a file according to it's ext file name.
  # The reads file should be in the .fasta, .fastq, .csfasta or .prb format. PerM parses a file according to it's ext file name. If there are multiple read files, list each file names in a .txt file, with each row a path of the reads file. PerM takes it as the input and can map multiple read sets in parallel by OpenMP. 
  # Mismatch threshold could be a integer 2 to 5. For reads over 64, PerM allows double the number of mismatches than the given threshold.
  # Options: By default, PerM outputs all the best alignments in terms of the mismatches number with in the threshold, end-to-end. It will try to use the saved indexes. If not found, reconstruct the indexes. The following option flags can change the default settings.
