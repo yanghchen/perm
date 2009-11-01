@@ -4,11 +4,8 @@ If you have any usage question, please email "yanghoch at usc.edu".
 = Compile =
 Download and unzip the source code. (Type unzip ./PerM\ 0.1.4\ GCC.zip in linux) in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.2 or later. Type *gcc -v* to check your compiler version. Because OpenMP are supported after gcc 4.2, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
 
-= Options =
-PerM uses both command line options and a configuration file. The input and configuration files should be in the same path.  
-
 == Command Line Options ==  
-To use command line, type PerM with the args in the order.
+From version 0.1.4, We decided to use command line option only, instead of a configuration file. To use the command line, type PerM with the args in the order.
 (1) reference file (2) read set (3) mismatch threshold (4) option flags
 
 For example:
@@ -50,19 +47,6 @@ PerM outputs alignments with higher number of mismatches, when 5, 6 or 7 are set
 
 ====Include or Exclude Ambiguous Mapping====
 The default setting will exclude the output of ambiguous reads. Use "-A" flag as the forth parameter to output all mappings. In this case, a maximum 100 mapping per read will be print consecutively in the output file. 
-
-== Configuration File ==  
-A configuration file can be given as the only command line option. If no command line options are given PerM will attempt to open the default configuration file,  "config.pref". Following is an example of a configuration file as an attached zip file:
-{{{
-anthracis.fasta
-7B.csfasta
-3
-true
-false
-true
-}}}
-The first two rows are the *Reference* and *Read file*. The third row provides the sensitivity threshold. The fourth rows should be "true" if ambiguous reads are excluded in the output; otherwise, set it false. The fifth row is to reconstruct the index or not.
-The sixth row is to save the index or not. 
 
 =Output=
 The summary of the mapping results are printed directly to the screen. They include the  number of reads mapped with each number of mismatches and the running time of each step. 
