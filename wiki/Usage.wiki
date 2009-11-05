@@ -26,7 +26,7 @@ The following are the short description for each arguments:
  * *-O P*, where P is the prefix of the output file for single read set, or the directory name for multiple list. PerM's mapping output files have the ext name ".mapping"; the unmapped reads output file have the .miss.fa ext name. 
 Ex: {{{./PerM ref.fasta reads.csfasta 3 -E -s -T 36 -O out -u}}}
 
-In the example, PerM will report only the uniquely mapped reads within three mismatches in their first 36 bases. It will save the indexes for future mappings. It will output the result to out.mapping and also report the unmapped read to out.miss.fa
+In the example, PerM will report only the uniquely mapped reads within three mismatches in their first 36 bases. It will save the indexes for future mappings. It will output the result to the file "out.mapping" and also report the unmapped reads to the file "out.miss.fa"
 
 The following is some detail description for each argument. 
 ====Reference Files====
