@@ -2,7 +2,7 @@
 If you have any usage question, please email "yanghoch at usc.edu".
 
 = Compile =
-Download and unzip the source code. (Type unzip ./PerM\ 0.1.4\ GCC.zip in linux) in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.2 or later. Type *gcc -v* to check your compiler version. Because OpenMP are supported after gcc 4.2, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
+Download and unzip the source code. (Type unzip ./PerM\ 0.1.5\ GCC.zip in linux) in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.3 or later. Type *gcc -v* to check your compiler version. Because OpenMP are supported after gcc 4.3, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
 
 == Command Line Options ==  
 From version 0.1.4, We decided to use command line option only, instead of a configuration file. To use the command line, type PerM with the args in the order.
