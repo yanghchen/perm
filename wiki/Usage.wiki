@@ -1,32 +1,27 @@
 #labels Featured
 If you have any usage question, please email "yanghoch at usc.edu".
-
 = Compile =
 Download and unzip the source code. (Type unzip ./PerM\ 0.1.7\ GCC.zip in linux) in the directory with the download). For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.3 or later. Type *gcc -v* to check your compiler version. Because OpenMP are supported after gcc 4.3, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
 
 == SYNOPSIS ==  
 To use the command line, type PerM with the args in the order.
 (1) reference file (2) read set (3) option flags
- * {{{./PerM Ref.fasta SingleEndReads.fasta 5 -E }}}
- * {{{./PerM Ref.fasta SingleEndReads.csfasta 5 -m -s}}}
- * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt 3 -u unmappedReads.fa }}}
+ * {{{./PerM Ref.fasta SingleEndReads.fasta -v 5 -E }}}
+ * {{{./PerM Ref.fasta SingleEndReads.csfasta -v 5 -m -s}}}
+ * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt -v 5 -u unmappedReads.fa }}}
  * {{{./PerM -1 F3.fq -2 R3.fq -U 500 -L 200 -m -s -o out.sam}}}
 == Command Line Options ==  
-
-For example:
- * {{{./PerM Ref.fasta Reads.fasta 5 -A}}}
- * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt 2 -E }}}
-PerM chooses different ways to parse input files based on their ext names. The forma
-
 The following are the short description for each arguments:
  # The reference file should be a .fasta or .fa file. If there are multiple reference list, ex: chr1.fa to chrY.fa, list them in a .txt file. PerM parses a file according to it's ext file name.
  # The reads file should be in the .fasta, .fastq, .csfasta or .prb format. PerM parses a file according to it's ext file name. If there are multiple read files, list each file names in a .txt file, with each row a path of the reads file. PerM takes it as the input and can map multiple read sets in parallel by OpenMP. 
  # Mismatch threshold could be a integer 2 to 5. For reads over 64, PerM allows double the number of mismatches than the given threshold.
  # Options: By default, PerM outputs all the best alignments in terms of the mismatches number with in the threshold, end-to-end. It will try to use the saved indexes. If not found, reconstruct the indexes. The following option flags can change the default settings.
  * *-A*     Output all alignments within the mismatch threshold.
- * *-E*     Output only the unique mapped reads.
+ * *-B*     Output best alignments in terms of mismatches in the threshold.(Default) 
+ * *-E*     Output only the unique mapped reads. 
  * *-m*     Create the reference index, without reusing the saved index.
  * *-s*     Save the reference index to accelerate the mapping in the future.
+ * *-v I*   Number of mismatches allowed in one end.
  * *-T I*, where L is an integer to truncate read length, say 30 means use only first 30 
 bases (signals). Don't put the number if the full read is meant to be used.
  * *-o P*, where P is the the output path for one read set
@@ -83,25 +78,22 @@ PerM simultaneously maps multiple reads sets in a list by querying the same inde
 When multiple nodes are used in the same file system, the index should be pre-built first by one node; the other node will read the pre-built index with out building index again. Without pre-built index, each machine will try to build their own index, wasting CPU hours and may cause insufficiency of disk quota. 
 
 = Mate-paired Reads =
-PerM deals with mate-paired reads by mapping each end separately. To keep most information, all combination of mated paired mapping in the same chromosome will be printed. Note this makes the running time become very slow, if both ends are in the repetitive regions. 
-
-The upper bound and the lower bound of the mated-pair separation should be specified in the first line of the read files list, in a format # lowerBound upperBound
-Ex: # 100 180. The following lines should be the file names of read sets
+PerM deals with mate-paired reads by mapping each end separately. All combination of mated paired mapping in the same ref will be printed. Note this makes the running time become very slow, if both ends are in the repetitive regions. 
 
 PerM takes two format of the paired end reads. 
 (1) Concatenated 5'-3' end 3'-5' fasta file. 
 (2) Two separated file of with _F3 and _R3. Each corresponding line is paired.
 For input format (1), each file name should be listed in a row as single-end read file. 
 For input format (2), the two paired files can be specified in a list, with each row having two files path, separated by . Ex: reads_F3.csfasta \t reads_R3.csfasta. 
-Or, specified with command line:
+Or, specified with the command line for a paired read files:
 ./PerM <reference or index path> -1 <forward reads path> -2 <reverse reads path> <-flag options>
 (4)  Options for mate-paired reads:
--L I   mate-paired lowerbound
--U I   mate-paired upperbound, 
--e     exclude ambiguous paired. 
+-e     Exclude ambiguous paired. 
+-L I   mate-paired separate lower bound
+-U I   mate-paired separate upper bound, 
 -o P   where P is the path (single paired read set) or the directory (multiple paired read sets)
 The default is set as -L 0 -U 3000
-The upperbound and lowerbound can be negative, which may catch the rearangement variations.
+The upperbound and lowerbound can be negative, which may catch the re-arangement variations.
 Ex:  ./PerM -1 F3.fq -2 R3.fq -U 500 -L 200 -m -s -o out.sam.
 PerM will report only the non-ambiguous mate pair in the range of [200bp, 500bp]
 PerM will reconstruct and save the indexes to the default path for future mappings.
