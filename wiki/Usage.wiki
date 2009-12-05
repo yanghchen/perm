@@ -54,7 +54,10 @@ One can "grep" the summary info by redirect the standard output.
 ==Index==
 The genome-preprocessing version saves the reference index by default. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity. 
 ==Mapping Results==
-The mapping results are printed in a `*`.mapping file which is named by concatenating the input files. Each line is the result of the best mapping (fewest mismatches). The info in each line is read in the following order separated by tab:
+PerM (version 0.1.7) can output in SAM format, by specify the flag -o *.sam. 
+For more information about sam format, check _http://samtools.sourceforge.net/_
+The original output format of single read the mapping results are `*`.mapping. 
+Each line is the result of a qualified mapping. The info in each line is read in the following order separated by tab:
   * Read Tag (Extract from the previous line of the reads input file. If the tag is missing, a fake tag will be used.)  
   * The read sequence. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
   * Chromosome Name or ID (begins at 0 and numbered according to the order in the reference list)
@@ -63,12 +66,10 @@ The mapping results are printed in a `*`.mapping file which is named by concaten
   * Positive (forward) or negative (backward) strand that the reads mapped to.
   * Number of mismatches or the mismatches score (the sum of quality scores in the mis-matched bases) if available. 
   * Number of mappings that this read aligns to, including the current one. 
-  * Reads qualities, numbers printed in characters with a Illimina Quality score shift (This has been changed, not the Phred quality shift anymore).
-  * Indicated SNP types (For SOLiD reads only)
+  * Reads qualities, numbers printed in characters with a Illimina Quality score shift 
 ==Unmapped reads==
   PerM output the un-maped reads to a .miss.fa file when -u option is specified. 
 
-Changes are expected in the near future for I/O and options standardization with other mapping programs, especially Applied Biosystems pipeline.
 
 = Paralleled Mapping =
 PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPU (cores) are available and assign each CPU a read set, if available. If a read set is finished, the next read set in the list will be assigned to the available CPU automatically. Each read set will have its own output file `*`.mapping. To better utilize all CPUs on a node, large reads are suggested to be split to many small read sets and put in the list. 
@@ -84,9 +85,20 @@ PerM takes two format of the paired end reads.
 (1) Concatenated 5'-3' end 3'-5' fasta file. 
 (2) Two separated file of with _F3 and _R3. Each corresponding line is paired.
 For input format (1), each file name should be listed in a row as single-end read file. 
-For input format (2), the two paired file should be listed together in a row, separated by tab. Ex: reads_F3.csfasta \t reads_R3.csfasta. 
-
-The output is in the ABI F3_R3\.mates format.(Described in the SOLiD System Application Document: AB Re-sequencing Analysis Pipeline. Page 15)
+For input format (2), the two paired files can be specified in a list, with each row having two files path, separated by . Ex: reads_F3.csfasta \t reads_R3.csfasta. 
+Or, specified with command line:
+./PerM <reference or index path> -1 <forward reads path> -2 <reverse reads path> <-flag options>
+(4)  Options for mate-paired reads:
+-L I   mate-paired lowerbound
+-U I   mate-paired upperbound, 
+-e     exclude ambiguous paired. 
+-o P   where P is the path (single paired read set) or the directory (multiple paired read sets)
+The default is set as -L 0 -U 3000
+The upperbound and lowerbound can be negative, which may catch the rearangement variations.
+Ex:  ./PerM -1 F3.fq -2 R3.fq -U 500 -L 200 -m -s -o out.sam.
+PerM will report only the non-ambiguous mate pair in the range of [200bp, 500bp]
+PerM will reconstruct and save the indexes to the default path for future mappings.
+PerM will output the mappings file to out.sam in the sam format.
 
 = Limitation =
 PerM doesn't support reads shorter than 25 base pairs. 
