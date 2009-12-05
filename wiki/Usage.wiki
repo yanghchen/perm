@@ -54,7 +54,7 @@ One can "grep" the summary info by redirect the standard output.
 ==Index==
 The genome-preprocessing version saves the reference index by default. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity. 
 ==Mapping Results==
-PerM (version 0.1.7) can output in SAM format, by specify the flag -o \*.sam. 
+PerM (version 0.1.7) can output in SAM format, by specify the flag -o `*`.sam. 
 For more information about sam format, check _http://samtools.sourceforge.net/_
 The original output format of single read the mapping results are `*`.mapping. 
 Each line is the result of a qualified mapping. The info in each line is read in the following order separated by tab:
