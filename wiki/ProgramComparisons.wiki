@@ -6,6 +6,7 @@ Many programs, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite all use simila
 Bowtie and other other programs, used Burrows-Wheeler Transform to achieve a super memory efficient and fast reads mapping, especially for high quality, short reads, with no full sensitivity guaranteed. We are also thinking about how to use similar data compression algorithm to achieve the memory efficiency.
 
 Compared to the BWT based method, PerM still has advantages as follows. 
+
 (0) PerM can build index in a shorter time, although with much higher memory usage. However, in this way, PerM can take advantage of multiple CPU to build the index in parallel. This feature is helpful for the one-time mapping.
 
 (1) PerM is designed for SOLiD reads. Although one can use 'ACGT' to present colors signal and use Bowtie to mapped the so-called "double encoded" SOLiD reads, this will lose the first base information. Ex: it will map the read "AAAAA...A" to a reference with "CCCC...CCC", because their color signal are all '0'(Blue).
