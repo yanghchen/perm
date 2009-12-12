@@ -4,7 +4,9 @@ use " | tee mapping.log" to get the summary and "grep" for the statistics.
 
 PerM outputs the mapping summary stats in the standard output. Here I show the example of bash command to parse the stats. 
 {{{ PerM ref.fa reads.fa -v 3 | tee stats.txt}}}
+
 {{{ cat stats.txt | tr '\r' '\n' | grep 'Sub' }}}
+
 {{{ cat stats.txt | tr '\r' '\n' | grep 'Read#' }}}
 
 PerM generates (1)index (2) mapping result (3) Unmapped reads files.
