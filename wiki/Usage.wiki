@@ -55,8 +55,8 @@ The default setting will print the best alignments for each read in term of mism
 ==Index==
 After version 0.1.8, PerM save references sequence in binary in the index. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity. 
 
-= Single End Paralleled Mapping =
-PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPU (cores) are available and assign each CPU a read set, if available. If a read set is finished, the next read set in the list will be assigned to the available CPU automatically. Each read set will have its own output file `*`.mapping. To better utilize all CPUs on a node, large reads are suggested to be split to many small read sets and put in the list. 
+= Paralleled Mapping =
+PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPU (cores) are available and assign each of them a read set. If a read set is done, the next read set in the list will be processed automatically. Each read set will have its own output file `*`.mapping. To better utilize all CPUs on a node, large reads are suggested to be split to many small read sets and put in the list. 
 When multiple nodes are used in the same file system, the index should be pre-built first by one node; the other node will read the pre-built index with out building index again. Without pre-built index, each machine will try to build their own index, wasting CPU hours and may cause insufficiency of disk quota. 
 
 = Mate-paired Reads =
