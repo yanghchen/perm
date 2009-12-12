@@ -3,7 +3,6 @@
   * PerM doesn't support SOLiD reads with more than 64 base pair.
   * PerM doesn't support single-end Illumina reads with more than 128 base pair.
   * PerM doesn't support mate-paired Illumina reads with more than 64 base pair in each end.
-We suggest users to set the truncated read length less than 64, using -T 64 to mapped long reads with their first 64 bases. 
   * A maximum 200 mapping per read (end) will be print consecutively in the output file. 
   * The reference can't be more than 4 GB.
   * A single reference sequence should be larger than the read length. 
@@ -11,5 +10,8 @@ We suggest users to set the truncated read length less than 64, using -T 64 to m
   * No reads will be mapped to any reference region with 'N'. This is the reason that users may experience that the total alignments founded by PerM is less than other mappers, given the same full sensitivity threshold. 
   * It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping, so as the disk space if user wants to store the index to save preprocessing time for the future.  
 
+We suggest users to set the truncated read length less than 64, using -T 64 to mapped long reads with their first 64 bases. 
+
+We suggest users to split reads into one million reads per file so they can mapped in parallel.
 
 [http://code.google.com/p/perm/wiki/Usage Back to usage]
