@@ -54,7 +54,7 @@ For example:
  * PerM will reconstruct and save the indexes to the default path for future mappings.
  * PerM will output the mappings file to out.sam in the sam format.
 
-==== Options for mate-paired reads ==== 
+==== Options for Paired-end reads ==== 
 PerM deals with mate-paired reads by mapping each end separately. All combination of mated paired mapping in the same ref will be printed, if their separation are in the expected ranged, specified by the upper bound and the lower bound. 
 
 || *-e *|| || Exclude ambiguous paired. ||
