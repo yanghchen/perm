@@ -11,12 +11,12 @@ PerM outputs the mapping summary stats in the standard output. Here I show the e
 
 PerM generates (1)index (2) mapping result (3) Unmapped reads files.
 == Index ==
-From version 0.1.8, PerM's index has changed to include reference sequence in binary format. User can specify the index path, however must keep the ext name as .index
+From version 0.1.8, PerM's index has changed to include reference sequence in binary format. Users can specify the index path, however must keep the ext name as .index
 The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
 
 ==Mapping Results==
 PerM can output in SAM format, by specify the flag -o `*`.sam.
-User can use the using samtools to do some down stream analysis, ex: pileup or consensus read. For more information about sam format, check http://samtools.sourceforge.net/
+Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/
 
 Here I described the the original output format, which has the ext name `*`.mapping. 
 ===Single-end read===
