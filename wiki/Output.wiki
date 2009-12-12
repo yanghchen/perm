@@ -1,5 +1,4 @@
 #labels Featured
-=Output=
 The summary of the mapping results are printed directly to the screen. They include the  number of reads mapped with each number of mismatches and the running time of each step. 
 use " | tee mapping.log" to get the summary and "grep" for the statistics. 
 
