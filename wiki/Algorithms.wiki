@@ -1,6 +1,12 @@
 #labels Featured
 PerM uses special periodic spaced seeds to balance the sensitivity and speed. 
-The following table shows the 
+The following table shows the seed used for 50 bp SOLiD read
+||*Seed Name*||*Pattern*||Weight(Before extend)||Full Sensitive to||
+||F,,2,,||{{{(111*1**)(111*1**)(111*1**)(111*1**)(111*1**)(111*1**)1}}}||25||2 mis|| 
+||S,,1,1,,||{{{(1111**1***)(1111**1***)(1111**1***)(1111*1***)}}}||20||1 mis+1 SNP||
+||F,,3,,||{{{(111*1**1***)(111*1**1***)(111*1**1***)(111*1*)}}}||19||3 mis||
+||S,,2,2,,||{{{(1111**1****)(1111**1****)(1111**1****)(1111**1)}}}||20||2 SNPs||
+||F,,4,,||{{{(11***1****)(11***1****)(11***1****)(11***1****)1}}}||13||4 mis||
 
 == Compared to Seed-Based Methods ==
 Many programs, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite all use similar seed method. The reason that PerM could be faster is because its higher seed weight. Most of the program have seed weight 13 or 14, limited by the memory for hashing. To break the limit, PerM use both hash and binary search on the "periodic spaced seed array". The high seed weight is necessary for large genome with highly repetitive regions, which is typically the bottleneck of genome scale mapping. 
