@@ -30,7 +30,7 @@ For example:
  # The reads file should be in the .fasta, .fastq, .csfasta or .csfastq format. PerM parses a file according to it's ext file name, or the format specified by flag *{{{--format <format>}}}*. If there are multiple read files, list each file names in a .txt file, with each row a path of the reads file. PerM takes it as the input and can map multiple read sets in parallel by OpenMP. 
  # Mismatch threshold could be a integer 2 to 5. For reads over 64 bp, PerM allows double the number of mismatches than the given threshold.
 ==== Options ====
- ||*Arg* || *Value* || *Discription* ||
+ ||*Arg*|| *Value*||*Discription*||
  ||*-A*|| || Output all alignments within the mismatch threshold, end-to-end.||
  ||*-B*|| || Output best alignments in terms of mismatches in the threshold. ||
  ||*-E*|| || Output only the unique mapped reads. ||
