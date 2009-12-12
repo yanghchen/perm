@@ -5,9 +5,8 @@ From version 0.1.8, PerM's index has changed to include reference sequence in bi
 The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
 
 ==Mapping Results==
-PerM (version 0.1.7) can output in SAM format, by specify the flag -o `*`.sam.
-For more information about sam format, check http://samtools.sourceforge.net/
-User can do the down stream analysis using samtools. 
+PerM can output in SAM format, by specify the flag -o `*`.sam.
+User can use the using samtools to do some down stream analysis, ex: pileup or consensus read. For more information about sam format, check http://samtools.sourceforge.net/
 
 Here I described the the original output format, which has the ext name `*`.mapping. 
 ===Single-end read===
