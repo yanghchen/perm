@@ -19,7 +19,7 @@ For SOLiD reads in csfasta format, PerM will try to read the file with the same 
 If quality score file is not available, or the reads and quality scores can't be matched, only the read sequences will be used. 
 (Tips! Use our shell splitReads.sh to split fasta or csfasta file into one million reads per set. It will generate a list file. Use the list file name as the input ptr of PerM.)
 
-== Paired-end reads ==
+=== Paired-end reads ===
 PerM takes two format of the paired end reads. 
 (1) Concatenated 5'-3' end 3'-5' fasta file. 
 (2) Two separated file of with _F3 and _R3. Each corresponding line is paired.
