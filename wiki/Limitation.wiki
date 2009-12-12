@@ -1,4 +1,6 @@
 #labels Featured
+  * It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. 
+  * After version 0.1.8, PerM save references sequence in binary in the index. As always, the memory and disk should have enough capacity. 
   * PerM doesn't support reads shorter than 25 base pairs. 
   * PerM doesn't support SOLiD reads with more than 64 base pair.
   * PerM doesn't support single-end Illumina reads with more than 128 base pair.
