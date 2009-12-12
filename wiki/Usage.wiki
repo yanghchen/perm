@@ -42,7 +42,8 @@ bases (signals). Don't put the number if the full read is meant to be used.
  * *-d P*, where P is the the output dir for multip read set
  * *-u P*, Print the fasta(fastq) file of those unmapped reads to a file
  * *--ignoreQS* Ignore the quality scores in fastq or QUAL files.
- * *--seed {F2 | S11 | F3 | F4}* Use the specified seed pattern.
+ * *--seed {F2 | S11 | F3 | F4}* Use the specified seed pattern. Check our paper 
+ [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 here] to balance the sensitivity and running time.
  * *--readFormat {fasta | fastq | csfasta | csfastq}*. Read in reads in the specified format, instead of gussing according to the ext name.
  * *--delimiter c*, where c is a character which is used as the delimiter which is used to parse the read id. This is used for read set which attach additional information in the read id, using character ',', ':', '|' or other symbols. 
 
