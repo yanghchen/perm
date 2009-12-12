@@ -19,7 +19,7 @@ User can use the using samtools to do some down stream analysis, ex: pileup or c
 Here I described the the original output format, which has the ext name `*`.mapping. 
 ===Single-end read===
 Each line shows a qualified mapping info in the following order, separated by tab:
-  * Read Tag (Extract from the previous line of the reads input file. If the tag is missing, a fake tag will be used.)  
+  * Read Id (Extract from the previous line of the reads input file. If the Id is missing, a fake tag will be used.)
   * The read sequence. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
   * Chromosome Name or ID (begins at 0 and numbered according to the order in the reference list)
   * Chromosome Locus ID, the most left position on the reference. (Each chromosome has indexes starts from 0). 
@@ -29,6 +29,17 @@ Each line shows a qualified mapping info in the following order, separated by ta
   * Number of mappings that this read aligns to, including the current one. 
   * Reads qualities, numbers printed in characters with a Illimina Quality score shift 
 ===Paired-end read===
+  * Read Id (Extract from the previous line of the forward reads input file. If the Id is missing, a fake tag will be used.)
+  * The 1st read sequence. 5' to 3'.
+  * The 2nd read sequence. 5' to 3'.
+  * The 1st read mismatches score.
+  * The 2nd read mismatches score.
+  * The ref name of the the 1st read mapped to.
+  * The ref name of the the 2nd read mapped to.
+  * The position of the the 1st read mapped to.
+  * The position of the the 2nd read mapped to.
+  * Category, this is the flag defined by ABI, which is a three letter alphabet. 
+  see [http://www3.appliedbiosystems.com/cms/groups/mcb_marketing/documents/generaldocuments/cms_058718.pdf Here 2.2.9 c] to get detail info. 
 
 ==Unmapped reads==
 With arg flag -u specified, PerM output the unmapped reads. The format is in fasta or fastq, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the sam format includes the mapped single-end. 
