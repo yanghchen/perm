@@ -71,7 +71,7 @@ The default is set as lower bound 0 bp and upper bound 3000 bp. The upper bound 
   * PerM will output the mappings file to out.sam in the sam format.
 
 ==== Default setting ====  
-  * Allow only two mismatches in each end and use seed {{{F2 or S_11}}}
+  * Allow only two mismatches in each end and use seed {{{F2 or S,,11}}}
   * Print the best alignments for each read in term of mismatches number. 
   * Output files in `*`.mapping format.
   * Try to read the saved index in default name, before building the new one.
