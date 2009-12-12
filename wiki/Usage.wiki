@@ -46,7 +46,7 @@ For example:
 || *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
 || *--seed* ||_{F2 | S11 | F3 | F4}_||Use the specified seed pattern. Check [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 our paper] to balance the sensitivity and running time.||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of gussing according to the ext name. ||
-|| *--delimiter*||_c_||where _c_ is a character which is used as the delimiter which is used to parse the read id. This is used for read set which attach additional information in the read id, using character ',', ':', '|' or other symbols. ||
+|| *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line of '>' in fasta or csfasta. I experience many csfasta file use ',', ':' or '|' to add additional information.
 
 {{{ Ex:  ./PerM Ref.fa Reads.fa -v 5 -E -T 36 -m -s -o out.sam }}}
 
