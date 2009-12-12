@@ -1,12 +1,12 @@
 #labels Featured
 PerM taks (1) Reference and (2)Reads as the input files.
 ==Reference Files==
-PerM takes single or multiple fasta files as the reference. The file should have a corresponding ext name, such as '.fasta, .fa, .fna'. If there are multiple fasta files, make a list file with ext name '.txt', ex: {{{HumanGenome.txt}}}, with each fasta file path in a row. Ex: 
+PerM takes single or multiple fasta files as the reference. The file should have a corresponding ext name, such as '.fasta, .fa, .fna'. If there are multiple fasta files, make a list file with ext name '.txt', ex: {{{HumanGenome.txt}}}, with each fasta file path in a row. For example: 
 {{{
-chr1.fa
-chr2.fa
+/data/chr1.fa
+/data/chr2.fa
 ...
-chrY.fa
+/data/chrY.fa
 }}}
 PerM also takes fasta with multiple sequences separated by a line start with "> Sequence Name", which is typically gene transcripts or contigs. The first word after ">" will be used as a "Sequence Name", which will be showed with the alignments result output. Inside our program, sequences are concatenated and separated by "N", so no junction will be aligned. Only ACGT and N are allowed in the reference file. Other valid nucleotide symbol such as U, R, Y, M, K, S, W, B, D, H, V will be modified to "N". Note PerM concatenates the file names in the list to generate the file name for index. Limited by OS the system, the index file name couldn't be too long to be saved. 
 
