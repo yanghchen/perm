@@ -3,7 +3,7 @@ If you have any usage question, please email "yanghoch at usc.edu".
 
 == SYNOPSIS ==  
 To use the command line, type PerM with the args in the order.
-For single end read: PerM <Ref> <Reads> [options]
+For single end read: {{{PerM <Ref> <Reads> [options]}}}
  * {{{./PerM Ref.fasta SingleEndReads.fasta -v 5 }}}
  * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt -v 5 -u unmappedReads.fa -E }}}
  * {{{./PerM Ref.fasta SingleEndReads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F3}}}
