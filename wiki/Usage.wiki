@@ -44,7 +44,7 @@ bases (signals). Don't put the number if the full read is meant to be used.
  * *--ignoreQS* Ignore the quality scores in fastq or QUAL files.
  * *--seed {F2 | S11 | F3 | F4}* Use the specified seed pattern.
  * *--readFormat {fasta | fastq | csfasta | csfastq}*. Read in reads in the specified format, instead of gussing according to the ext name.
- * *--delimiter c, where c is a character which is used as the delimiter which is used to parse the read id. This is used for read set which attach additional information in the read id, using character ',', ':', '|' or other symbols. 
+ * *--delimiter c*, where c is a character which is used as the delimiter which is used to parse the read id. This is used for read set which attach additional information in the read id, using character ',', ':', '|' or other symbols. 
 
 Ex:  ./PerM Ref.fa Reads.fa -v 5 -E -T 36 -m -s -o out.sam
 PerM will report only the uniquely mapped reads within 5 mismatches in the first 36 bases.
