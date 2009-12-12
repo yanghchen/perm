@@ -8,7 +8,7 @@ For single end read: {{{PerM <Ref> <Reads> [options]}}}
  * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt -v 5 -u unmappedReads.fa -E }}}
  * {{{./PerM Ref.fasta SingleEndReads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F3}}}
  * {{{./PerM my.index SingleEndReads.csfasta -v 5}}} 
-For paired end read: PerM <Ref> -1 <F3_Reads> -2 <R3_Reads> [options]
+For paired end read: {{{ PerM <Ref> -1 <F3_Reads> -2 <R3_Reads> [options] }}}
  * {{{./PerM ref.fa -1 F3.fa -2 R3.fa -U 3000 -L 100 -v 5 -A -m -s -o out.sam}}}
  * {{{./PerM ref.txt -1 F3.fq -2 R3.fq -v 5 -m -s my.index -o out.mapping --seed F3}}}
  * {{{./PerM my.index -1 F3.fq -2 R3.fq -U 3000 -L 100 -v 5 -A -o out.sam}}}
