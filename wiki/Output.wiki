@@ -1,5 +1,14 @@
 #labels Featured
-PerM generate (1)index (2) mapping result (3) Unmapped reads files.
+=Output=
+The summary of the mapping results are printed directly to the screen. They include the  number of reads mapped with each number of mismatches and the running time of each step. 
+use " | tee mapping.log" to get the summary and "grep" for the statistics. 
+
+PerM outputs the mapping summary stats in the standard output. Here I show the example of bash command to parse the stats. 
+{{{ PerM ref.fa reads.fa -v 3 | tee stats.txt}}}
+{{{ cat stats.txt | tr '\r' '\n' | grep 'Sub' }}}
+{{{ cat stats.txt | tr '\r' '\n' | grep 'Read#' }}}
+
+PerM generates (1)index (2) mapping result (3) Unmapped reads files.
 == Index ==
 From version 0.1.8, PerM's index has changed to include reference sequence in binary format. User can specify the index path, however must keep the ext name as .index
 The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
