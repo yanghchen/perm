@@ -1,14 +1,7 @@
-#summary One-sentence summary of this page.
 #labels Featured
+PerM has been compiled in Redhat (32, 64 bits) and Windows XP (32 bit), Windows 7 (64bit), with gcc 3.0, gcc 4.3 and visual studio 2003. Try the compiled executable in the download. 
+Please email "yanghoch at usc.edu", if you encounter any problem or have any suggestion.
 
-= Introduction =
+Download and unzip the source code. (Type unzip ./PerM_0.1.9_GCC.zip in linux) in the directory with the download. For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.3 or later. Type gcc -v to check your compiler version. Because OpenMP are supported after gcc 4.3, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. 
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+For windows user, it is easy to add the source code to eclipse or visual studio c++ project and compile. For VC++ 2008, (I only tried free express version), it is normal to have many security warning. 
