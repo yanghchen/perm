@@ -2,8 +2,8 @@
 If you have any usage question, please email "yanghoch at usc.edu".
 
 == CONTENTS ==  
-=== http://code.google.com/p/perm/wiki/Compile ===
-=== http://code.google.com/p/perm/wiki/Output ===
+=== Compile === http://code.google.com/p/perm/wiki/Compile
+=== Output === http://code.google.com/p/perm/wiki/Output
 
 == SYNOPSIS ==  
 To use the command line, type PerM with the args in the order.
