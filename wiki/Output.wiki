@@ -10,7 +10,7 @@ For more information about sam format, check http://samtools.sourceforge.net/
 User can do the down stream analysis using samtools. 
 
 Here I described the the original output format, which has the ext name `*`.mapping. 
-===single-end read===
+===Single-end read===
 Each line shows a qualified mapping info in the following order, separated by tab:
   * Read Tag (Extract from the previous line of the reads input file. If the tag is missing, a fake tag will be used.)  
   * The read sequence. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
