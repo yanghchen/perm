@@ -59,7 +59,7 @@ PerM deals with mate-paired reads by mapping each end separately. All combinatio
  * *-U I*   mate-paired separate upper bound, 
  * *-o P*   where P is the path (single paired read set) or the directory (multiple paired read sets)
 
-The default is set as -L 0 -U 3000. The upper bound and lower bound can be negative, which may catch the re-arrangement variations. User should use argument {{{ -A }}} to avoid missing the correct pairs. However, this may let the running time become very slow, if both ends are in the repetitive regions. 
+The default is set as lower bound 0 bp and upper bound 3000 bp. The upper bound and lower bound can be negative, which may catch the re-arrangement variations. User should use argument {{{ -A }}} to avoid missing the correct pairs. However, this may let the running time become very slow, if both ends are in the repetitive regions. 
 
 {{{Ex:  ./PerM -1 F3.fq -2 R3.fq -U 500 -L 200 -e -A -v 5 -m -s -o out.sam.}}}
   * All Paired mapping with separation outside the [200bp, 500bp] range won't be output.
@@ -68,8 +68,15 @@ The default is set as -L 0 -U 3000. The upper bound and lower bound can be negat
   * PerM will reconstruct and save the index to the default path for future mappings.
   * PerM will output the mappings file to out.sam in the sam format.
 
-====Default setting====
-The default setting will print the best alignments for each read in term of mismatches number. Use "-E" to exclude the reads has multiple "best" alignments. 
+====Default setting====  
+  * Allow only two mismatches in each end and use seed {{{F2 or S_11}}}
+  * Print the best alignments for each read in term of mismatches number. 
+  * Output files in `*`.mapping format.
+  * Try to read the saved index in default name, before building the new one.
+  * Won't save the index in file, unless {{{- s }}} is specified. 
+  
+  
+  
 
 == Paralleled Mapping ==
 PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPU (cores) are available and assign each of them a read set. If a read set is done, the next read set in the list will be processed automatically. Each read set will have its own output file `*`.mapping. To better utilize all CPUs on a node, large reads are suggested to be split to many small read sets and put in the list. 
