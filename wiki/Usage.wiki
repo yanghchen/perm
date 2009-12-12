@@ -40,7 +40,9 @@ For example:
 || *-o* ||_P_|| where P is the the output path for one read set. PerM's output are in .mapping or .sam format, determined by the ext name of P. ||
 || *-d* ||_P_|| where P is the the output dir for multip read set ||
 || *-u* ||_P_|| Print the fasta(fastq) file of those unmapped reads to a file ||
+
 ====Long Options====
+
 || *--ignoreQS* || Ignore the quality scores in fastq or QUAL files. ||
 || *--seed* ||_{F2 | S11 | F3 | F4}_||Use the specified seed pattern. Check [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 our paper] to balance the sensitivity and running time.||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of gussing according to the ext name. ||
