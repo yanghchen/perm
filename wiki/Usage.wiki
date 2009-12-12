@@ -1,16 +1,17 @@
 #labels Featured
 If you have any usage question, please email "yanghoch at usc.edu".
 = Compile =
-Download and unzip the source code. (Type unzip ./PerM_0.1.7_GCC.zip in linux) in the directory with the download. For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.3 or later. Type *gcc -v* to check your compiler version. Because OpenMP are supported after gcc 4.3, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
+Download and unzip the source code. (Type unzip ./PerM_0.1.9_GCC.zip in linux) in the directory with the download. For Linux and gcc user, type make in the unzip directory to generate the execute file ./PerM. Note, the attached make file is for linux with gcc 4.3 or later. Type *gcc -v* to check your compiler version. Because OpenMP are supported after gcc 4.3, if your compiler is earlier version, use an alternative makefile (no openMP) with the flag "-fopenmp" removed, and only single CPU will be utilized. The code has also been test with visual c++ on a Win32 machine, without "openmp". 
 
 == SYNOPSIS ==  
 To use the command line, type PerM with the args in the order.
 (1) reference file (2) read set (3) option flags
  * {{{./PerM Ref.fasta SingleEndReads.fasta -v 5 }}}
  * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt -v 5 -u unmappedReads.fa -E }}}
- * {{{./PerM Ref.fasta SingleEndReads.csfasta -v 5 -m -s my.index --delimiter ':'}}}
+ * {{{./PerM Ref.fasta SingleEndReads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F3}}}
  * {{{./PerM my.index SingleEndReads.csfasta -v 5}}} 
- * {{{./PerM -1 F3.fq -2 R3.fq -U 3000 -L 100 -v 5 -A -m -s -o out.sam}}}
+ * {{{./PerM ref.txt -1 F3.fq -2 R3.fq -U 3000 -L 100 -v 5 -A -m -s -o out.sam}}}
+ * {{{./PerM my.index -1 F3.fq -2 R3.fq -U 3000 -L 100 -v 5 -A -o out.sam}}}
 == Command Line Options ==  
 The following are the short description for each arguments:
  # The reference file should be a .fasta or .fa file. For transcriptom with multiple genes or isoforms as reference, put concatenate all fasta in a fasta file. Or, if there are many files, one for each chromosome, ex: chr1.fa to chrY.fa, list them in a .txt file. PerM parses a file according to it's ext file name. 
