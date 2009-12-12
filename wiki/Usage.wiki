@@ -6,10 +6,11 @@ Download and unzip the source code. (Type unzip ./PerM_0.1.7_GCC.zip in linux) i
 == SYNOPSIS ==  
 To use the command line, type PerM with the args in the order.
 (1) reference file (2) read set (3) option flags
- * {{{./PerM Ref.fasta SingleEndReads.fasta -v 5 -E }}}
- * {{{./PerM Ref.fasta SingleEndReads.csfasta -v 5 -m -s}}}
- * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt -v 5 -u unmappedReads.fa }}}
- * {{{./PerM -1 F3.fq -2 R3.fq -U 500 -L 200 -m -s -o out.sam}}}
+ * {{{./PerM Ref.fasta SingleEndReads.fasta -v 5 }}}
+ * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt -v 5 -u unmappedReads.fa -E }}}
+ * {{{./PerM Ref.fasta SingleEndReads.csfasta -v 5 -m -s my.index --delimiter ':'}}}
+ * {{{./PerM my.index SingleEndReads.csfasta -v 5}}} 
+ * {{{./PerM -1 F3.fq -2 R3.fq -U 3000 -L 100 -v 5 -A -m -s -o out.sam}}}
 == Command Line Options ==  
 The following are the short description for each arguments:
  # The reference file should be a .fasta or .fa file. For transcriptom with multiple genes or isoforms as reference, put concatenate all fasta in a fasta file. Or, if there are many files, one for each chromosome, ex: chr1.fa to chrY.fa, list them in a .txt file. PerM parses a file according to it's ext file name. 
@@ -30,6 +31,7 @@ bases (signals). Don't put the number if the full read is meant to be used.
  * *--ignoreQS* Ignore the quality scores in fastq or QUAL files.
  * *--seed {F2 | S11 | F3 | F4}* Use the specified seed pattern.
  * *--readFormat {fasta | fastq | csfasta | csfastq}*. Read in reads in the specified format, instead of gussing according to the ext name.
+ * *--delimiter c, where c is a character which is used as the delimiter which is used to parse the read id. This is used for read set which attach additional information in the read id, using character ',', ':', '|' or other symbols. 
 
 Ex:  ./PerM Ref.fa Reads.fa -v 5 -E -T 36 -m -s -o out.sam
 PerM will report only the uniquely mapped reads within 5 mismatches in the first 36 bases.
@@ -38,10 +40,10 @@ PerM will output the mappings file to out.sam in the sam format.
 
 The following is some detail description for each argument. 
 ====Reference Files====
-PerM takes single or multiple fasta files as the reference. If there are multiple fasta files, make a list file, say {{{HumanGenome.txt}}}, with each fasta file name in a row, as the command line input example as the above. PerM also takes fasta with multiple sequences separated by a line start with "> Sequence Name", as input which typically is a transcripts or contigs. The first word after ">" will be used as a "Sequence Name", which will be showed with the corresponding alignments. Inside our program, sequences are concatenated and separated by "N", so no junction will be aligned. Only ACGT and N are allowed in the reference file. Other valid nucleotide symbol such as U, R, Y, M, K, S, W, B, D, H, V will be modified to "N" after 0.0.6 version. Note PerM concatenates the file names in the list to generate the file name for index. Limited by OS the system, the index file name could be too long to be saved. 
+PerM takes single or multiple fasta files as the reference. If there are multiple fasta files, make a list file, say {{{HumanGenome.txt}}}, with each fasta file name in a row, as the command line input example as the above. PerM also takes fasta with multiple sequences separated by a line start with "> Sequence Name", as input which typically is a transcripts or contigs. The first word after ">" will be used as a "Sequence Name", which will be showed with the corresponding alignments. Inside our program, sequences are concatenated and separated by "N", so no junction will be aligned. Only ACGT and N are allowed in the reference file. Other valid nucleotide symbol such as U, R, Y, M, K, S, W, B, D, H, V will be modified to "N". Note PerM concatenates the file names in the list to generate the file name for index. Limited by OS the system, the index file name couldn't be too long to be saved. 
 
 ====Read Files====
-PerM expects reads from either the SOLiD or Solexa sequencer. If the first read file has the  extension ".csfasta", then all reads are assumed to be from the SOLiD sequencer. Other file types are treated as Solexa data.  Read lengths are assumed to be equal to the first read in the first data file. 
+PerM expects reads from either the SOLiD or Solexa sequencer. PerM guesses the read file format according to the first read file's ext name, ex: ".fasta", ".fastq", ".csfasta", ".csfastq" ... etc. User can also use arg "--flag <readFormat> to specify the reads files format. Reads file format and the read lengths are assumed to be equal to the first read in the first data file. 
 
 For SOLiD reads in csfasta format, PerM will try to read the file with the same base name as the read set, however with the ext name ".qual" for quality score. That is, if the read file name is 7B.csfasta, its quality file "7B.qual" should be put beside.
 If quality score file is not available, or the reads and quality scores can't be matched, only the read sequences will be used. 
@@ -49,18 +51,18 @@ If quality score file is not available, or the reads and quality scores can't be
 (Tips! Use our shell splitReads.sh to split fasta or csfasta file into one million reads per set. It will generate a list file. Use the list file name as the input ptr of PerM.) 
 
 ====Include or Exclude Ambiguous Mapping====
-The default setting will print the best alignments for each read in term of misamtches number. Use "-E" to exclude the reads has multiple "best" alignments. Use "-A" flag if all alignments within substitution threshold are meant to be printed. A maximum 100 mapping per read will be print consecutively in the output file. 
+The default setting will print the best alignments for each read in term of mismatches number. Use "-E" to exclude the reads has multiple "best" alignments. Use "-A" flag if all alignments within substitution threshold are meant to be printed. A maximum 100 mapping per read will be print consecutively in the output file. 
 
 =Output=
 The summary of the mapping results are printed directly to the screen. They include the  number of reads mapped with each number of mismatches and the running time of each step. 
 use " | tee mapping.log" to get the summary and "grep" for the statistics. 
 
 ==Index==
-The genome-preprocessing version saves the reference index by default. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity. 
+After version 0.1.8, PerM save references sequence in binary in the index. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity. 
 
 ==Mapping Results==
 PerM (version 0.1.7) can output in SAM format, by specify the flag -o `*`.sam.
-For more information about sam format, check _http://samtools.sourceforge.net/_
+For more information about sam format, check http://samtools.sourceforge.net/
 
 The original output format of has the ext name `*`.mapping. For single end read, each line is the result of a qualified mapping. The info in each line is read in the following order separated by tab:
   * Read Tag (Extract from the previous line of the reads input file. If the tag is missing, a fake tag will be used.)  
