@@ -46,3 +46,5 @@ If we pre-process reads set instead of pre-process the genome, we require 7/6 mo
 
 === Q8 Does this model find small Indel as SOAP ? ===
 We have implemented finding of short indels as well, using many consecutive seed. It is quite similar to their method. It was not part of the presentation because it did not introduce any new ideas.  
+
+[http://code.google.com/p/perm/wiki/Usage Back to usage]
