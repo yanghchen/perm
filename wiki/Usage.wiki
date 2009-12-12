@@ -59,10 +59,6 @@ If quality score file is not available, or the reads and quality scores can't be
 ====Include or Exclude Ambiguous Mapping====
 The default setting will print the best alignments for each read in term of mismatches number. Use "-E" to exclude the reads has multiple "best" alignments. Use "-A" flag if all alignments within substitution threshold are meant to be printed. A maximum 100 mapping per read will be print consecutively in the output file. 
 
-=Output=
-The summary of the mapping results are printed directly to the screen. They include the  number of reads mapped with each number of mismatches and the running time of each step. 
-use " | tee mapping.log" to get the summary and "grep" for the statistics. 
-
 ==Index==
 After version 0.1.8, PerM save references sequence in binary in the index. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity. 
 
