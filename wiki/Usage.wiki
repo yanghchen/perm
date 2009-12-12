@@ -38,12 +38,12 @@ For example:
  * *-v I*  where I i the number of mismatches allowed in one end.
  * *-T I*, where I is tbe length to truncate read length, say 30 means use only first 30 bases (signals). Don't put the number if the full read is meant to be used.
  * *-o P*, where P is the the output path for one read set. PerM's output are in .mapping or .sam format, determined by the ext name of P. 
- * *-d P*, where P is the the output dir for multip read set
- * *-u P*, Print the fasta(fastq) file of those unmapped reads to a file
+ * *-d _P_*, where P is the the output dir for multip read set
+ * *-u _P_*, Print the fasta(fastq) file of those unmapped reads to a file
  * *--ignoreQS* Ignore the quality scores in fastq or QUAL files.
- * *--seed {F2 | S11 | F3 | F4}* Use the specified seed pattern. Check [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 our paper] to balance the sensitivity and running time.
- * *--readFormat {fasta | fastq | csfasta | csfastq}*. Read in reads in the specified format, instead of gussing according to the ext name.
- * *--delimiter c*, where c is a character which is used as the delimiter which is used to parse the read id. This is used for read set which attach additional information in the read id, using character ',', ':', '|' or other symbols. 
+ * *--seed _{F2 | S11 | F3 | F4}_* Use the specified seed pattern. Check [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 our paper] to balance the sensitivity and running time.
+ * *--readFormat _{fasta | fastq | csfasta | csfastq}_*. Read in reads in the specified format, instead of gussing according to the ext name.
+ * *--delimiter _c_*, where _c_ is a character which is used as the delimiter which is used to parse the read id. This is used for read set which attach additional information in the read id, using character ',', ':', '|' or other symbols. 
 
 Ex:  ./PerM Ref.fa Reads.fa -v 5 -E -T 36 -m -s -o out.sam
 PerM will report only the uniquely mapped reads within 5 mismatches in the first 36 bases.
@@ -54,9 +54,9 @@ PerM will output the mappings file to out.sam in the sam format.
 PerM deals with mate-paired reads by mapping each end separately. All combination of mated paired mapping in the same ref will be printed, if their separation are in the expected ranged, specified by the upper bound and the lower bound. 
 
  * *-e *    Exclude ambiguous paired. 
- * *-L I*   mate-paired separate lower bound
- * *-U I*   mate-paired separate upper bound, 
- * *-o P*   where P is the path (single paired read set) or the directory (multiple paired read sets)
+ * *-L _I_*   mate-paired separate lower bound
+ * *-U _I_*   mate-paired separate upper bound, 
+ * *-o _P_*   where P is the path (single paired read set) or the directory (multiple paired read sets)
 
 The default is set as lower bound 0 bp and upper bound 3000 bp. The upper bound and lower bound can be negative, which may catch the re-arrangement variations. User should use argument {{{ -A }}} to avoid missing the correct pairs. However, this may let the running time become very slow, if both ends are in the repetitive regions. 
 
@@ -72,7 +72,7 @@ The default is set as lower bound 0 bp and upper bound 3000 bp. The upper bound 
   * Print the best alignments for each read in term of mismatches number. 
   * Output files in `*`.mapping format.
   * Try to read the saved index in default name, before building the new one.
-  * Won't save the index in file, unless {{{- s }}} is specified. 
+  * Won't save the index in file, unless {{{-s }}} is specified. 
  
 == Paralleled Mapping ==
 PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPU (cores) are available and assign each of them a read set. If a read set is done, the next read set in the list will be processed automatically. Each read set will have its own output file `*`.mapping. To better utilize all CPUs on a node, large reads are suggested to be split to many small read sets and put in the list. 
