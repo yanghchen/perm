@@ -1,14 +1,27 @@
-#summary One-sentence summary of this page.
 #labels Featured
+PerM generate (1)index (2) mapping result (3) Unmapped reads files.
+== Index ==
+From version 0.1.8, PerM's index has changed to include reference sequence in binary format. User can specify the index path, however must keep the ext name as .index
+The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
 
-= Introduction =
+==Mapping Results==
+PerM (version 0.1.7) can output in SAM format, by specify the flag -o `*`.sam.
+For more information about sam format, check http://samtools.sourceforge.net/
+User can do the down stream analysis using samtools. 
 
-Add your content here.
+Here I described the the original output format, which has the ext name `*`.mapping. 
+===single-end read===
+Each line shows a qualified mapping info in the following order, separated by tab:
+  * Read Tag (Extract from the previous line of the reads input file. If the tag is missing, a fake tag will be used.)  
+  * The read sequence. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
+  * Chromosome Name or ID (begins at 0 and numbered according to the order in the reference list)
+  * Chromosome Locus ID, the most left position on the reference. (Each chromosome has indexes starts from 0). 
+  * The mapped reference sequence. (reversed-complemented if orientation is -). For SOLiD reads, this region is translated into colors for comparison to the read.
+  * Positive (forward) or negative (backward) strand that the reads mapped to.
+  * Number of mismatches or the mismatches score (the sum of quality scores in the mis-matched bases) if available. 
+  * Number of mappings that this read aligns to, including the current one. 
+  * Reads qualities, numbers printed in characters with a Illimina Quality score shift 
+===Paired-end read===
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+==Unmapped reads==
+With arg flag -u specified, PerM output the unmapped reads. The format is in fasta or fastq, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the sam format includes the mapped single-end. 
