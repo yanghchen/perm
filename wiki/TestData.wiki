@@ -1,5 +1,5 @@
 #labels Featured
-This page list the data set used in our paper. PerM has been tested for many other public and private data sets. For more public data set, check [http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi? Short read archieve], [http://solidsoftwaretools.com/gf/project/ecoli2x50/ Applied Biosystem] or [ftp://ftp.illumina.com Illumina].
+This page lists the data set used in the paper. PerM has been tested for many other public and private data sets. For more public data sets, check [http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi? Short read archieve], [http://solidsoftwaretools.com/gf/project/ecoli2x50/ Applied Biosystem] or [ftp://ftp.illumina.com Illumina].
 === Reference ===
   * The anthracis.fasta file can be download from SOCS's webpage: [http://socs.biology.gatech.edu/Download.html SOCS ] 
   * Repeat masked and non-masked human genomes can be downloaded from UCSC's genome browser. File names are chromFaMasked.zip and chromFa.zip: [http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips Human Genome from UCSC]. 
