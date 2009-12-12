@@ -1,4 +1,4 @@
-The more completed answer for the questions that I have been asked in the USC MCB retreat, 2008.
+The more completed answer for the questions that I have been asked in the USC MCB retreat, 2008. Because the technology has been advanced one more year, some of the answers may be out of date. 
 == Introduction ==
 In the retreat of our MCB program this year, many biologists have many good questions and valuable suggestions. Here I list the questions and the more completed answer for them. 
 
