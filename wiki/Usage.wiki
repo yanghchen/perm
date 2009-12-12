@@ -54,9 +54,6 @@ PerM will output the mappings file to out.sam in the sam format.
 ====Include or Exclude Ambiguous Mapping====
 The default setting will print the best alignments for each read in term of mismatches number. Use "-E" to exclude the reads has multiple "best" alignments. Use "-A" flag if all alignments within substitution threshold are meant to be printed. A maximum 100 mapping per read will be print consecutively in the output file. 
 
-==Index==
-After version 0.1.8, PerM save references sequence in binary in the index. It requires 4.5 bytes (one integer + 4 bits) + 256M memory for mapping. As always, the memory and disk should have enough capacity. 
-
 = Paralleled Mapping =
 PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPU (cores) are available and assign each of them a read set. If a read set is done, the next read set in the list will be processed automatically. Each read set will have its own output file `*`.mapping. To better utilize all CPUs on a node, large reads are suggested to be split to many small read sets and put in the list. 
 When multiple nodes are used in the same file system, the index should be pre-built first by one node; the other node will read the pre-built index with out building index again. Without pre-built index, each machine will try to build their own index, wasting CPU hours and may cause insufficiency of disk quota. 
@@ -64,13 +61,7 @@ When multiple nodes are used in the same file system, the index should be pre-bu
 = Mate-paired Reads =
 PerM deals with mate-paired reads by mapping each end separately. All combination of mated paired mapping in the same ref will be printed. Note this makes the running time become very slow, if both ends are in the repetitive regions. 
 
-PerM takes two format of the paired end reads. 
-(1) Concatenated 5'-3' end 3'-5' fasta file. 
-(2) Two separated file of with _F3 and _R3. Each corresponding line is paired.
-For input format (1), each file name should be listed in a row as single-end read file. 
-For input format (2), the two paired files can be specified in a list, with each row having two files path, separated by . Ex: reads_F3.csfasta \t reads_R3.csfasta. 
-Or, specified with the command line for a paired read files:
-./PerM <reference or index path> -1 <forward reads path> -2 <reverse reads path> [-flag options]
+
 (4)  Options for mate-paired reads:
 -e     Exclude ambiguous paired. 
 -L I   mate-paired separate lower bound
