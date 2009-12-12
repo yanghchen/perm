@@ -1,4 +1,3 @@
-#labels Featured
 PerM taks (1) Reference and (2)Reads as the input files.
 ==Reference Files==
 PerM takes single or multiple fasta files as the reference. The file should have a corresponding ext name, such as '.fasta, .fa, .fna'. If there are multiple fasta files, make a list file with ext name '.txt', ex: {{{HumanGenome.txt}}}, with each fasta file path in a row. For example: 
