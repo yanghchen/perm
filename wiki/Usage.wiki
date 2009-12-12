@@ -44,7 +44,7 @@ For example:
 ====Long Options====
 
 || *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
-|| *--seed* ||_{F2 | S11 | F3 | F4}_||Use the specified seed pattern. Check [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 our paper] to balance the sensitivity and running time.||
+|| *--seed* ||_{F2 | S11 | F3 | F4}_||Use the specified seed pattern. Check [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 our paper] for seed patterns to balance the sensitivity and running time.||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of gussing according to the ext name. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' in fasta or csfasta. ||
 
