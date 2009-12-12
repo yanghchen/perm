@@ -44,7 +44,7 @@ For example:
 ====Long Options====
 
 || *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
-|| *--seed* ||_{F2 | S11 | F3 | F4}_||Use the specified seed pattern. Check [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 our paper] for seed patterns to balance the sensitivity and running time.||
+|| *--seed* ||_{F,,2,, | S,,11,, | F,,3,, | F,,4,,}_||Use the specified seed pattern. Check [http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btp486 our paper] for seed patterns to balance the sensitivity and running time.||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of gussing according to the ext name. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' in fasta or csfasta. ||
 
@@ -71,7 +71,7 @@ The default is set as lower bound 0 bp and upper bound 3000 bp. The upper bound 
   * PerM will output the mappings file to out.sam in the sam format.
 
 ==== Default setting ====  
-  * Allow only two mismatches in each end and use seed {{{F2 or S,,11}}}
+  * Allow only two mismatches in each end and use seed {{{F,,2,, or S,,11,,}}}
   * Print the best alignments for each read in term of mismatches number. 
   * Output files in `*`.mapping format.
   * Try to read the saved index in default name, before building the new one.
