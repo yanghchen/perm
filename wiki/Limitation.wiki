@@ -1,4 +1,4 @@
-#labels Featured
+#labels Phase-Requirements
   * PerM doesn't support reads shorter than 25 base pairs. 
   * PerM doesn't support SOLiD reads with more than 64 base pair.
   * PerM doesn't support single-end Illumina reads with more than 128 base pair.
