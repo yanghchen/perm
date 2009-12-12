@@ -45,10 +45,11 @@ For example:
  * *--readFormat* _{fasta | fastq | csfasta | csfastq}_     Read in reads in the specified format, instead of gussing according to the ext name.
  * *--delimiter* _c_,     where _c_ is a character which is used as the delimiter which is used to parse the read id. This is used for read set which attach additional information in the read id, using character ',', ':', '|' or other symbols. 
 
-Ex:  ./PerM Ref.fa Reads.fa -v 5 -E -T 36 -m -s -o out.sam
-PerM will report only the uniquely mapped reads within 5 mismatches in the first 36 bases.
-PerM will reconstruct and save the indexes to the default path for future mappings.
-PerM will output the mappings file to out.sam in the sam format.
+{{{ Ex:  ./PerM Ref.fa Reads.fa -v 5 -E -T 36 -m -s -o out.sam }}}
+
+  * PerM will report only the uniquely mapped reads within 5 mismatches in the first 36 bases.
+  * PerM will reconstruct and save the indexes to the default path for future mappings.
+  * PerM will output the mappings file to out.sam in the sam format.
 
 ==== Options for mate-paired reads ==== 
 PerM deals with mate-paired reads by mapping each end separately. All combination of mated paired mapping in the same ref will be printed, if their separation are in the expected ranged, specified by the upper bound and the lower bound. 
