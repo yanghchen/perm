@@ -12,9 +12,7 @@ The following table shows the seed used for 50 bp SOLiD read
 Many programs, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite all use similar seed method. The reason that PerM could be faster is because its higher seed weight. Most of the program have seed weight 13 or 14, limited by the memory for hashing. To break the limit, PerM use both hash and binary search on the "periodic spaced seed array". The high seed weight is necessary for large genome with highly repetitive regions, which is typically the bottleneck of genome scale mapping. 
 
 == Compared to BWT-Based Methods ==
-Bowtie and other other programs, used Burrows-Wheeler Transform to achieve a super memory efficient and fast reads mapping, especially for high quality, short reads, with no full sensitivity guaranteed. We are also thinking about how to use similar data compression algorithm to achieve the memory efficiency.
-
-Compared to the BWT based methods, PerM has the following advantages. 
+Bowtie and other other programs, used Burrows-Wheeler Transform to achieve a super memory efficient and fast reads mapping, especially for high quality, short reads, with no full sensitivity guaranteed. However, compared to the BWT based methods, PerM still has the following advantages. 
 
 (0) PerM can build index in a shorter time, although with much larger memory usage. Moreover, PerM can take advantage of multiple CPUs (potentially in GPU) to build the index in parallel. This feature is helpful under modern multi-cores computers, especially for the one-time mapping task.
 
