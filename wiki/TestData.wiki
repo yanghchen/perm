@@ -1,5 +1,7 @@
 #labels Featured
-This page lists the data set used in the paper. PerM has been tested for many other public and private data sets. For more public data sets, check [http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi? Short read archieve], [http://solidsoftwaretools.com/gf/project/ecoli2x50/ Applied Biosystem] or [ftp://ftp.illumina.com Illumina].
+This page lists the data set used in the paper. PerM has been tested for many other public and private data sets. For more public data sets, check [http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi? Short read archieve], [http://solidsoftwaretools.com/gf/project/ecoli2x50/ Applied Biosystem] or [ftp://ftp.illumina.com Illumina]. In addition, here I show some mapping results of the brain transcriptom.  
+[http://dw408k-1.cmb.usc.edu:8080/GeneList.htm brain RNA seq data]
+
 === Reference ===
   * The anthracis.fasta file can be download from SOCS's webpage: [http://socs.biology.gatech.edu/Download.html SOCS ] 
   * Repeat masked and non-masked human genomes can be downloaded from UCSC's genome browser. File names are chromFaMasked.zip and chromFa.zip: [http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips Human Genome from UCSC]. 
@@ -10,6 +12,3 @@ The data downloaded from the NCBI SRA is in the base format. We translated the d
 color signals in CSFASTA format. Because The data set is too large for many people to download, we provided the used proportion of data in our download section.   
   * Real SOLiD reads from B anthracis can be downloaded from SOCS's page [http://socs.biology.gatech.edu/Download.html SOCS]. 
   * Simulated SOLiD or Solexa reads can be generated using the small program in the download section. 
-
-Here I show some mapping results of the brain transcriptom. 
-[http://dw408k-1.cmb.usc.edu:8080/GeneList.htm brain RNA seq data]
