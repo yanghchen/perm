@@ -20,7 +20,7 @@ Bowtie and other other programs, used Burrows-Wheeler Transform to achieve a sup
 
 (2) PerM is fast even if most of the reads are not mapped. This may be the case for many poor quality SOLiD data. While Bowtie may fruitlessly exhaust its back tracking limit, PerM has a fixed number of shifts and expected random hit, which is not effected by those un-mapped reads.
 
-(3) PerM has high partial sensitivity for four (85%) and five (65%) substitutions. Although Bowtie can ignore the mismatches in the tail region, the maximum number of mismatches allowed in the "cared region" is limited to three. This may not enough for SOLiD reads, especially when SOLiD reads are getting longer.
+(3) PerM can be full sensitive to four mismatches, with its F4 seed. With its F3 seed, PerM has high partial sensitivity for four (85%) and five (65%) substitutions. Although Bowtie can ignore the mismatches in the tail region, the maximum number of mismatches allowed in the "cared region" is limited to three. This may not enough for SOLiD reads, especially when SOLiD reads are getting longer.
 
 (4) PerM's mapping speed increases with the read length; Bowtie's mapping speed decreases with read length. This is because that PerM has a much more higher weight in long reads; in contrast to Bowtie has a larger backtracking search space for long reads. For read length is long enough to provide sufficient weight, PerM is faster than Bowtie. 
 
