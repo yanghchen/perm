@@ -6,4 +6,4 @@ To unzip the source code that you download on Linux, type {{{unzip ./PerM_0.1.9_
 
 For Windows users, it is easy to add the source code to Eclipse or Visual C++ projects and compile. For VC++ 2008, it is normal to have many security warnings. 
 
-[http://code.google.com/p/perm/wiki/Usage Back to usage]
+[http://code.google.com/p/perm/wiki/Manual Back to manual]
