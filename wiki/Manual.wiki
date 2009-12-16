@@ -42,7 +42,7 @@ For example:
 || *-u* ||_Path_|| Print the fasta(fastq) file of those unmapped reads to a file. ||
 
 ====Long Options====
-|| *--statsOnly* || || Only output the mapping stats in stdout without saving alignments ||
+|| *--statsOnly* || || Output the mapping statistics in stdout only, without saving alignments to files||
 || *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
 || *--seed* ||_{F,,2,, | S,,11,, | F,,3,, | F,,4,,}_||Use the specified seed pattern. Check [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for seed patterns to balance the sensitivity and running time.||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of gussing according to the ext name. ||
