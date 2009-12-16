@@ -14,4 +14,4 @@ We suggest users to set the truncated read length less than 64, using -T 64 to m
 
 We suggest users to split reads into one million reads per file so they can mapped in parallel.
 
-[http://code.google.com/p/perm/wiki/Usage Back to usage]
+[http://code.google.com/p/perm/wiki/Manual Back to manual]
