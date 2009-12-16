@@ -26,4 +26,4 @@ Bowtie and other other programs, used Burrows-Wheeler Transform to achieve a sup
 
 (5) Bowtie uses a ”quality-aware” backtracking algorithm, favoring mismatches on low quality positions and increasing the probability that alignments which suggest true SNP loci will be ignored. By contrast, PerM used a special seed full sensitive to one base and one color, finding all trusty SNP-supporting alignments with high efficiency. 
 
-[http://code.google.com/p/perm/wiki/Usage Back to usage]
+[http://code.google.com/p/perm/wiki/Manual Back to manual]
