@@ -45,4 +45,4 @@ Each line shows a qualified mapping info in the following order, separated by ta
 ==Unmapped reads==
 With arg flag -u specified, PerM output the unmapped reads. The format is in fasta or fastq, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the sam format includes the mapped single-end. 
 
-[http://code.google.com/p/perm/wiki/Usage Back to usage]
+[http://code.google.com/p/perm/wiki/Manual Back to manual]
