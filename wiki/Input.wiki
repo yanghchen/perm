@@ -36,4 +36,4 @@ Or, specified with the command line for a paired read files:
 
 {{{./PerM <reference or index path> -1 <forward reads path> -2 <reverse reads path> [-flag options] }}}
 
-[http://code.google.com/p/perm/wiki/Usage Back to usage] 
+[http://code.google.com/p/perm/wiki/Manual Back to manual]
