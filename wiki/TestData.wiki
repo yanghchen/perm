@@ -12,3 +12,4 @@ The data downloaded from the NCBI SRA is in the base format. We translated the d
 color signals in CSFASTA format. Because The data set is too large for many people to download, we provided the used proportion of data in our download section.   
   * Real SOLiD reads from B anthracis can be downloaded from SOCS's page [http://socs.biology.gatech.edu/Download.html SOCS]. 
   * Simulated SOLiD or Solexa reads can be generated using the small program in the download section. 
+[http://code.google.com/p/perm/wiki/Manual Back to manual]
