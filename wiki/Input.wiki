@@ -14,7 +14,7 @@ Inside our program, sequences are concatenated and separated by "N", so no junct
 
 ==== Index file ====
 PerM can saved the preprocessed reference into binary index file, by specify the argument.
-{{{ -m -s /PATH.index }}}. The default index file name is a used
+{{{ -m -s /PATH.index }}}. The default index file name, <read_length>_<>_<> is used
 
 Limited by OS the system, the index file name couldn't be too long to be saved. 
 
