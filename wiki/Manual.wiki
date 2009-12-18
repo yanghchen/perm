@@ -24,6 +24,12 @@ For example:
  * {{{./PerM ref.fa -1 F3.fa -2 R3.fa -U 3000 -L 100 -v 5 -A -m -s -o out.sam}}}
  * {{{./PerM ref.txt -1 F3.fq -2 R3.fq -v 5 -m -s my.index -o out.mapping --seed F3}}}
  * {{{./PerM my.index -1 F3.fq -2 R3.fq -U 3000 -L 100 -v 5 -A -o out.sam}}}
+
+To build index only: {{{ PerM <Ref> <Read Length> <--readFormat {.csfasta | .fasta}> <-m -s indexPath> }}}
+
+For example:
+ * {{{./PerM hg18.txt 50 -m -s hg18.index}}}
+
 == Command Line Options ==  
 ==== Required Arguments ====
  # The reference file should be in fasta format with the corresponding ext name ex: .fasta, .fna. or .fa. For transcriptom with multiple genes or isoforms as reference, concatenate all fasta in a fasta file. Or, if there are many files, one for each chromosome, ex: chr1.fa to chrY.fa, list them in a .txt file, so PerM knows it is a file listing the path of multiple fasta file.  
