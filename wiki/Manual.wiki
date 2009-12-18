@@ -28,7 +28,7 @@ For example:
 To build index only: {{{ PerM <Ref> <Read Length> <--readFormat {.csfasta | .fasta}> <-m -s indexPath> }}}
 
 For example:
- * {{{./PerM hg18.txt 50 -m -s hg18.index}}}
+ * {{{./PerM hg18.txt 50 --readFormat .csfasta -m -s hg18_50_SOLiD.index}}}
 
 == Command Line Options ==  
 ==== Required Arguments ====
