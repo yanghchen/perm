@@ -1,5 +1,5 @@
 #labels Featured
-If you have any usage question, please email "yanghoch at usc.edu".
+If you have any usage question, please email "yanghoch at usc dot edu".
 
 == CONTENTS ==  
 === [http://code.google.com/p/perm/wiki/Compile Compile] ===
