@@ -50,7 +50,7 @@ For example:
 ====Long Options====
 || *--statsOnly* || || Output the mapping statistics in stdout only, without saving alignments to files||
 || *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
-|| *--seed* ||_{F,,2,, | S,,11,, | F,,3,, | F,,4,,}_|| use the specified seed pattern, which has different full sensitivity. Check [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for seed patterns to balance the sensitivity and running time.||
+|| *--seed* ||_{F,,2,, | S,,11,, | F,,3,, | F,,4,,}_|| use to specify the seed pattern, which has different full sensitivities. Check [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for seed patterns to balance the sensitivity and running time.||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of gussing according to the ext name. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' in fasta or csfasta. ||
 
