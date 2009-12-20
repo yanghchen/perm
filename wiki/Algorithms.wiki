@@ -1,6 +1,7 @@
 #labels Featured
 PerM uses special periodic spaced seeds to balance the sensitivity and speed. 
-The following table shows the seed used for 50 bp SOLiD read
+The following table shows the seed used for 50 bp SOLiD read. Specify which seed pattern to use to balance the speed and sensitivity, ex: specify {{{--seed F4}}} to be full sensitive to four mismatches. 
+
 ||*Seed Name*||*Pattern*||Weight (Before extend)||Full Sensitive to||
 ||F,,2,,||{{{(111*1**)(111*1**)(111*1**)(111*1**)(111*1**)(111*1**)1}}}||25||2 mis|| 
 ||S,,1,1,,||{{{(1111**1***)(1111**1***)(1111**1***)(1111*1***)}}}||20||1 mis+1 SNP||
