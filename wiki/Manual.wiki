@@ -78,7 +78,7 @@ The upper bound and lower bound can be negative, which may catch the re-arrangem
 
 ==== Default setting ====  
 The following is the default setting when the corresponding arg are not specified. Please specify the arg to change the default settings.
-  * Allow only two mismatches only in each end and use seed F,,2,, or S,,11,, 
+  * Allow only two mismatches only in each end and use seed F,,2,, S,,11,, or F,,3,, ,selected according to the read lengths and types.
   * Print the best alignments for each read in term of mismatches number. 
   * Output files in `*`.mapping format.
   * Search the saved index with the default file name, before building the new index.
