@@ -50,7 +50,7 @@ For example:
 ====Long Options====
 || *--statsOnly* || || Output the mapping statistics in stdout only, without saving alignments to files||
 || *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
-|| *--seed* ||_{F,,2,, | S,,11,, | F,,3,, | F,,4,,}_||Use the specified seed pattern. Check [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for seed patterns to balance the sensitivity and running time.||
+|| *--seed* ||_{F,,2,, | S,,11,, | F,,3,, | F,,4,,}_|| use the specified seed pattern, which has different full sensitivity. Check [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for seed patterns to balance the sensitivity and running time.||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of gussing according to the ext name. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' in fasta or csfasta. ||
 
@@ -78,7 +78,7 @@ The upper bound and lower bound can be negative, which may catch the re-arrangem
 
 ==== Default setting ====  
 The following is the default setting when the corresponding arg are not specified. Please specify the arg to change the default settings.
-  * Allow only two mismatches in each end and use seed F,,2,, or S,,11,,
+  * Allow only two mismatches only in each end and use seed F,,2,, or S,,11,, 
   * Print the best alignments for each read in term of mismatches number. 
   * Output files in `*`.mapping format.
   * Search the saved index with the default file name, before building the new index.
