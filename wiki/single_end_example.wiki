@@ -1,5 +1,5 @@
 ====./PerM Ref.fasta Reads.fasta -v 5 -o out.mapping ====
-With the above command, PerM maps reads in {{{reads.fa}}} to the reference sequences in {{{Ref.fasta}}}, allowing five mismatches. However, the default [http://code.google.com/p/perm/wiki/Algorithms seed] chosen according to the read length, is only full sensitive to two or three mismatches. PerM first checks if the index had been saved in the default path. If yes, use it; if no, build it. It won't save the index in disk, unless flag {{{-s}}} is specified. It outputs to the file {{{out.mapping}}} in the [http://code.google.com/p/perm/wiki/Output mapping] format. 
+With the above command, PerM maps reads in {{{reads.fa}}} to the reference sequences in {{{Ref.fasta}}}, allowing five mismatches. However, the default [http://code.google.com/p/perm/wiki/Algorithms seed] chosen according to the read length, is only full sensitive to two or three mismatches. PerM first checks if the index had been saved in the default path. If yes, use it; if no, build it. It won't save the index in disk. It outputs to the file {{{out.mapping}}} in the [http://code.google.com/p/perm/wiki/Output mapping] format. 
 
 ====./PerM hg18.txt Reads.txt -v 5 -E -u Missed.fa ====
 The {{{hg18.txt}}} should be file listing each reference fasta file in a line.
@@ -7,7 +7,10 @@ The {{{Reads.txt}}} should be the file listing each reads set in a line.
 [http://code.google.com/p/perm/wiki/Input more]. With flag {{{-E}}}, PerM will exclude the ambiguous mapping and output only the unique mapping, in term of number of mismatches. 
 It allows five mismatches and output the unmapped reads to file {{{Missed.fa}}}
 
-====./PerM Ref.fasta Reads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F3 ====
+====./PerM Ref.fasta Reads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F4 ====
+PerM guesses the read format as _SOLiD_ read format, according to the file's ext name. 
+One can also use flag [http://code.google.com/p/perm/wiki/Manual --readFormat] to specify the format too. With {{{-m -s my.index}}}, PerM builds and saves index the the file {{{my.index}}}. It uses comma as the delimiter to extract the read Id in the "header line" in the csfasta file. With {{{--seed F4}}}, PerM use the seed which is full sensitive to four mismatches to build index, which could be significantly slower than {{{F3 or S,,11,,}}} seed. 
+
 ====./PerM my.index SingleEndReads.csfasta -v 5 -o out.sam ====
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
