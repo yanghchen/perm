@@ -1,4 +1,4 @@
- * {{{./PerM Ref.fasta Reads.fasta -v 5 -o out.mapping}}} 
+ < {{{./PerM Ref.fasta Reads.fasta -v 5 -o out.mapping}}} >
 In this example, PerM maps reads.fa to Ref.fasta, allowing five mismatches and output in 
 [http://code.google.com/p/perm/wiki/Output .mapping] format. It will check if the index has been saved in the default path. If yes, use the index; if no, build the index, but won't save it in the default path. The seed is chosen by PerM, according to the read length.
 
