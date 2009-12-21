@@ -4,13 +4,14 @@ With the above command, PerM maps reads in {{{reads.fa}}} to the reference seque
 ====./PerM hg18.txt Reads.txt -v 5 -E -u Missed.fa ====
 The {{{hg18.txt}}} should be file listing each reference fasta file in a line.
 The {{{Reads.txt}}} should be the file listing each reads set in a line. 
-[http://code.google.com/p/perm/wiki/Input more]. With flag {{{-E}}}, PerM will exclude the ambiguous mapping and output only the unique mapping, in term of number of mismatches. 
+[http://code.google.com/p/perm/wiki/Input more]. If your computer support [http://openmp.org/wp/ OpenMP.], PerM assigns one CPU per read set in the list, and mapped them in parallel. With flag {{{-E}}}, PerM will exclude the ambiguous mapping and output only the unique mapping, in term of number of mismatches. 
 It allows five mismatches and output the unmapped reads to file {{{Missed.fa}}}
 
 ====./PerM Ref.fasta Reads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F4 ====
 PerM guesses the read format as _SOLiD_ read format, according to the file's ext name. 
 One can also use flag [http://code.google.com/p/perm/wiki/Manual --readFormat] to specify the format too. With {{{-m -s my.index}}}, PerM builds and saves index the the file {{{my.index}}}. It uses comma as the delimiter to extract the read Id in the "header line" in the csfasta file. With {{{--seed F4}}}, PerM use the seed which is full sensitive to four mismatches to build index, which could be significantly slower than {{{F3 or S,,11,,}}} seed. 
 
-====./PerM my.index SingleEndReads.csfasta -v 5 -o out.sam ====
+====./PerM my.index reads.csfasta -v 5 -o out.sam ====
+PerM reads in the saved index {{{my.index}}} and do the mapping. It output in [http://samtools.sourceforge.net/ SAM]" format, according to the ext name. 
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
