@@ -8,7 +8,17 @@ PerM takes single or multiple fasta files as the reference. The file should have
 /data/chrY.fa
 }}}
 PerM also takes fasta with multiple sequences separated by a line start with "> Sequence Name", which is typically gene transcripts or contigs. The first word after ">" will be used as a "Sequence Name", which will be showed in the alignments result output. 
-
+For example, in reads.fa: 
+{{{
+>gene1 
+ACGTACGTACGTACGTACGTACGTACGTACGT
+>gene2 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+...
+>geneN
+ACGTACGTACGTACGTACGTACGTACGTACGT
+}}}
+"geneN" will be the Id for the reference sequence and be printed in the mapping result. 
 ==== Non-ACGT characters ====
 Inside our program, sequences are concatenated and separated by "N", so no junction will be aligned. Only ACGT and N are allowed in the reference file. Other valid nucleotide symbol such as U, R, Y, M, K, S, W, B, D, H, V will be modified to "N". 
 
