@@ -1,11 +1,11 @@
 ====./PerM Ref.fasta Reads.fasta -v 5 -o out.mapping ====
 With the above command line, PerM maps reads.fa to Ref.fasta, allowing five mismatches and output to out.mapping in the [http://code.google.com/p/perm/wiki/Output .mapping] format. It will check if the index has been saved in the default path. If yes, use the index; if no, build the index, but won't save it in the default path. The seed is chosen by PerM, according to the read length.
 
-====./PerM hg18.txt ReadsSetFilesList.txt -v 5 -E -u unmappedReads.fa ====
+====./PerM hg18.txt ReadsList.txt -v 5 -E -u MissedReads.fa ====
 The {{{hg18.txt}}} should be file listing each reference fasta file in a line.
-The {{{ReadsSetFilesList.txt}}} should be file listing each reads set in a line. 
+The {{{ReadsList.txt}}} should be file listing each reads set in a line. 
 [http://code.google.com/p/perm/wiki/Input (detail)]. With {{{-E}}} PerM will exclude the ambiguous mapping and output only the unique mapping, in term of number of mismatches. 
-It allows five mismatches and output the unmapped reads to file {{{unmappedReads.fa}}}
+It allows five mismatches and output the unmapped reads to file {{{MissedReads.fa}}}
 
 ====./PerM Ref.fasta Reads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F3 ====
 ====./PerM my.index SingleEndReads.csfasta -v 5 -o out.sam ====
