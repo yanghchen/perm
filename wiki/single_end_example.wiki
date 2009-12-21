@@ -1,5 +1,8 @@
 ====./PerM Ref.fasta Reads.fasta -v 5 -o out.mapping ====
-With the above command, PerM maps reads in {{{reads.fa}}} to the reference sequences in {{{Ref.fasta}}}, allowing five mismatches. However, the default [http://code.google.com/p/perm/wiki/Algorithms seed] chosen according to the read length, is only full sensitive to two or three mismatches. PerM first checks if the index had been saved in the default path. If yes, use it; if no, build it. It won't save the index in disk. It outputs to the file {{{out.mapping}}} in the [http://code.google.com/p/perm/wiki/Output mapping] format. 
+ * PerM maps reads in {{{reads.fa}}} to the reference sequences in {{{Ref.fasta}}}
+ * PerM allows five mismatches, however the default [http://code.google.com/p/perm/wiki/Algorithms seed] chosen according to the read length, is only full sensitive to two or three mismatches. 
+ * PerM first checks if the index had been saved in the default path. If yes, use it; if no, build it. It won't save the index in disk. 
+ * PerM outputs to the file {{{out.mapping}}} in the [http://code.google.com/p/perm/wiki/Output mapping] format. 
 
 ====./PerM hg18.txt Reads.txt -v 5 -E -u Missed.fa ====
 The {{{hg18.txt}}} should be file listing each reference fasta file in a line.
