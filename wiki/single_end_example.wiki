@@ -6,8 +6,8 @@
 
 ====./PerM hg18.txt Reads.txt -v 5 -E -u Missed.fa ====
  * The {{{hg18.txt}}} should be file listing each reference fasta file in a line.
- * The {{{Reads.txt}}} should be the file listing each reads set in a line. 
-[http://code.google.com/p/perm/wiki/Input more]. If your computer support [http://openmp.org/wp/ OpenMP.], PerM assigns one CPU per read set in the list, and mapped them in parallel. 
+ * The {{{Reads.txt}}} should be the file listing each reads set in a line. [http://code.google.com/p/perm/wiki/Input more]. 
+ * If your computer support [http://openmp.org/wp/ OpenMP.], PerM assigns one CPU per read set in the list, and mapped them in parallel. 
  * With flag {{{-E}}}, PerM will exclude the ambiguous mapping and output only the unique mapping, in term of number of mismatches. 
  * It allows five mismatches and output the unmapped reads to file {{{Missed.fa}}}
 
