@@ -4,7 +4,7 @@ With the above command line, PerM maps reads.fa to Ref.fasta, allowing five mism
 ====./PerM RefFilesList.txt ReadsSetFilesList.txt -v 5 -E -u unmappedReads.fa ====
 The {{{RefFilesList.txt}}} should be file listing each reference fasta file in a line.
 The {{{ReadsSetFilesList.txt}}} should be file listing each reads set in a line. 
-[http://code.google.com/p/perm/wiki/Input more description. With {{{-E}} PerM will exclude the ambiguous mapping and output only the unique mapping, in term of number of mismatches. 
+[http://code.google.com/p/perm/wiki/Input (detail)]. With {{{-E}}} PerM will exclude the ambiguous mapping and output only the unique mapping, in term of number of mismatches. 
 It allows five mismatches and output the unmapped reads to file {{{unmappedReads.fa}}}
 
 ====./PerM Ref.fasta Reads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F3 ====
