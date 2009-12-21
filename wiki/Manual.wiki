@@ -17,8 +17,7 @@ For example:
  * {{{./PerM Ref.fasta Reads.fasta -v 5 -o out.mapping}}} [http://code.google.com/p/perm/wiki/single_end_example1 (more)]
  * {{{./PerM RefFilesList.txt ReadsSetFilesList.txt -v 5 -u unmappedReads.fa -E }}} [http://code.google.com/p/perm/wiki/single_end_example2 (more)]
  * {{{./PerM Ref.fasta Reads.csfasta -v 5 -m -s my.index --delimiter ',' --seed F3}}} [http://code.google.com/p/perm/wiki/single_end_example3 (more)]
- * {{{./PerM my.index SingleEndReads.csfasta -v 5 -o out.sam}}} 
-[http://code.google.com/p/perm/wiki/single_end_example4 (more)]
+ * {{{./PerM my.index SingleEndReads.csfasta -v 5 -o out.sam}}} [http://code.google.com/p/perm/wiki/single_end_example4 (more)]
 
 For paired end read: {{{ PerM <Ref> -1 <F3_Reads> -2 <R3_Reads> [options] }}}
 For example:
