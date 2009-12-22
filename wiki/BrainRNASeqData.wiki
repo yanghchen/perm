@@ -1,6 +1,6 @@
 We are building the pipeline with PerM to deal with the RNA-seq data and estimate the expression level of each gene/isoform. The transcripts isoform are first enumerated using the known and detect splicing junctions, with certain heuristic isoform scoring scheme adopted from [http://www.ncbi.nlm.nih.gov/IEB/Research/Acembly/ AceView] data base. Second, we mapped the RNA-seq reads on the enumerated transcripts. Third, the mapping results are sent to Dr. Xiting Yan's *TranSEQ* program (unpublished) for estimate the expressed proportion of each isoforms. 
 
-The following is the preliminary [http://dw408k-1.cmb.usc.edu:8080/Gene_List.htm result] which can be browsed on the UCSC genome browser. 
+The preliminary [http://dw408k-1.cmb.usc.edu:8080/Gene_List.htm result] can be browsed on the UCSC genome browser. 
 
  * Follow the hyperlink to check a gene in a chosen chromosome. 
  * Click the _Expression_ link to see the mapped-reads coverage on the UCSC genome browser. 
