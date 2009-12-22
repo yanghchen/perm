@@ -1,4 +1,4 @@
-We are building the pipeline with PerM to deal with the RNA-seq data and estimate the expression level of each gene/isoform. The transcripts isoform are first enumerated using the known and detect splicing junctions, with certain heuristic isoform scoring scheme adopted from AceView data base. Second, we mapped the RNA-seq reads on the enumerated transcripts. Third, the mapping results are sent to Dr. Xiting Yan's *TranSEQ* program (unpublished) for estimate the expressed proportion of each isoforms. 
+We are building the pipeline with PerM to deal with the RNA-seq data and estimate the expression level of each gene/isoform. The transcripts isoform are first enumerated using the known and detect splicing junctions, with certain heuristic isoform scoring scheme adopted from [http://www.ncbi.nlm.nih.gov/IEB/Research/Acembly/ AceView] data base. Second, we mapped the RNA-seq reads on the enumerated transcripts. Third, the mapping results are sent to Dr. Xiting Yan's *TranSEQ* program (unpublished) for estimate the expressed proportion of each isoforms. 
 
 The following is the preliminary [http://dw408k-1.cmb.usc.edu:8080/Gene_List.htm result] which can be browsed on the UCSC genome browser. 
 
@@ -10,5 +10,3 @@ The following is the preliminary [http://dw408k-1.cmb.usc.edu:8080/Gene_List.htm
  * On the isoform ID, we attached the expression proportion and the expressed log likelihood. The log likelihood shows the confidence that the transcript is expressed. Inf log likelihood indicates there are reads uniquely mapped to the isoform.
  * The result can be compared with the transcript isoforms from the AceView data base by *BALT* them together.
  * The result of nucleotide sequence and the amino sequence should be *BLAT* separately.  
-
-
