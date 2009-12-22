@@ -8,5 +8,5 @@ The preliminary [http://dw408k-1.cmb.usc.edu:8080/Gene_List.htm result] can be b
  * Go back to previous page and click the selected _Isoforms_ of the gene to see the transcripts we enumerated. 
  * Copy the isoform sequence and [http://genome.ucsc.edu/cgi-bin/hgBlat?hgsid=148468955 BLAT] it on the genome browser to see it with the mapped reads signal.
  * On the isoform ID, we attached the expression proportion and the expressed log likelihood. The log likelihood shows the confidence that the transcript is expressed. Inf log likelihood indicates there are reads uniquely mapped to the isoform.
- * The result can be compared with the transcript isoforms from the AceView data base by *BALT* them together.
+ * The result can be compared with the [http://www.ncbi.nlm.nih.gov/IEB/Research/Acembly/ AceView]'s transcripts by [http://genome.ucsc.edu/cgi-bin/hgBlat?hgsid=148468955 BLAT]ing the result together.
  * The result of nucleotide sequence and the amino sequence should be [http://genome.ucsc.edu/cgi-bin/hgBlat?hgsid=148468955 BLAT] separately.  
