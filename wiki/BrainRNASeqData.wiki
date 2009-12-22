@@ -1,5 +1,6 @@
 We are building the pipeline with PerM to deal with the RNA-seq data and estimate the expression level of each gene/isoform. 
- # The putative transcripts are enumerated with the known and detected splicing junctions, using similar scoring scheme adopted from [http://www.ncbi.nlm.nih.gov/IEB/Research/Acembly/ AceView] data base. 
+ # The putative transcripts are enumerated from the region with coverage and  the known and detected splicing junctions.
+ # These isoforms are filetered by similar scoring scheme adopted from the [http://www.ncbi.nlm.nih.gov/IEB/Research/Acembly/ AceView] data base.  
  # The RNA-seq reads are mapped to the enumerated transcripts. 
  # The mapping results are sent to *TranSEQ* program, Dr. Xiting Yan's (unpublished) program for expression level's estimation.
 
