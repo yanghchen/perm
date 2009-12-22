@@ -4,7 +4,7 @@ We are building the pipeline with PerM to deal with the RNA-seq data and estimat
  # The RNA-seq reads are mapped to the enumerated transcripts. 
  # The mapping results are sent to *TranSEQ* program, Dr. Xiting Yan's (unpublished) program for expression levels estimation.
 
-The preliminary [http://dw408k-1.cmb.usc.edu:8080/Gene_List.htm result] can be browsed on the UCSC genome browser. 
+The preliminary [http://dw408k-1.cmb.usc.edu:8080/Gene_List.htm result] can be browsed on the UCSC genome browser, with the following steps. 
 
  * Follow the hyperlink to check a gene in a chosen chromosome. 
  * Click the _Expression_ link to see the mapped-reads coverage on the UCSC genome browser. 
