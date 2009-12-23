@@ -26,7 +26,7 @@ For [http://code.google.com/p/perm/wiki/paired_end_example example]:
  * {{{./PerM ref.txt -1 F3.fq -2 R3.fq -v 5 -m -s my.index -o out.mapping --seed F3}}}
  * {{{./PerM my.index -1 F3.fq -2 R3.fq -U 3000 -L 100 -v 5 -A -o out.sam}}}
 
-To build index only: {{{ PerM <Ref> <Read Length> --readFormat {.csfasta | .fasta} -m -s <index path> }}}
+To build index only: {{{ PerM <Ref> <Read Length> --readFormat {.csfasta | .fasta} -m -s <index path> --seed F3}}}
 
 For example:
  * {{{./PerM hg18.txt 50 --readFormat .csfasta -m -s hg18_50_SOLiD.index}}}
