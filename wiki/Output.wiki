@@ -15,9 +15,10 @@ The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileNa
 
 ==Mapping Results==
 PerM can output in SAM format, by specify the flag -o `*`.sam.
-Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/
+Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/ The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. 
 
 Here I described the the original output format, which has the ext name `*`.mapping. 
+
 ===Single-end read===
 Each line shows a qualified mapping info in the following order, separated by tab:
   * Read Id (Extract from the previous line of the reads input file. If the Id is missing, a fake tag will be used.)
@@ -29,6 +30,9 @@ Each line shows a qualified mapping info in the following order, separated by ta
   * Number of mismatches or the mismatches score (the sum of quality scores in the mis-matched bases) if available. 
   * Number of mappings that this read aligns to, including the current one. 
   * Reads qualities, numbers printed in characters with a Illimina Quality score shift 
+
+For Illumina reads with quality scores, users can use the tool [http://evolution.sysu.edu.cn/mapview/ MapView] to visualize the single-end result with the [ configure file] on Windows. 
+
 ===Paired-end read===
   * Read Id (Extract from the previous line of the forward reads input file. If the Id is missing, a fake tag will be used.)
   * The 1st read sequence. 5' to 3'.
