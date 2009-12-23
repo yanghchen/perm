@@ -31,7 +31,7 @@ Each line shows a qualified mapping info in the following order, separated by ta
   * Number of mappings that this read aligns to, including the current one. 
   * Reads qualities, numbers printed in characters with a Illimina Quality score shift 
 
-For Illumina reads with quality scores, users can use the tool [http://evolution.sysu.edu.cn/mapview/ MapView] to visualize the single-end result with the [ configure file] on Windows. 
+For Illumina reads with quality scores, users can use the tool [http://evolution.sysu.edu.cn/mapview/ MapView] to visualize the single-end result with the [http://perm.googlecode.com/files/MVFmaker_NewFormat.txt configure file] on Windows. 
 
 ===Paired-end read===
   * Read Id (Extract from the previous line of the forward reads input file. If the Id is missing, a fake tag will be used.)
