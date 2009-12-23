@@ -1,6 +1,6 @@
 PerM takes (1) Reference and (2)Reads as the input files.
 ==Reference Files==
-PerM takes single or multiple fasta files as the reference. The file should have a corresponding ext name, such as '.fasta, .fa, .fna or .mfa'. 
+PerM takes single or multiple fasta files as the reference. The file should have a corresponding ext name, such as '.fasta, .fa 
 PerM takes fasta with multiple sequences separated by a line start with "> Sequence Name", which is typically gene transcripts or contigs. The first word after ">" will be used as a "Sequence Name", which will be showed in the alignments result output. 
 For example, in reads.fa: 
 {{{
