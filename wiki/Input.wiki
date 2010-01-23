@@ -32,12 +32,12 @@ PerM can saved the preprocessed reference into binary index file, by specify the
 Limited by OS the system, the index file name couldn't be too long to be saved. 
 
 ==Read Files==
-PerM expects reads from either the SOLiD or Solexa sequencer. PerM guesses the read file format according to the first read file's ext name, ex: ".fasta", ".fastq", ".csfasta", ".csfastq". User can also use arg "--readFormat [csfata, fasta, fastq]> to specify the reads files format, if the input file has a different ext name. The read length are detected, according to the file format. Reads file format and the read lengths are assumed to be equal to the first read in the reads file list (.txt file). 
+PerM expects reads from either the SOLiD or Solexa sequencer. PerM guesses the read file format according to the first read file's ext name, ex: ".fasta", ".fastq", ".csfasta", ".csfastq". User can also use arg "--readFormat [csfata, fasta, fastq] to specify the reads files format, if the input file has a different ext name. The read length are detected, according to the file format. Reads file format and the read lengths are assumed to be equal to the first read in the reads file list (.txt file). 
 
 ==== SOLiD reads' quality ====
 For SOLiD reads in csfasta format, PerM will try to read the file with the same basename as the read set, however with the ext name ".qual" for quality score. That is, if the read file name is 7B.csfasta, its quality file "7B.qual" should be put beside.
 If quality score file is not available, or the reads and quality scores can't be matched, only the read sequences will be used. 
-(Tips! Use our shell splitReads.sh to split fasta or csfasta file into one million reads per set. It will generate a list file. Use the list file name as the input ptr of PerM.)
+(Tips! Use our shell [http://code.google.com/p/perm/downloads/detail?name=splitReads.sh&can=2&q=#makechanges splitReads.sh] to split fasta or csfasta file into one million reads per set. It will generate a list file. Use the list file name as the input ptr of PerM.)
 
 ==== Paired-end reads ====
 PerM takes two format of the paired end reads. 
