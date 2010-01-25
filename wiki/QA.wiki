@@ -4,12 +4,14 @@ Here I list some technical questions that I have been asked about how to use Per
 Excuse me if I haven't been able to arrange all of them systematically.
 
 For questions about PerM's algorithm, you may want to check the [http://code.google.com/p/perm/wiki/QAin2008USC_MCB_Retreat Q & A] questions in the 2008 UCS MCB retreat. You are very welcome to email me dirrectly.
+=== Q1 How many mismatches should I allow, is it correlated with --seed option? ===
+It depends on your read length and the error rates. `--seed` option decides different full sensitivity level with a balance of speed. `-v ` option decides the mismatches threshold. Ex: you can set --seed F3 -v 5, which report every alignments with 3 mismatches, and report 80% to 60% of the alignments with 4 and 5 mismatches in theory.  
 
-=== Q1 Will seed F3 or seed F4 increase running time by a lot? ===
+=== Q2 Will seed F3 or seed F4 increase running time by a lot? ===
 For transcriptom or small genome with long read (50bp) don't need to worry about speed. 
 Speed is a concern when the reference has a lot of repeat while reads are short so they randomly mapped to a lot of places. PerM actually reach *40M* 50bp reads per hour even to hg18, with F3 seed. For F4 seed, it reaches about *1~2M* reads per hours for entire genome, depending on whether the reads are from more repetitive regions. Let me know if the speed is lower than that. 
 
-=== Q2 Do you have a script to summarize how many reads are mapped to a ref ===
+=== Q3 Do you have a script to summarize how many reads are mapped to a ref ===
 You can use SAMTOOLS or other visualization to see the coverage. To summarize the reads per gene, for example:
 {{{
 gene1 100
