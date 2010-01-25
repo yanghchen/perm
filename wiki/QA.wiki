@@ -1,13 +1,6 @@
-#summary One-sentence summary of this page.
-
+#labels Featured
 = Introduction =
+Here I list some technical questions that I have been asked about how to use PerM. 
+Excuse me if I haven't been able to arrange all of them systematically.
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+For questions about PerM's aglrotihm, you might want to check the Q & A questions in the 2008 UCS MCB retreat, beside checking our paper. Of course, you are very welcome to email me dirrectly.
