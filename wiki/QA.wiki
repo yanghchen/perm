@@ -3,14 +3,20 @@ Here I list some technical questions that I have been asked about how to use Per
 Excuse me if I haven't been able to arrange all of them systematically.
 
 For questions about PerM's algorithm, you may also want to check the [http://code.google.com/p/perm/wiki/QAin2008USC_MCB_Retreat Q & A questions in the 2008 UCS MCB retreat]. You are very welcome to email me dirrectly.
-=== Q1 How many mismatches should I allow, is it correlated with --seed option? ===
+=== Q1 How can I map reads to multiple references? ===
+There are two ways described in the manual.
+For large chromosomes files, ex: chr1, chr2, .... chrY, you can make a list in ref.txt file and do the mapping For transcriptom file, you concatenate the fasta file of all gene in a file. (See manual)
+This is handy because you don't need to duplicate the large fasta file for each chromosome
+;while you can gather multiple short gene reference in a file. 
+
+=== Q2 How many mismatches should I allow, is it correlated with --seed option? ===
 It depends on your read length and the error rates. `--seed` option decides different full sensitivity level with a balance of speed. `-v ` option decides the mismatches threshold. Ex: you can set --seed F3 -v 5, which report every alignments with 3 mismatches, and report 80% to 60% of the alignments with 4 and 5 mismatches in theory.  
 
-=== Q2 Will seed F3 or seed F4 increase running time by a lot? ===
+=== Q3 Will seed F3 or seed F4 increase running time by a lot? ===
 For transcriptom or small genome with long read (50bp) don't need to worry about speed. 
 Speed is a concern when the reference has a lot of repeat while reads are short so they randomly mapped to a lot of places. PerM actually reach *40M* 50bp reads per hour even to hg18, with F3 seed. For F4 seed, it reaches about *1~2M* reads per hours for entire genome, depending on whether the reads are from more repetitive regions. Let me know if the speed is lower than that. 
 
-=== Q3 Do you have a script to summarize how many reads are mapped to a ref ===
+=== Q4 Do you have a script to summarize how many reads are mapped to a ref ===
 You can use SAMTOOLS or other visualization to see the coverage. To summarize the reads per gene, for example:
 {{{
 gene1 100
@@ -41,7 +47,7 @@ RNAME=3
 cat result.sam | cut -f $RNAME -d ' ' | sort | ./count > result.txt
 }}}
 Note this shell is far from perfect. You can easily improve it with perl or c++
-=== Q4 The order of reads in the csfasta file and qual file are not the same. Does the order have to be the same? ===
+=== Q5 The order of reads in the csfasta file and qual file are not the same. Does the order have to be the same? ===
 Reads and qual must be in the same order but you can sort the reads and quality file according the read name, otherwise, PerM barks. 
 If your read file in a standard format, you can sort than by
 {{{
@@ -49,8 +55,8 @@ cat reads.csfasta | tr '\n' '\t' | tr '>' '\n' | sort -k 1,1 | tr '\n' '>' | tr 
 cat reads.qual | tr '\n' '\t' | tr '>' '\n' | sort -k 1,1 | tr '\n' '>' | tr '\t' '\n'
 }}}
 Remember to backup your read file before any experiment. Unfortunately, I met many quality files that are embedded extra info in the read name.. ex: >readName,blah,blah.. so you need to use `sed' command to remove the blah blah ... first.
-=== Q5 How if my reference is a exon which is shorter than a read? ===
+=== Q6 How if my reference is a exon which is shorter than a read? ===
 That is fine. Internally, PerM use 'N' to separate each reference. No reads will mapped 
 across 'N' on the short reference. 
-=== Q6 How if I have multiple reference with the same reference name? ===  
+=== Q7 How if I have multiple reference with the same reference name? ===  
 PerM barks by listing the error messages to warn you. Internally, PerM still map them to each reference separately. However the output will print the same reference name, and the index of the reference will be mess up. 
