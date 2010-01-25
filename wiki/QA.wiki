@@ -9,7 +9,7 @@ For questions about PerM's algorithm, you may want to check the [http://code.goo
 For transcriptom or small genome with long read (50bp) don't need to worry about speed. 
 Speed is a concern when the reference has a lot of repeat while reads are short so they randomly mapped to a lot of places. PerM actually reach *40M* 50bp reads per hour even to hg18, with F3 seed. For F4 seed, it reaches about *1~2M* reads per hours for entire genome, depending on whether the reads are from more repetitive regions. Let me know if the speed is lower than that. 
 
-=== Q2 Do you have a scripts to summarize how many reads mapped to a gene ===
+=== Q2 Do you have a script to summarize how many reads are mapped to a ref ===
 You can use SAMTOOLS or other visualization to see the coverage. To summarize the reads per gene, for example:
 {{{
 gene1 100
