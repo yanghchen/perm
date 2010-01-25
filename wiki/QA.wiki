@@ -1,5 +1,4 @@
 #labels Featured
-= Introduction =
 Here I list some technical questions that I have been asked about how to use PerM. 
 Excuse me if I haven't been able to arrange all of them systematically.
 
