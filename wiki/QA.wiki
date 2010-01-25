@@ -42,5 +42,11 @@ RNAME=3
 cat result.sam | cut -f $RNAME -d ' ' | sort | ./count > result.txt
 }}}
 Note this shell is far from perfect. You can easily improve it with perl or c++
-Q3 
-Q4 
+=== Q4 The order of reads in the csfasta file and qual file are not the same. Does the order have to be the same? ===
+Reads and qual must be in the same order but you can sort the reads and quality file according the read name, otherwise, PerM barks. 
+If your read file in a standard format, you can sort than by
+{{{
+cat reads.csfasta | tr '\n' '\t' | tr '>' '\n' | sort -k 1,1 | tr '\n' '>' | tr '\t' '\n'
+cat reads.qual | tr '\n' '\t' | tr '>' '\n' | sort -k 1,1 | tr '\n' '>' | tr '\t' '\n'
+}}}
+Remember to backup your read file before any experiment. Unfortunately, I met many quality files that are embedded extra info in the read name.. ex: >readName,blah,blah.. so you need to use `sed' command to remove the blah blah ... first.
