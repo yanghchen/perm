@@ -3,4 +3,10 @@
 Here I list some technical questions that I have been asked about how to use PerM. 
 Excuse me if I haven't been able to arrange all of them systematically.
 
-For questions about PerM's aglrotihm, you might want to check the [http://code.google.com/p/perm/wiki/QAin2008USC_MCB_Retreat Q & A] questions in the 2008 UCS MCB retreat beside checking our paper. You are very welcome to email me dirrectly.
+For questions about PerM's algorithm, you may want to check the [http://code.google.com/p/perm/wiki/QAin2008USC_MCB_Retreat Q & A] questions in the 2008 UCS MCB retreat. You are very welcome to email me dirrectly.
+
+[ Q1 Will seed F3 or seed F4 increase running time by a lot? ]
+You don't need to worry about speed at all, I think. The transcriptom are sm and your reads are long, and there are much less repeat in the RNA. Speed is a concern when the reference has a lot of repeat while reads are short so they randomly mapped to a lot of places. PerM actually map 40M 50bp reads per hour even to hg18, with F3 seed. Let me know if the speed is lower than that. You can actually try --seed F4, and allowing higher number of mismatches, and see if there are significantly more reads are mapped. 
+Q2 
+Q3 
+Q4 
