@@ -3,4 +3,4 @@
 Here I list some technical questions that I have been asked about how to use PerM. 
 Excuse me if I haven't been able to arrange all of them systematically.
 
-For questions about PerM's aglrotihm, you might want to check the Q & A questions in the 2008 UCS MCB retreat, beside checking our paper. Of course, you are very welcome to email me dirrectly.
+For questions about PerM's aglrotihm, you might want to check the [http://code.google.com/p/perm/wiki/QAin2008USC_MCB_Retreat Q & A] questions in the 2008 UCS MCB retreat beside checking our paper. You are very welcome to email me dirrectly.
