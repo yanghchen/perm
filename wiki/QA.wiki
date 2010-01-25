@@ -3,7 +3,7 @@
 Here I list some technical questions that I have been asked about how to use PerM. 
 Excuse me if I haven't been able to arrange all of them systematically.
 
-For questions about PerM's algorithm, you may want to check the [http://code.google.com/p/perm/wiki/QAin2008USC_MCB_Retreat Q & A] questions in the 2008 UCS MCB retreat. You are very welcome to email me dirrectly.
+For questions about PerM's algorithm, you may also want to check the [http://code.google.com/p/perm/wiki/QAin2008USC_MCB_Retreat Q & A questions in the 2008 UCS MCB retreat]. You are very welcome to email me dirrectly.
 === Q1 How many mismatches should I allow, is it correlated with --seed option? ===
 It depends on your read length and the error rates. `--seed` option decides different full sensitivity level with a balance of speed. `-v ` option decides the mismatches threshold. Ex: you can set --seed F3 -v 5, which report every alignments with 3 mismatches, and report 80% to 60% of the alignments with 4 and 5 mismatches in theory.  
 
