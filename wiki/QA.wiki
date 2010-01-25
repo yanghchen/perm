@@ -5,9 +5,7 @@ Excuse me if I haven't been able to arrange all of them systematically.
 For questions about PerM's algorithm, you may also want to check the [http://code.google.com/p/perm/wiki/QAin2008USC_MCB_Retreat Q & A questions in the 2008 UCS MCB retreat]. You are very welcome to email me dirrectly.
 === Q1 How can I map reads to multiple references? ===
 There are two ways described in the manual.
-For large chromosomes files, ex: chr1, chr2, .... chrY, you can make a list in ref.txt file and do the mapping For transcriptom file, you concatenate the fasta file of all gene in a file. (See manual)
-This is handy because you don't need to duplicate the large fasta file for each chromosome
-;while you can gather multiple short gene reference in a file. 
+For large chromosomes files, ex: chr1, chr2, .... chrY, you can make a list in ref.txt file and do the mapping For transcriptom with multiple genes, concatenate the fasta file of all gene in a file. (See manual) This design is handy because you don't need to duplicate the large fasta file for each chromosome; while you can gather multiple short gene reference in a file. 
 
 === Q2 How many mismatches should I allow, is it correlated with --seed option? ===
 It depends on your read length and the error rates. `--seed` option decides different full sensitivity level with a balance of speed. `-v ` option decides the mismatches threshold. Ex: you can set --seed F3 -v 5, which report every alignments with 3 mismatches, and report 80% to 60% of the alignments with 4 and 5 mismatches in theory.  
@@ -60,3 +58,6 @@ That is fine. Internally, PerM use 'N' to separate each reference. No reads will
 across 'N' on the short reference. 
 === Q7 How if I have multiple reference with the same reference name? ===  
 PerM barks by listing the error messages to warn you. Internally, PerM still map them to each reference separately. However the output will print the same reference name, and the index of the reference will be mess up. 
+
+=== Q8 Do I need to build the index first and than do the mapping ===
+Its up to you. If you don't need to do the mapping again, the default won't save the index. I test building hg18 index with 16 CPU for PerM, it takes half an hour. You may think it is not a big deal compared to storing a 14GB index file. Be careful if you change the reference, delete or rebuild the index to avoid confusion.
