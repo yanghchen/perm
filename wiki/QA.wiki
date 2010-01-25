@@ -16,7 +16,7 @@ gene1 100
 gene2 50
 gene3 10
 }}}
-try a simple script that I just wrote in 1 minutes.
+try a simple script that I just wrote in 3 minutes.
 {{{
 #!/bin/bash
 function count {
