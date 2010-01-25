@@ -60,4 +60,4 @@ across 'N' on the short reference.
 PerM barks by listing the error messages to warn you. Internally, PerM still map them to each reference separately. However the output will print the same reference name, and the index of the reference will be mess up. 
 
 === Q8 Should I save the index first and then do the mapping ===
-Its up to you. If you don't need to do the mapping again, the default won't save the index. I test building hg18 index with 16 CPU for PerM, it takes half an hour. You may think it is not a big deal compared to storing a 14GB index file. Be careful if you change the reference, delete or rebuild the index to avoid confusion.
+Its up to you. The default won't save the index. I can build hg18 index with 16 CPU for PerM in half hour. You may think it is small trade off compared to storing a 14GB index file. Be careful if you change the reference, delete or rebuild the index to avoid confusion.
