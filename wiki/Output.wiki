@@ -15,7 +15,7 @@ The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileNa
 
 ==Mapping Results==
 PerM can output in SAM format, by specify the flag -o `*`.sam.
-Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/ The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. 
+Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/ The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. You can also try [Araon's Quinlan http://people.virginia.edu/~arq5x/utilities.html]'s [python script http://people.virginia.edu/~arq5x/files/utilities/python/samToBed.py] to translate the sam format to bed file and showed in the genome browser. 
 
 Here I described the the original output format, which has the ext name `*`.mapping. 
 
