@@ -61,3 +61,6 @@ PerM barks by listing the error messages to warn you. Internally, PerM still map
 
 === Q8 Should I save the index first and then do the mapping ===
 Its up to you. The default won't save the index. I can build hg18 index with 16 CPU for PerM in half hour. You may think it is small trade off compared to storing a 14GB index file. Be careful if you change the reference, delete or rebuild the index to avoid confusion.
+
+=== Q9 How if my input reads has different read length, can we mapped it together? ===
+Unfortunately, PerM's index is for fixed read length. It use the first read length to build the index. PerM will print warning message when it encounter a read with unexpected length and keep mapping the rest of reads. To check how many reads are thrown away, use wc -l command and check the different read length in the final report. You are actually suggested to split the reads according to their lengths to different files and mapped each of them independently. 
