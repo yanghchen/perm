@@ -32,10 +32,7 @@ Each line shows a qualified mapping info in the following order, separated by ta
   * Reads qualities, numbers printed in characters with a Illimina Quality score shift. 
 
 The last column for the quality scores will be missed if the input read is in fasta format (no quality scores). To grep the uniquely mapped read, use 
-
-{{{grep -P '\t1\t[!\t]*\t$' [result].mapping }}} 
-
-to extract the line with last second column with value 1. 
+{{{grep -P '\t1\t[!\t]*\t$' [result].mapping }}} to extract the line with last second column with value 1. 
  
 For Illumina reads with quality scores(fastq file), users can use the tool [http://evolution.sysu.edu.cn/mapview/ MapView] to visualize the single-end result with the [http://perm.googlecode.com/files/MVFmaker_NewFormat.txt configure file] on Windows. 
 
