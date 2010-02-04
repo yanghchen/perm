@@ -64,3 +64,6 @@ Its up to you. The default won't save the index. I can build hg18 index with 16 
 
 === Q9 How if my input reads has different read length, can we mapped it together? ===
 Unfortunately, PerM's index is for fixed read length. It use the first read length to build the index. PerM will print warning message when it encounter a read with unexpected length and keep mapping the rest of reads. To check how many reads are thrown away, use wc -l command and check the different read length in the final report. You are actually suggested to split the reads according to their lengths to different files and mapped each of them independently. 
+
+=== Q10 I set up same option twice with different value in my command line. Which arg that PerM will use? ===
+Ex: if you set -v 5 -v 3. It will take the first arg. If you have more concern, fixed the arg and run it again.
