@@ -49,12 +49,12 @@ For example:
 || *-u* ||_Path_|| Print the fasta(fastq) file of those unmapped reads to a file. ||
 
 ====Long Options====
+|| *--includeReadsWN*|| || Include the reads with N or \'.\', but will be encoded as A or 3 ||
 || *--statsOnly* || || Output the mapping statistics in stdout only, without saving alignments to files||
 || *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
 || *--seed* ||_{F,,2,, | S,,11,, | F,,3,, | F,,4,,}_|| specify the seed pattern, which has a specific full sensitivity. Check [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for seed patterns to balance the sensitivity and running time.||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of gussing according to the ext name. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' in fasta or csfasta. ||
-|| *--includeReadsWN*|| || Include the reads with N or \'.\', but will encoded as A or 3 ||
 
 [http://code.google.com/p/perm/wiki/single_end_example Examples]
 
