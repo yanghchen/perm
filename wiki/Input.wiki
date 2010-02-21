@@ -38,7 +38,7 @@ PerM expects reads from either the SOLiD or Solexa sequencer. PerM guesses the r
 For SOLiD reads in csfasta format, PerM will try to read the file with the same basename as the read set, however with the ext name ".qual" for quality score. That is, if the read file name is 7B.csfasta, its quality file "7B.qual" should be put beside.
 If quality score file is not available, or the reads and quality scores can't be matched, only the read sequences will be used. 
 (Tips! Use our shell [http://code.google.com/p/perm/downloads/detail?name=splitReads.sh&can=2&q=#makechanges splitReads.sh] to split fasta or csfasta file into one million reads per set. It will generate a list file. Use the list file name as the input ptr of PerM. To keep the mapping statistics and error message, redirect the redirect the standard output to a log file, {{{ ex: PerM Ref.fa Reads.csfasta -v 3 | tee my.log }}}.
-If you mapped multiple reads sets in the same time, you can use the [http://perm.googlecode.com/files/PerMStats.sh scripts to extract mapping counts for your convenience. 
+If you mapped multiple reads sets in the same time, you can use the [http://perm.googlecode.com/files/PerMStats.sh scripts ]to extract mapping counts for your convenience. 
 )
 
 ==== Paired-end reads ====
