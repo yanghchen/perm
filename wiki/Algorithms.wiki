@@ -15,7 +15,7 @@ Many programs, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite all use simila
 == Compared to BWT-Based Methods ==
 Bowtie, BQA and SOAPv2 use the Burrows-Wheeler Transform to achieve a super memory efficient and fast reads mapping, especially for high quality, short reads, with no full sensitivity guaranteed. However, compared to the BWT based methods, PerM still has the following advantages. 
 
-(0) PerM can build index in shorter time, although with larger memory usage. Moreover, PerM can take advantage of multiple CPUs (potentially in GPU) to build the index in parallel. This feature is helpful under modern multi-cores computers, especially for the one-time mapping task.
+(0) PerM can build index in shorter time, although with larger memory usage. Moreover, PerM can use multiple CPUs (potentially in GPU) to build the index in parallel. Ex: 16 CPU shrinks the hg18 index time from 2hrs to 36 minutes; while the bwt methods may need 2 to 3 hours to build their index. This feature of PerM makes it very helpful for the one-time mapping task.
 
 (1) PerM has special higher-weight seed to detect SNPs on the SOLiD color-base reads. 
 
