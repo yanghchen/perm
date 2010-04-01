@@ -1,21 +1,24 @@
-The summary of the mapping results are printed directly to the screen. They include the  number of reads mapped with each number of mismatches and the running time of each step. 
-use " | tee mapping.log" to get the summary and "grep" for the statistics. 
-
-PerM outputs the mapping summary stats in the standard output. Here I show the example of bash command to parse the stats. 
-{{{ PerM ref.fa reads.fa -v 3 | tee stats.txt}}}
-
+The summary of the mapping results are printed from stdout. They include the number of reads mapped with each number of mismatches and the running time of each step. 
+Use " | tee mapping.log" to get the summary and "grep" for the statistics. 
+Ex:
 {{{ cat stats.txt | tr '\r' '\n' | grep 'Sub' }}}
 
 {{{ cat stats.txt | tr '\r' '\n' | grep 'Read#' }}}
 
+You can also use the script 
+[http://perm.googlecode.com/files/PerMStat.sh PerMStat.sh] to get mapping statistics for multiple mapping read sets.
+
 PerM generates (1)index (2) mapping result (3) Unmapped reads files.
+
 == Index ==
 From version 0.1.8, PerM's index has changed to include reference sequence in binary format. Users can specify the index path, however must keep the ext name as .index
 The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
 
 ==Mapping Results==
-PerM can output in SAM format, by specify the flag -o `*`.sam.
-Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/ The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. You can also try [http://people.virginia.edu/~arq5x/utilities.html Araon's Quinlan]'s [http://people.virginia.edu/~arq5x/files/utilities/python/samToBed.py python script] to translate the sam format to bed file to show result in the genome browser. 
+PerM can output in *SAM* format, by specify the flag -o `*`.sam.
+Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/ and its [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage] to see how to translate the sam(bam)to bed format. 
+
+The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. You can also try [http://people.virginia.edu/~arq5x/utilities.html Araon's Quinlan]'s [http://people.virginia.edu/~arq5x/files/utilities/python/samToBed.py python script] to translate the sam format to bed file to show result in the genome browser. 
 
 Here I described the the original output format, which has the ext name `*`.mapping. 
 
