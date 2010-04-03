@@ -4,4 +4,5 @@ To get the expression level of RNA-seq from sam file, I wrote a simple bash shel
 
 
 [http://code.google.com/p/perm/wiki/Output Back to output]
+
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
