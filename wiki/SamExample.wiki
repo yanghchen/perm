@@ -1,7 +1,3 @@
 #labels samTools
-Samtools provides functions to pileup and get consensus sequence. 
-To get the expression level of RNA-seq from sam file, I wrote a simple bash shell wrapper to combine multiple steps into one command. 
-
-
-You can use my python script (wig2Bed.py)to further condense the wiggle file into bed.
-The output example can be further process to be showed on the genome browsers as the [http://dw408k-1.cmb.usc.edu:8080/GeneList.htm web page] on my computer. 
+You can use samtools to to pileup and get consensus sequence. 
+To get the expression level of RNA-seq from sam file, I wrote a simple bash shell wrapper [http://perm.googlecode.com/files/pileUp.sh wrapper]to combine multiple steps into one command. After you get the wig file with signal for each base-pair, you can further condense it to bed with my python scripts [http://perm.googlecode.com/files/Wig2Bed.py wig2Bed.py]. The output can be be showed on the genome browsers as the [http://dw408k-1.cmb.usc.edu:8080/GeneList.htm web page] on my computer, if proper headers line are added. 
