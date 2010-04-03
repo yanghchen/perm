@@ -1,14 +1,7 @@
-#summary One-sentence summary of this page.
 #labels samTools
-
-= Introduction =
-
-Add your content here.
+Samtools provides functions to pileup and get consensus sequence. 
+To get the expression level of RNA-seq from sam file, I wrote a simple bash shell wrapper to combine multiple steps into one command. 
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+You can use my python script (wig2Bed.py)to further condense the wiggle file into bed.
+The output example can be further process to be showed on the genome browsers as the [http://dw408k-1.cmb.usc.edu:8080/GeneList.htm web page] on my computer. 
