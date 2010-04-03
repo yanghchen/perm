@@ -10,11 +10,12 @@ You can also use the script
 
 PerM generates (1)index (2) mapping result (3) Unmapped reads files.
 
-== Index ==
+= Index =
 From version 0.1.8, PerM's index has changed to include reference sequence in binary format. Users can specify the index path, however must keep the ext name as .index
 The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
 
-==Mapping Results==
+=Mapping Results=
+== SAM Format ==
 PerM can output in *SAM* format, by specify the flag -o `*`.sam.
 Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/ and its [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage]. 
 Once the reads is pileup, you can also 
@@ -26,7 +27,7 @@ Once the reads is pileup, you can also
 The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. You can also try [http://people.virginia.edu/~arq5x/utilities.html Araon's Quinlan]'s [http://people.virginia.edu/~arq5x/files/utilities/python/samToBed.py python script] to translate the sam format to bed file to show result in the genome browser. 
 
 Here I described the the original output format, which has the ext name `*`.mapping. 
-
+== PerM's Mapping Format ==
 ===Single-end read===
 Each line shows a qualified mapping info in the following order, separated by tab:
   * Read Id (Extract from the previous line of the reads input file. If the Id is missing, a fake tag will be used.)
