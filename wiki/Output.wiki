@@ -17,7 +17,7 @@ PerM can output in *SAM* format, by specify one of the flags
   * {{{--outputFormat sam}}} 
   * {{{-o <oputputFile>.sam}}}
 
-You can use [http://samtools.sourceforge.net/ samtools] to do downstream analysis,ex: pileup reads, get the consensus seq or get expression level. Check my samtools wrappers that can get the expression levels for RNA-seq, described in the [http://perm.googlecode.com/SamExample/ example] page. You can also use [http://test.g2.bx.psu.edu/ Galaxy] with webpage GUI. The [http://samtools.sourceforge.net/ samtools]' [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage] may also have some information you need. 
+You can use [http://samtools.sourceforge.net/ samtools] to do downstream analysis,ex: pileup reads, get the consensus seq or get expression level. Check my samtools wrappers that can get the expression levels for RNA-seq, described in the [http://code.google.com/p/perm/wiki/SamExample example] page. You can also use [http://test.g2.bx.psu.edu/ Galaxy] with webpage GUI. The [http://samtools.sourceforge.net/ samtools]' [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage] may also have some information you need. 
  
 The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. 
 
