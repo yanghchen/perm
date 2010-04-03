@@ -12,8 +12,13 @@ You can also use the script
 
 ==Mapping Results==
 === SAM Format ===
-PerM can output in *SAM* format, by specify the flag {{{-o `*`.sam}}} or {{{--outputFormat sam}}} You can use [http://samtools.sourceforge.net/ samtools] to do  downstream analysis,ex: pileup read, get the consensus seq or get expression level. 
-Check my [http://perm.googlecode.com/SamExample/ example]page or samtools [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage]to have more information. 
+PerM can output in *SAM* format, by specify the flag 
+{{{-o `*`.sam}}} or 
+
+{{{--outputFormat sam}}}.
+
+ You can use [http://samtools.sourceforge.net/ samtools] to do  downstream analysis,ex: pileup read, get the consensus seq or get expression level. 
+Follow my [http://perm.googlecode.com/SamExample/ example] page or samtools [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage]to have more information. 
  
 The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. You can also try [http://people.virginia.edu/~arq5x/utilities.html Araon's Quinlan]'s [http://people.virginia.edu/~arq5x/files/utilities/python/samToBed.py python script] to translate the sam format to bed file to show result in the genome browser. 
 
