@@ -1,3 +1,4 @@
+==Mapping Summary==
 The summary of the mapping results are printed from stdout. They include the number of reads mapped with each number of mismatches and the running time of each step. 
 Use " | tee mapping.log" to get the summary and "grep" for the statistics. 
 Ex:
@@ -8,14 +9,8 @@ Ex:
 You can also use the script 
 [http://perm.googlecode.com/files/PerMStat.sh PerMStat.sh] to get mapping statistics for multiple mapping read sets.
 
-PerM generates (1)index (2) mapping result (3) Unmapped reads files.
-
-= Index =
-From version 0.1.8, PerM's index has changed to include reference sequence in binary format. Users can specify the index path, however must keep the ext name as .index
-The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
-
-=Mapping Results=
-== SAM Format ==
+==Mapping Results==
+=== SAM Format ===
 PerM can output in *SAM* format, by specify the flag -o `*`.sam.
 Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/ and its [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage]. 
 Once the reads is pileup, you can also 
@@ -27,8 +22,8 @@ Once the reads is pileup, you can also
 The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. You can also try [http://people.virginia.edu/~arq5x/utilities.html Araon's Quinlan]'s [http://people.virginia.edu/~arq5x/files/utilities/python/samToBed.py python script] to translate the sam format to bed file to show result in the genome browser. 
 
 Here I described the the original output format, which has the ext name `*`.mapping. 
-== PerM's Mapping Format ==
-===Single-end read===
+=== PerM's Mapping Format ===
+====Single-end read====
 Each line shows a qualified mapping info in the following order, separated by tab:
   * Read Id (Extract from the previous line of the reads input file. If the Id is missing, a fake tag will be used.)
   * The read sequence. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
@@ -45,7 +40,7 @@ The last column for the quality scores will be missed if the input read is in fa
  
 For Illumina reads with quality scores(fastq file), users can use the tool [http://evolution.sysu.edu.cn/mapview/ MapView] to visualize the single-end result with the [http://perm.googlecode.com/files/MVFmaker_NewFormat.txt configure file] on Windows. 
 
-===Paired-end read===
+====Paired-end read====
   * Read Id (Extract from the previous line of the forward reads input file. If the Id is missing, a fake tag will be used.)
   * The 1st read sequence. 5' to 3'.
   * The 2nd read sequence. 5' to 3'.
@@ -60,5 +55,9 @@ For Illumina reads with quality scores(fastq file), users can use the tool [http
 
 ==Unmapped reads==
 With arg flag -u specified, PerM output the unmapped reads. The format is in fasta or fastq, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the sam format includes the mapped single-end. 
+
+== Index ==
+From version 0.1.8, PerM's index has changed to include reference sequence in binary format. Users can specify the index path, however must keep the ext name as .index
+The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
