@@ -14,7 +14,8 @@ You can also use the script
 === SAM Format ===
 PerM can output in *SAM* format, by specify the flag 
 
-{{{-o `*`.sam}}}     or      {{{--outputFormat sam}}}.
+{{{--outputFormat sam}}} or
+{{{-o <oputputFile>.sam}}}
 
 You can use [http://samtools.sourceforge.net/ samtools] to do downstream analysis,ex: pileup read, get the consensus seq or get expression level. Check out my samtools wrappers that can get the expression levels for RNA-seq, described in the [http://perm.googlecode.com/SamExample/ example] page. You can also use [http://test.g2.bx.psu.edu/ Galaxy] with webpage GUI. The [http://samtools.sourceforge.net/ samtools]' [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage] may also have some information you need. 
  
