@@ -16,13 +16,12 @@ PerM can output in *SAM* format, by specify the flag
 
 {{{-o `*`.sam}}} or {{{--outputFormat sam}}}.
 
-You can use [http://samtools.sourceforge.net/ samtools] to do downstream analysis,ex: pileup read, get the consensus seq or get expression level. 
-Follow my [http://perm.googlecode.com/SamExample/ example] page or samtools [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage]to have more information. 
+You can use [http://samtools.sourceforge.net/ samtools] to do downstream analysis,ex: pileup read, get the consensus seq or get expression level. Check my samtools wrappers that can get the expression levels for RNA-seq, described in the [http://perm.googlecode.com/SamExample/ example]page. You can also check [http://samtools.sourceforge.net/ samtools]' [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage]to have more information. 
  
-The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. You can also try [http://people.virginia.edu/~arq5x/utilities.html Araon's Quinlan]'s [http://people.virginia.edu/~arq5x/files/utilities/python/samToBed.py python script] to translate the sam format to bed file to show result in the genome browser. 
+The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. 
 
-Here I described the the original output format, which has the ext name `*`.mapping. 
 === PerM's Mapping Format ===
+In many case, the sam format is harder for me to parse to get the information I need for further analysis. Here I describe the the original output format, which has the ext name `*`.mapping. 
 ====Single-end read====
 Each line shows a qualified mapping info in the following order, separated by tab:
   * Read Id (Extract from the previous line of the reads input file. If the Id is missing, a fake tag will be used.)
