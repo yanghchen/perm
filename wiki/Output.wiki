@@ -13,7 +13,7 @@ You can also use the script
 ==Mapping Results==
 === SAM Format ===
 PerM can output in *SAM* format, by specify the flag -o `*`.sam.
-Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check http://samtools.sourceforge.net/ and its [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage]. 
+Users can use the samtools to do some downstream analysis, ex: pileup read to get the consensus seq. For more information about sam format, check [http://samtools.sourceforge.net/ samtools] and its [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage]. 
 Once the reads is pileup, you can also 
 
 {{{samtools pileup -S -f <reference fasta> <sam file> | awk '{print $1, $2-1, $2, $4}' > mywiggle.bed }}}
