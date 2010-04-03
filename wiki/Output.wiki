@@ -2,6 +2,7 @@
 The summary of the mapping results are printed from stdout. They include the number of reads mapped with each number of mismatches and the running time of each step. 
 Use " | tee mapping.log" to get the summary and "grep" for the statistics. 
 Ex:
+
 {{{ cat stats.txt | tr '\r' '\n' | grep 'Sub' }}}
 
 {{{ cat stats.txt | tr '\r' '\n' | grep 'Read#' }}}
