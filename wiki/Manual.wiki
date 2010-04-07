@@ -46,7 +46,6 @@ For example:
 || *-t* ||_Int_|| Ignore the first Int base from the 5' end. Ex: if the first 5 bases is a barcode, put -t 5. ||
 || *-T* ||_Int_|| Kept the first Int bases after bases ignored by -t option. Ignore the rest bases in 3' end. Ex: -T 30 means use only first 30 bases (signals) after the ignore base for -t option. ||
 
-
 || *-o* ||_Path_|| where Path is for output the mapping of one read set. PerM's output are in .mapping or .sam format, determined by the ext name of P. Ex: -o out.sam will output in SAM format; -o out.mapping will output in .mapping format.||
 || *-d* ||_Path_|| where Path is the dir for multiple read sets. ||
 || *-u* ||_Path_|| Print the fasta(fastq) file of those unmapped reads to a file. ||
@@ -57,8 +56,7 @@ For example:
 || *--statsOnly* || || Output the mapping statistics in stdout only, without saving alignments to files||
 || *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
 || *--seed* ||_{F,,0,, | F,,1,, | F,,2,, | F,,3,, | F,,4,, | S,,11,, | S,,12,,}_|| specify the seed pattern, which has a specific full sensitive to 0 to 4 mismatches or one SNP + one or two color mismatches. Check [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for seed patterns to balance the sensitivity and running time.||
-|| *--refFormat* || _{fasta | list | index }_|| Take refs file in the specified format,
-instead of gussing according to its ext name. ||
+|| *--refFormat* || _{fasta | list | index }_|| Take refs file in the specified format, instead of guessing according to its ext name. ||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_||Read in reads in the specified format, instead of guessing according to the ext name. ||
 || *--outputFormat*||_{ sam | mapping }_|| Overwrite the default output mapping format option. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' in fasta or csfasta. ||
