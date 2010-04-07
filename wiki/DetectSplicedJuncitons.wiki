@@ -1,0 +1,2 @@
+To detect the occurrence of splicing events from RNA-seq data, you can download the
+[http://genes.mit.edu/burgelab/mRNA-Seq known human alternative sliced junctions seq] from Dr.Burge's lab. Map the junctions sequence as read to the initially unmapped reads in fasta (bases)format. PerM has speed advantage compared to BWT methods because it can build index for 3 billion bp ref in half hour with 16 CPUs. Note the reference is long reads in bases, which must have total bases less then 4GB due to the size of integer. 
