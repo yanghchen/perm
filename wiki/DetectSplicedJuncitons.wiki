@@ -3,7 +3,10 @@ To detect the occurrences of splicing events from RNA-seq data, you can download
 Map the junctions sequence as read to the initially unmapped reads in fasta (bases)format.
 You can use {{{-t}}} and {{{-T}}} options to cut the 5' or 3' end of the sequences to increase the sensitivity. However, further check may be ensure the junctions are not mapped by accident. 
 
-PerM has speed advantage compared to BWT methods in the above progress because it can build index for 3 billion bp ref in half hour with 16 CPUs. Note the reference is long reads in bases. You need to split the read set if it is larger than 4 billion bases, due to the integer index size in C++ is limiated.
+PerM has speed advantage compared to BWT methods in the above progress because it can build index for 3 billion bp ref in half hour with 16 CPUs. Note the reference is long reads in bases. You need to split the read set if it is larger than 4 billion bases, due to the integer index size in C++ is limited.
  
+To detect long span spliced junction or deletion, please also try our new tool 
+[http://code.google.com/p/clippers/ clippers]. If you have any feed back, please 
+email me *yanghoch@usc.edu *
 
 [http://code.google.com/p/perm/ Back to main page]
