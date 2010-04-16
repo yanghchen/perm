@@ -65,8 +65,7 @@ Its up to you. The default won't save the index. I can build hg18 index with 16 
 === Q9 How if my input reads has different read length, can we mapped it together? ===
 Unfortunately, PerM's index is for fixed read length. It use the first read length to build the index. PerM will print warning message when it encounter a read with unexpected length and keep mapping the rest of reads. To check how many reads are thrown away, use wc -l command and check the different read length in the final report. You are actually suggested to split the reads according to their lengths to different files and mapped each of them independently. 
 
-=== Q10 Why there are more reads mapped to multiple places than the 
-multi mapped stats reported at the end, when -A is specified? ===
+=== Q10 Why there are more reads mapped to multiple places than the multi mapped stats reported at the end, when -A is specified? ===
 
 In PerM *Multi-mapped* reads are defined as reads mapped to multiple places with *same* and *minimunm* number of mismatches. Ex: if a read A mapped to one place with exact matches, two with one mismatches, this reads is not counted as *Multi-Mapped* reads in the final statistics. However, all the mapped regions within the threshold will still be output if *-A* is specified. 
 
