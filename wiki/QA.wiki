@@ -73,6 +73,6 @@ In PerM *Multi-mapped* reads are defined as reads mapped to multiple places with
 Ex: if you set -v 5 -v 3. It will take the first arg. If you have more concern, fixed the arg and run it again.
 
 === Q12 why the sam output format of PerM has fewer lines than BFAST ===
-Notice BFAST output those read that NOT MAPPED in their output sam file. PerM can optionally output the unmapped reads to fasta, csfasta or fastq format so you can easily map the unmapped reads to other reference.
+Notice BFAST output those read that NOT MAPPED in their output sam file. PerM can optionally output the unmapped reads to fasta, csfasta or fastq format so you can easily map the unmapped reads to other references.
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
