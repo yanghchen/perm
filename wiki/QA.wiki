@@ -69,7 +69,7 @@ Unfortunately, PerM's index is for fixed read length. It use the first read leng
 Ex: if you set -v 5 -v 3. It will take the first arg. If you have more concern, fixed the arg and run it again.
 
 === Q11 Why there are more reads mapped to multiple places than the 
-*multi* mapped stats reported at the end, when -A is specified? ===
+multi mapped stats reported at the end, when -A is specified? ===
 In PerM *Multi-mapped* reads are defined as reads mapped to multiple places with *same* and *minimunm* number of mismatches. Ex: if a read A mapped to one place with exact matches, two with one mismatches, this reads is not counted as *Multi-Mapped* reads in the final statistics. However, all the mapped regions within the threshold will still be output if *-A* is specified. 
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
