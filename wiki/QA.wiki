@@ -75,4 +75,8 @@ Ex: if you set -v 5 -v 3. It will take the first arg. If you have more concern, 
 === Q12 why the sam output format of PerM has fewer lines than BFAST ===
 Notice BFAST output those read that NOT MAPPED in their output sam file. PerM can optionally output the unmapped reads to fasta, csfasta or fastq format so you can easily map the unmapped reads to other references.
 
+=== Q13 Which seed should I use? ===
+Seed is the pattern that PerM use to do the filtering. The choice is the balance of sensitivity and speed. For SOLiD reads, you may be interested in special full sensitivity, ex: one SNP one error (so use S11 seed) or one SNP two error (so use S12). 
+For read length 50, S12 is faster than F4 by slightly lose some sensitivity, because its weight is 15 or more, not just 13. 
+
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
