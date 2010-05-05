@@ -9,6 +9,8 @@ The following table shows the seed used for 50 bp SOLiD read. Specify which seed
 ||S,,2,0,,||{{{(1111**1****)(1111**1****)(1111**1****)(1111**1)}}}||20||2 SNPs||
 ||F,,4,,||{{{(11***1****)(11***1****)(11***1****)(11***1****)1}}}||13||4 mis||
 
+The seed choice should depends on the size of your reference genome, how repetitive the reference is, the length of your read, the running time you expect. If you are mapping very short reads, say 25bp to the whole human genome (3 billion bp), seed F2 already have too many random hits, not mention F3 or F4. However, if your reference is small, ex: 3 million or less, you may use F3 on 25bp reads but probably not F4. You can use --seed F3 with -v 5 or higher partial sensitivity. For 50 bp reads, F2 can be 52M reads/hr, F3 40M reads/hr and F4 is 4~10 M reads/hr, depends on whether the reads are from the repetitive regions. 
+
 == Compared to Seed-Based Methods ==
 Many programs, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite all use similar seed method. The reason that PerM can be faster is because its higher seed weight. Most these programs have seed weight 13 or 14, limited by the memory for hashing. To break the limit, PerM uses both hash and binary search on the "periodic spaced seed array". The high seed weight is necessary for large genome with highly repetitive regions, which is typically the bottleneck of genome scale mapping. 
 
