@@ -80,7 +80,7 @@ Seed is the pattern that PerM use to do the filtering. The choice is the balance
 For read length 50, S12 is faster than F4 by slightly lose some sensitivity, because its weight is 15 or more, not just 13. For reads shorter than 25bp and very small reference genome, use F1 or F0. 
 
 === Q14 What quality score format does PerM take ===
-There are two type of fastq score scale (Phred [http://maq.sourceforge.net/fastq.shtml Fastq] and Illumina [http://en.wikipedia.org/wiki/FASTQ_format fastq])
+There are two type of fastq score scale (Phred [http://maq.sourceforge.net/fastq.shtml Fastq] and Illumina [http://en.wikipedia.org/wiki/FASTQ_format Fastq])
 For SOLiD reads, PerM assumes the the format with the highest score represented in ';'
 For Illumina reads, PerM assumes the quality score with the highest score represented in 'I'. PerM currently unable to recognize the score if you use the Illlumina format for SOLiD or vice versa.
 
