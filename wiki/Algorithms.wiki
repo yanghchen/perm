@@ -7,7 +7,7 @@ The following table shows the seed used for 50 bp SOLiD read. Specify which seed
 ||S,,1,1,,||{{{(1111**1***)(1111**1***)(1111**1***)(1111*1***)}}}||20||1 mis+1 SNP||
 ||F,,3,,||{{{(111*1**1***)(111*1**1***)(111*1**1***)(111*1*)}}}||19||3 mis||
 ||S,,2,0,,||{{{(1111**1****)(1111**1****)(1111**1****)(1111**1)}}}||20||2 SNPs||
-||S,,1,2,,||{{{}}}||20||2 mis + 1 SNPs||
+||S,,1,2,,||{{{(111****1*****) ....}}}||20||2 mis + 1 SNPs||
 ||F,,4,,||{{{(11***1****)(11***1****)(11***1****)(11***1****)1}}}||13||4 mis||
 
 The seed choice should depends on the size of your reference genome, how repetitive the reference is, the length of your read, the running time you expect. If you are mapping very short reads, say 25bp to the whole human genome (3 billion bp), seed F2 already have too many random hits, not mention F3 or F4. However, if your reference is small, ex: 3 million or less, you may use F3 on 25bp reads but probably not F4. You can use --seed F3 with -v 5 or higher partial sensitivity. For 50 bp reads, F2 can be 52M reads/hr, F3 40M reads/hr and F4 is 4~10 M reads/hr, depends on whether the reads are from the repetitive regions. 
