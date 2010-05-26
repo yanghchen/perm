@@ -40,7 +40,7 @@ For example:
 || *-A* || || Output all alignments within the mismatch threshold, end-to-end.||
 || *-B* || || Output best alignments in terms of mismatches in the threshold. ||
 || *-E* || || Output only the uniquely mapped reads. ||
-|| *-A -E* || || Output only the uniquely mapped reads. Any read with two alignments with in mismatch threshold will be ambiguous. ||
+|| *-A -E* || || Output only the uniquely mapped reads. Any read with two alignments within the mismatch threshold will be ambiguous. ||
 || *-m* || || Create the reference index, without reusing the saved index. ||
 || *-s* ||_Path_|| Save the reference index to accelerate the mapping in the future. If path _P_ is not specify, the default path will be used. ||  
 || *-v* ||_Int_|| where Int i the number of mismatches allowed in one end. ||
