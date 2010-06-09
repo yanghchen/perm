@@ -91,7 +91,6 @@ When multiple nodes are used in the same file system, the index should be pre-bu
 
 
 == Use PerM on Galaxy == 
-http://dw408k-1.cmb.usc.edu:8080/new.PNG
 Thanks Prof Anton Nekrutenko and Kelly Vincent at PSU, you can now use PerM on [http://test.g2.bx.psu.edu/ Galaxy's *test* server]. Follow the hyperlink to Galaxy's page, and click NGS:Mapping in the tool menu. Please choose _Map with PerM for SOLiD and Illumina_. You can upload your own reference or use the pre-built hg19 index in the system. Please email me if you encounter any difficulty. Once the system proves its stability, it will be moved to Galaxy's main server with more pre-built reference index.
 
 == Unit Test ==
