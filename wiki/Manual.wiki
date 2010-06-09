@@ -89,5 +89,10 @@ The following is the default setting when the corresponding arg are not specifie
 PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPU (cores) are available and assign each of them a read set. If a read set is done, the next read set in the list will be processed automatically. Each read set will have its own mapping output file. To better utilize all CPUs on a node, large reads are suggested to be split to many small read sets and put in the list. 
 When multiple nodes are used in the same file system, the index should be pre-built first by one node; the other node will read the pre-built index with out building index again. Without pre-built index, each machine will try to build their own index, wasting CPU hours and may cause insufficiency of disk quota. 
 
-=== Unit Test ===
+
+== Use PerM on Galaxy == 
+http://dw408k-1.cmb.usc.edu:8080/new.PNG
+Thanks Prof Anton Nekrutenko and Kelly Vincent at PSU, you can now use PerM on [http://test.g2.bx.psu.edu/ Galaxy's *test* server]. Follow the hyperlink to Galaxy's page, and click NGS:Mapping in the tool menu. Please choose _Map with PerM for SOLiD and Illumina_. You can upload your own reference or use the pre-built hg19 index in the system. Please email me if you encounter any difficulty. Once the system proves its stability, it will be moved to Galaxy's main server with more pre-built reference index.
+
+== Unit Test ==
 When PerM is developed, unit cppUnit test module was prepared. If you are interested in the test code for PerM, please email me. 
