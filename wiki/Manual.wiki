@@ -88,3 +88,6 @@ The following is the default setting when the corresponding arg are not specifie
 == Paralleled Mapping ==
 PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPU (cores) are available and assign each of them a read set. If a read set is done, the next read set in the list will be processed automatically. Each read set will have its own mapping output file. To better utilize all CPUs on a node, large reads are suggested to be split to many small read sets and put in the list. 
 When multiple nodes are used in the same file system, the index should be pre-built first by one node; the other node will read the pre-built index with out building index again. Without pre-built index, each machine will try to build their own index, wasting CPU hours and may cause insufficiency of disk quota. 
+
+=== Unit Test ===
+When PerM is developed, unit cppUnit test module was prepared. If you are interested in the test code for PerM, please email me. 
