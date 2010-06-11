@@ -1,0 +1,1 @@
+qPerM is shell script wrapper of PerM which split the reads, mapped them in parallel with multiple CPU by looking up a shared index table and combine the result together. 
