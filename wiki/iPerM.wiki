@@ -1,0 +1,3 @@
+
+iPerM is a wrappers of PerM which mapped reads chromosome by chromosome. It sorts and combines the mapping result at the end. In this way, it uses only the memory that fit for each chromosome, which is less than 2 G for human. Try it !
+
