@@ -1,4 +1,4 @@
 iPerM is a wrappers of PerM which mapped reads chromosome by chromosome. 
 It sorts and combines the mapping result at the end. In this way, it uses only the memory that fit for each chromosome, which is less than 2 G for human. 
-Download iPerM and try it. Make sure the most recent PerM is in your $PATH.
+[Download http://code.google.com/p/perm/downloads/detail?name=iPerM.zip iPerM ] and try it. Make sure the most recent PerM is in your $PATH.
 If you have any question, please email tade dot souaiaia at gmail dot com.
