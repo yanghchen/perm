@@ -46,9 +46,11 @@ For example:
 || *-v* ||_Int_|| where Int i the number of mismatches allowed in one end. ||
 || *-t* ||_Int_|| Ignore the first Int base from the 5' end. Ex: if the first 5 bases is a barcode, put -t 5||
 || *-T* ||_Int_|| Kept the first Int bases after bases ignored by -t option. Ignore the rest bases in 3' end. Ex: -T 30 means use only first 30 bases (signals) after the ignore base for -t option. ||
+|| *-k* ||_Int_|| Reads mapped to more than -k number position will not be printed in the mapping result. Users can collect the reads with the -a option.||
 
 || *-o* ||_Path_|| where Path is for output the mapping of one read set. PerM's output are in .mapping or .sam format, determined by the ext name of P. Ex: -o out.sam will output in SAM format; -o out.mapping will output in .mapping format.||
 || *-d* ||_Path_|| where Path is the dir for multiple read sets. ||
+|| *-a* ||_Path_|| Print the fasta(fastq) file of those ambiguous reads mapped to more than a threshold specified by -k. ||
 || *-u* ||_Path_|| Print the fasta(fastq) file of those unmapped reads to a file. ||
 
 ====Long Options====
