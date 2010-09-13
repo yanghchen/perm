@@ -1,7 +1,7 @@
 PerM takes (1) The reference sequence(s) and (2) The reads as the input files.
 
 ==Reference Files==
-PerM takes single or multiple FASTA files as the reference. The file should have a corresponding file extension, such as *.fasta* or *.fa*. Each FASTA file may contain multiple sequences. The first word after ">" on the FASTA header line will be used as the "Sequence Name" to be shown in the alignment output. Typical sequence names identify gene transcripts or contigs. Pipeline operations may wish to use the GenBank GI identifier, a unique numeric id for each sequence in GenBank. 
+PerM takes single or multiple FASTA files as the reference. The file should have a corresponding file extension, such as *.fasta* or *.fa*. Each FASTA file may contain multiple sequences. The first word after ">" on the FASTA header line will be used as the "Sequence Name" to be shown in the alignment output. Typical sequence names identify gene transcripts or contigs. Pipeline operations may wish to use the !GenBank GI identifier, a unique numeric id for each sequence in !GenBank. 
 
 For example, in reads.fa: 
 {{{
@@ -36,10 +36,10 @@ Use the {{{-s}}} or {{{-s /path/to/your/filename.index }}} option to save the pr
 Note: OS limitations may limit the maximum length of a file name or file path.
 
 ==Read Files==
-PerM expects reads from either the SOLiD or Solexa sequencer. PerM guesses the read file format according to the first read file's extension, ex: ".fasta", ".fastq", ".csfasta", ".csfastq". Or the option "--readFormat csfasta", "--readFormat fasta", or "--readFormat fastq" can be used to specify the format of the read files when the input files have a non-standard extension. The read length is automatically detected for the first read. The reads file format and the read length are assumed to be the same for all read files and all reads.
+PerM expects reads from either the SOLiD or Solexa sequencer. PerM guesses the read file format according to the first read file's extension, ex: .fasta, .fastq, .csfasta, .csfastq. Or the format can be specified explicitly via {{{--readFormat fasta}}}, {{{--readFormat fastq}}}, {{{--readFormat csfasta}}}, or {{{--readFormat csfastq}}} when the input files have a non-standard extension. The read length is automatically detected for the first read. The reads file format and the read length are assumed to be the same for all read files and all reads.
 
 ==== SOLiD read quality ====
-For SOLiD reads in csfasta format, PerM will try to read the file with the same basename as the read set with the corresponding ".qual" extension for the quality scores. That is, if the read file name is 7B.csfasta, its quality file "7B.qual" should be put in the same directory. If quality score file is not available, or the reads and quality scores can't be matched, only the read sequences will be used. 
+For SOLiD reads in csfasta format, PerM will try to read the file with the same basename as the read set with the corresponding ".qual" extension for the quality scores. That is, if the read file name is *7B.csfasta*, its quality file *7B.qual* should be put in the same directory. If quality score file is not available, or the reads and quality scores can't be matched, only the read sequences will be used. 
 (Tips! Use our shell [http://code.google.com/p/perm/downloads/detail?name=splitReads.sh&can=2&q=#makechanges splitReads.sh] to split fasta or csfasta file into one million reads per set. It will generate a list file. Use the list file name as the input ptr of PerM. To keep the mapping statistics and error messages, redirect the standard output to a log file, {{{ ex: PerM Ref.fa Reads.csfasta -v 3 | tee my.log }}}.
 If you map multiple reads sets in the same time, you can use the [http://perm.googlecode.com/files/PerMStat.sh PerMStats.sh ]scripts to extract mapping counts for your convenience. 
 )
