@@ -14,7 +14,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 GGGGAAAATTTAGCGGGGGAAAATTTAGCGGGGGA
 AAATTTAGCG...
 }}}
-"gene1", "gene2", etc will be the Id for the reference sequence and be printed in the mapping result.
+"gene1", "gene2", etc (without the quotes) will be the Id for the reference sequence and be written in the mapping result.
 
 To process multiple FASTA files, create a list of the FASTA filenames in file with the *.txt* file extension, ex: {{{HumanGenome.txt}}}, with one file path per line. For example: 
 {{{
