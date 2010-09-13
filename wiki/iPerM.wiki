@@ -1,4 +1,5 @@
-iPerM is a wrappers of PerM which mapped reads chromosome by chromosome. 
-It sorts and combines the mapping result at the end. In this way, it uses only the memory that fit for each chromosome, which is less than 2 G for human. 
-[http://code.google.com/p/perm/downloads/detail?name=iPerM.zip Download iPerM] and try it. Make sure the most recent PerM is in your $PATH.
+iPerM is a wrapper around PerM which maps reads chromosome by chromosome. 
+It sorts and combines the mapping results at the end. This means the maximum memory usage is bounded by the size of the largest chromosome. For a human reference, the memory usage will not exceed roughly 245 M bases @ 4.5 bytes / base = 1.1 GB, where 245 M is the Chr1 length. Thus PerM will run comfortably on a 2 GB machine even with the OS overhead.
+
+[http://code.google.com/p/perm/downloads/detail?name=iPerM.zip Download iPerM] and try it. Make sure the most recent PerM is in your PATH environment variable.
 If you have any question, please email tade dot souaiaia at gmail dot com.
