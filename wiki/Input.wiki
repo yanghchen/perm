@@ -26,9 +26,9 @@ To process multiple FASTA files, create a list of the FASTA filenames in file wi
 Each file, ex /data/chr1.fa can have one or multiple sequences.
 
 ==== Non-ACGT characters ====
-Only ACGT and N are allowed in the reference file. Degenerate nucleotide symbols (R, Y, M, K, S, W, B, D, H, V) and U (Uracil) are changed to "N" before creating the index.
+Only ACGT and N are allowed in the reference file. Degenerate nucleotide symbols (R, Y, M, K, S, W, B, D, H, V) and Uracil (U) are changed to "N" before creating the index.
 
-Internally, PerM concatenates all the references sequence and separates them by "N" so that reads will never be aligned multiple reference sequences in any alignment record.
+Internally, PerM concatenates all the references sequence and separates them by "N" so that reads will never be aligned across multiple reference sequences in a single alignment record.
 
 ==== Index file ====
 Use the {{{-s}}} or {{{-s /path/to/your/filename.index }}} option to save the preprocessed reference as a binary index file to speed up future processing. If an index name is not specified, the default index file name, {{{<read_length>_<Seed>_<Read type>_<RefName>_v2.index}}}, is used, where v2 indicates the version of the internal format of the index. The {{{-m}}} causes the index to be rebuilt even if an existing index file is available.
