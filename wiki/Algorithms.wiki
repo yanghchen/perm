@@ -1,6 +1,6 @@
 #labels Featured
 PerM uses special periodic spaced seeds to balance the sensitivity and speed. 
-The following table shows the seed used for 50 bp SOLiD read. Specify which seed pattern to use to balance the speed and sensitivity, ex: specify {{{--seed F4}}} to be full sensitive to four mismatches. 
+The following table shows the seed used for 50 bp SOLiD read. Specify which seed pattern to use to balance the speed and sensitivity, ex: specify {{{--seed F4}}} to be fully sensitive to four mismatches. 
 
 ||*Seed Name*||*Pattern*||Weight (Before extend)||Full Sensitive to||
 ||F,,2,,||{{{(111*1**)(111*1**)(111*1**)(111*1**)(111*1**)(111*1**)1}}}||25||2 mis|| 
@@ -9,24 +9,24 @@ The following table shows the seed used for 50 bp SOLiD read. Specify which seed
 ||S,,2,0,,||{{{(1111**1****)(1111**1****)(1111**1****)(1111**1)}}}||20||2 SNPs||
 ||F,,4,,||{{{(11***1****)(11***1****)(11***1****)(11***1****)}}}||12||4 mis||
 
-The seed choice should depend on the size of your reference genome, how repetitive the reference is, the length of your read, the running time you expect. If you are mapping very short reads, say 25bp to the whole human genome (3 billion bp), seed F2 already have too many random hits, not mention F3 or F4. However, if your reference is small, ex: 3 million or less, you may use F3 on 25bp reads but probably not F4. You can use --seed F3 with -v 5 or higher partial sensitivity. For 50 bp reads, F2 can be 52M reads/hr, F3 40M reads/hr and F4 is 4~10 M reads/hr, depends on whether the reads are from the repetitive regions. 
+The seed choice should depend on the size of your reference genome, how repetitive the reference is, the length of your read, the running time you expect. If you are mapping very short reads, say 25 bp to the whole human genome (3 billion bp), seed F2 already have too many random hits, not to mention F3 or F4. However, if your reference is small, ex: 3 million or less, you may use F3 on 25 bp reads but probably not F4. You can use --seed F3 with -v 5 or higher partial sensitivity. For 50 bp reads, F2 can be 52M reads/hr, F3 40M reads/hr and F4 is 4~10 M reads/hr, depends on whether the reads are from the repetitive regions. 
 
 == Compared to Seed-Based Methods ==
-Many programs, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite all use similar seed method. The reason that PerM can be faster is because its higher seed weight. Most these programs have seed weight 13 or 14, limited by the memory for hashing. To break the limit, PerM uses both hash and binary search on the "periodic spaced seed array". The high seed weight is necessary for large genome with highly repetitive regions, which is typically the bottleneck of genome scale mapping. 
+Many programs, including Eland, MAQ, RMAP, ZOOM, SOCS, Crona Lite use a similar seed method. The reason that PerM can be faster is because its higher seed weight. Most these programs have a seed weight of 13 or 14, limited by the memory for hashing. To breakthrough this limit, PerM combines both hash tables and binary searching on the "periodic spaced seed array". The high seed weight is necessary for large genome with highly repetitive regions, which is typically the bottleneck of genome scale mapping. 
 
 == Compared to BWT-Based Methods ==
 Bowtie, BQA and SOAPv2 use the Burrows-Wheeler Transform to achieve a super memory efficient and fast reads mapping, especially for high quality, short reads, with no full sensitivity guaranteed. However, compared to the BWT based methods, PerM still has the following advantages. 
 
-(0) PerM can build index in shorter time, although with larger memory usage. Moreover, PerM can use multiple CPUs (potentially in GPU) to build the index in parallel. Ex: 16 CPU shrinks the hg18 index time from 2hrs to 36 minutes; while the bwt methods may need 2 to 3 hours to build their index. This feature of PerM makes it very helpful for the one-time mapping task.
+(1) PerM can build index in shorter time, although with larger memory usage. Moreover, PerM can use multiple CPUs (potentially in a GPU) to build the index in parallel. Ex: using 16 CPUs shrinks the time to index hg18 from 2 hrs to 36 minutes; while the bwt methods may need 2 to 3 hours to build their index. This feature of PerM makes it very helpful for the one-time mapping task.
 
-(1) PerM has special higher-weight seed to detect SNPs on the SOLiD color-base reads. 
+(2) PerM has special higher-weight seed to detect SNPs on the SOLiD color-base reads. 
 
-(2) PerM is fast even if most of the reads are not mapped. This may be the case for many poor quality SOLiD data. While Bowtie may fruitlessly exhaust its back tracking limit, PerM has a fixed number of shifts and expected random hit, which is not effected by those un-mapped reads.
+(3) PerM is fast even if most of the reads are not mapped. This may be the case for many poor quality SOLiD data. While Bowtie may fruitlessly exhaust its back tracking limit, PerM has a fixed number of shifts and expected number of random hits, which is not effected by those un-mapped reads.
 
-(3) PerM can be full sensitive to four mismatches, with its F4 seed. With its F3 seed, PerM has high partial sensitivity for five (about 80%) and six (about 55%) substitutions. Although Bowtie can ignore the mismatches in the tail region, the maximum number of mismatches allowed in the "cared region" is limited to three. This may not enough for SOLiD reads, especially when SOLiD reads are getting longer.
+(4) PerM can be full sensitive to four mismatches, with its F4 seed. With its F3 seed, PerM has high partial sensitivity for five (about 80%) and six (about 55%) substitutions. Although Bowtie can ignore the mismatches in the tail region or each read, the maximum number of mismatches allowed in the "cared region" is limited to three. This may not enough for SOLiD reads, especially as SOLiD reads get longer.
 
-(4) PerM's mapping speed increases with the read length; Bowtie's mapping speed decreases with read length. This is because that PerM has a much more higher weight in long reads; in contrast to Bowtie has a larger backtracking search space for long reads. For read length is long enough to provide sufficient weight, PerM is faster than Bowtie. 
+(5) PerM's mapping speed increases with the read length; Bowtie's mapping speed decreases with read length. This is because that PerM has a much more higher weight in long reads; in contrast to Bowtie has a larger backtracking search space for long reads. When the read length is long enough to provide sufficient weight, PerM is faster than Bowtie. 
 
-(5) Bowtie uses a ”quality-aware” backtracking algorithm, favoring mismatches on low quality positions and increasing the probability that alignments which suggest true SNP loci will be ignored. By contrast, PerM used a special seed full sensitive to one base and one color, finding all trusty SNP-supporting alignments with high efficiency. 
+(6) Bowtie uses a ”quality-aware” backtracking algorithm, favoring mismatches on low quality positions and increasing the probability that alignments which suggest true SNP loci will be ignored. By contrast, PerM used a special seed full sensitive to one base and one color, finding all trusty SNP-supporting alignments with high efficiency. 
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
