@@ -6,7 +6,7 @@ For questions about PerM's algorithm, you may also want to check the [http://cod
 
 PerM can accept multiple FASTA files for the reference and each FASTA file can contain multiple sequences. For a collection of short reference sequences such as genes it is probably simplest to concatenate all the sequences into a single FASTA file. But for large references files, for example full chromosomes, it is often more convenient to provide PerM with a single file, e.g. *ref.txt* which contains a list of the reference file names (one per line). A reference files must have the .txt extension because PerM uses the file extension to distinguish between FASTA input and a reference to a list of FASTA files.
 
-=== Q2: How many mismatches should I allow; is it correlated with --seed option? ===
+=== Q2: How many mismatches should I allow; is it correlated with the --seed option? ===
 
 It depends on your read length, the sequencing platform error rate, expected biological variation, and your analysis needs. The *--seed* option determines how many mismatches can be found at full sensitivity though a higher number of mismatches can be found in many cases. The *-v* option sets the mismatch reporting threshold. For example, *--seed F3 -v 5* will report _every_ alignment with up to 3 mismatches and also theoretically report ~80% and ~60% of the alignments with 4 and 5 mismatches respectively. Seeds fully sensitive to larger numbers of mismatch require more time to run.
 
