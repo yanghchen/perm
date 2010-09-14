@@ -16,7 +16,7 @@
  * One can also use the [http://code.google.com/p/perm/wiki/Manual --readFormat] option to specify the format. 
  * With {{{-m -s my.index}}}, PerM builds and saves the index file {{{my.index}}}. 
  * It uses comma as the delimiter to extract the read Id in the "header line" in the csfasta file. 
- * With {{{--seed F4}}}, PerM use the seed which is fully sensitive to four mismatches to build the index. Using the F4 seed could be significantly slower than the F3 or S,,1,1,, seed. 
+ * With {{{--seed F4}}}, PerM uses the seed which is fully sensitive to four mismatches to build the index. Using the F4 seed could be significantly slower than the F3 or S,,1,1,, seed. 
 
 ====./PerM my.index reads.csfasta -v 5 -o out.sam ====
  * PerM reads in the saved index {{{my.index}}} and does the mapping. 
