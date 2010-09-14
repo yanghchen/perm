@@ -2,7 +2,7 @@
  * PerM maps reads in {{{reads.fasta}}} to the reference sequence(s) in {{{ref.fasta}}}
  * PerM will output alignments with up to five mismatches {{{-v 5}}}; however the default [http://code.google.com/p/perm/wiki/Algorithms seed] chosen according to the read length, is only fully sensitive to two or three mismatches. 
  * PerM will first check if the index has previously been saved in the default path. If so, it will use it; otherwise it will build it. It won't save the index in disk. 
- * PerM outputs to the file {{{out.mapping}}} in the [http://code.google.com/p/perm/wiki/Output mapping] format. 
+ * PerM outputs to the file {{{out.mapping}}} in the [http://code.google.com/p/perm/wiki/Output mapping] tab delimited text format. 
 
 ====./PerM hg18.txt reads.txt -v 5 -E -u missed.fa ====
  * {{{hg18.txt}}} should be a file listing each reference FASTA filename, one per line.
