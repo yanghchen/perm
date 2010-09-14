@@ -72,8 +72,8 @@ For example:
 PerM deals with mate-paired reads by mapping each end separately. All combinations of mated pairs mapping to the same reference sequence will be output if their separation are in the allowed ranged as specified by the *-L* and *-U* flags. 
 
 || *-e *|| || Exclude ambiguous paired. ||
-|| *-L * / *--lowerBound * ||_Int_|| mate-paired separate lower bound ||
-|| *-U * / *--upperBound * ||_Int_|| mate-paired separate upper bound ||
+|| *-L * / *--lowerBound * ||_Int_|| lower bound for mate-paired separation distance ||
+|| *-U * / *--upperBound * ||_Int_|| upper bound for mate-paired separation distance ||
 
 The upper bound and lower bound can be negative, which may catch the re-arrangement variations. Use the {{{ -A }}} argument to avoid missing the correct pairs. However, this may greatly increase the running time if both ends are in repetitive regions. 
 
