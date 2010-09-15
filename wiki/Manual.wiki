@@ -79,22 +79,22 @@ The upper bound and lower bound can be negative, which may catch the re-arrangem
 
 [http://code.google.com/p/perm/wiki/paired_end_example Examples]
 
-==== Default setting ====  
+==== Default settings ====  
 The following is the default setting when the corresponding arg are not specified. Please specify the arg to change the default settings.
   * Allow only two mismatches only in each end and use seed F,,2,, S,,11,, or F,,3,, ,selected according to the read lengths and types.
   * Print the best alignments for each read in term of mismatches number. 
   * Output files in `*`.mapping format.
-  * Search the saved index with the default file name, before building the new index.
-  * Won't save the index in file, unless {{{-s }}} is specified. 
-  * For paired end, the default is set as lower bound 0 bp and upper bound 3000 bp.
+  * Searches for a saved index with the default file name before building the new index.
+  * Won't save the index in file, unless {{{-s}}} is specified. 
+  * For paired end reads, the default allowed separation distance is 0-3000 bp. Change with the {{{-L}}} and {{{-U}}} options.
  
 == Parallel Mapping ==
 PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPUs (cores) are available and assign each of them a read set. If a read set is done, the next read set in the list will be processed automatically. Each read set will have its own mapping output file. To better utilize all CPUs on a node, large reads set should be split into many small read sets and put in a list. 
-When multiple nodes are used in the same file system, the index should be pre-built first by one node; the other node will read the pre-built index with out building index again. Without pre-built index, each machine will try to build their own index, wasting CPU time and may cause insufficiency of disk quota. 
+When multiple nodes are used in the same file system, the index should be pre-built first by one node; the other nodes will read the pre-built index without building index again. Without pre-built index, each machine will try to build its own index, wasting CPU time and storage space.
 
 
 == Use PerM on Galaxy == 
-Thanks Prof Anton Nekrutenko and Kelly Vincent at PSU, you can now use PerM on [http://test.g2.bx.psu.edu/ Galaxy's *test* server]. Follow the hyperlink to Galaxy's page, and click NGS:Mapping in the tool menu. Please choose _Map with PerM for SOLiD and Illumina_. You can upload your own reference or use the pre-built hg19 index in the system. Please email me if you encounter any difficulty. Once the system proves its stability, it will be moved to Galaxy's main server with more pre-built reference index.
+Thanks Prof Anton Nekrutenko and Kelly Vincent at PSU, you can now use PerM on [http://test.g2.bx.psu.edu/ Galaxy's *test* server]. Follow the hyperlink to Galaxy's page, and click NGS:Mapping in the tool menu. Please choose _Map with PerM for SOLiD and Illumina_. You can upload your own reference or use the pre-built hg19 index in the system. Please email me if you encounter any difficulties. Once the system proves its stability, it will be moved to Galaxy's main server with more pre-built reference index.
 
 == Unit Test ==
-When PerM is developed, unit cppUnit test module was prepared. If you are interested in the test code for PerM, please email me. 
+When PerM was developed, a unit cppUnit test module was also prepared. If you are interested in the test code for PerM, please email me. 
