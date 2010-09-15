@@ -80,7 +80,7 @@ The upper bound and lower bound can be negative, which may catch the re-arrangem
 [http://code.google.com/p/perm/wiki/paired_end_example Examples]
 
 ==== Default settings ====  
-The following is the default setting when the corresponding arg are not specified. Please specify the arg to change the default settings.
+The following are the default settings when the corresponding command line option is not specified. Please specify the option to change the default settings.
   * Allow only two mismatches only in each end and use seed F,,2,, S,,11,, or F,,3,, ,selected according to the read lengths and types.
   * Print the best alignments for each read in term of mismatches number. 
   * Output files in `*`.mapping format.
@@ -94,7 +94,7 @@ When multiple nodes are used in the same file system, the index should be pre-bu
 
 
 == Use PerM on Galaxy == 
-Thanks Prof Anton Nekrutenko and Kelly Vincent at PSU, you can now use PerM on [http://test.g2.bx.psu.edu/ Galaxy's *test* server]. Follow the hyperlink to Galaxy's page, and click NGS:Mapping in the tool menu. Please choose _Map with PerM for SOLiD and Illumina_. You can upload your own reference or use the pre-built hg19 index in the system. Please email me if you encounter any difficulties. Once the system proves its stability, it will be moved to Galaxy's main server with more pre-built reference index.
+Thanks to Prof Anton Nekrutenko and Kelly Vincent at PSU, you can now use PerM on [http://test.g2.bx.psu.edu/ Galaxy's *test* server]. Follow the hyperlink to Galaxy's page, and click NGS:Mapping in the tool menu. Please choose _Map with PerM for SOLiD and Illumina_. You can upload your own reference or use the pre-built hg19 index in the system. Please email me if you encounter any difficulties. Once the system proves its stability, it will be moved to Galaxy's main server with more pre-built reference index.
 
 == Unit Test ==
 When PerM was developed, a unit cppUnit test module was also prepared. If you are interested in the test code for PerM, please email me. 
