@@ -2,11 +2,13 @@
 (1) Use PerM to map reads and generates sam file
 (2) Use PileUp.sh which calls samtools to get the wig file
 (3) Edit the wig file (Adding header) 
-(4) Put the edit wig file on a webserver and create the links page  
+(4) Put the edit wig file on a webserver
 http://dw408k-1.cmb.usc.edu:8080/GeneList.htm
+An example wig file that can be generated from processing the pileUp.sh result.
+=== [http://dw408k-1.cmb.usc.edu:8080/chr1/chr1_869445_884542.bed Wig file] ===
+More examples can be found through the page
+=== [http://dw408k-1.cmb.usc.edu:8080/GeneList.htm Human Brain RNA-seq] ===
+(5) create the links like the example
+"http://genome.ucsc.edu/cgi-bin/hgTracks?org=human&position=chr1:869445-884542&hgt.customText=http://dw408k-1.cmb.usc.edu:8080/chr1/chr1_869445_884542.bed"
 
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+which tells the 
