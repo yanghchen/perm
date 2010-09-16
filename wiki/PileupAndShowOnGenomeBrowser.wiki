@@ -1,0 +1,9 @@
+#summary One-sentence summary of this page.
+(1) Use PerM to map reads and generates sam file
+(2) Use PileUp.sh which calls samtools to get the wig file
+(3) Edit the wig file (Adding header) 
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
