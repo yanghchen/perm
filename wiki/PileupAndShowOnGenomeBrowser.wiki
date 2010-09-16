@@ -2,6 +2,9 @@
 (1) Use PerM to map reads and generates sam file
 (2) Use PileUp.sh which calls samtools to get the wig file
 (3) Edit the wig file (Adding header) 
+(4) Put the edit wig file on a webserver and create the links page  
+http://dw408k-1.cmb.usc.edu:8080/GeneList.htm
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
