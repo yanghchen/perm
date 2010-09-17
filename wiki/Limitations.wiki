@@ -1,13 +1,18 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
+ * PerM doesn't support reads shorter than 25 base pairs for the F2 seed. It doesn't handle reads shorter than 13 bp for the F0 (exact match) seed.  
+  * PerM doesn't support SOLiD reads with more than 64 base pairs.
+  * PerM doesn't support single-end Illumina reads with more than 128 base pairs.
+  * PerM doesn't support mate-paired Illumina reads with more than 64 base pairs in each end. It will cut the pair ended reads into 64-bp by default.
+  * A maximum of 200 mappings per read (end) will written to the output file. 
+  * The reference sequences(s) can't be more than 4 GB in aggregate.
+  * A single reference sequence should be larger than the read length. 
+  * PerM will ignore any reads with 'N' by default. 
+  * No reads will be mapped to any reference region with 'N'. For this reason PerM may report fewer total alignments than other short read sequences mapping programs, given the same full sensitivity threshold. 
+  * PerM requires 4.5 bytes (one 32-bit integer + 4 bits) per reference base + 256M memory for mapping. The same amount of disk space is required if the index is saved to avoid pre-processing time for the future runs. Note: indexes are only minimally compressible; attempting to save storage by compressing indexes while not in use, e.g. with gzip, is probably not worth it.
 
-Add your content here.
+For reads longer than 64 bp, it is usually best to use the -T 64 setting to map the first 64 bases because those typically have the lowest error rate. However the -T and -t options may be combined to select any range of positions to map.
 
+We suggest users split reads into one million reads per file so they can mapped in parallel. More generally, try splitting the reads into N files where where N = R / C and R is the total number of reads and C is the total number of cores. PerM has been tested on a 48 core computer (quad CPU with 12 cores / CPU) and shown to perform well.
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+[http://code.google.com/p/perm/wiki/Manual Back to manual]
