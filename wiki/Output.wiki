@@ -60,7 +60,7 @@ For Illumina reads with quality scores (FASTAQ file), Windows users can use the 
   see [http://www3.appliedbiosystems.com/cms/groups/mcb_marketing/documents/generaldocuments/cms_058718.pdf Here 2.2.9 c] to get detail info. 
 
 ==Unmapped reads==
-With flag *-u* specified, PerM will output the unmapped reads. The format is FASTA or FASTQ, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the SAM format includes the mapped single-end. 
+When the *-u* flag is specified, PerM will output the unmapped reads. The format is FASTA or FASTQ, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the SAM format includes the mapped single-end. 
 
 == Index ==
 From version 0.1.8, PerM's index format has changed to include reference sequence in binary format. Users can specify the index filename, but must use the *.index* file extension. The default index name has the format
