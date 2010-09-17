@@ -2,7 +2,7 @@
 If you have any usage questions, please email "yanghoch at usc dot edu".
 
 == CONTENTS ==  
-=== [http://code.google.com/p/perm/wiki/Compile Compile] ===
+=== [http://code.google.com/p/perm/wiki/Compiling Compiling] ===
 === [http://code.google.com/p/perm/wiki/Input Input Files]===
 === [http://code.google.com/p/perm/wiki/Output Output Files]===
 === [http://code.google.com/p/perm/wiki/Limitation Limitations and Future work] ===
