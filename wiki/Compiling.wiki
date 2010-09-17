@@ -1,10 +1,5 @@
 #summary Compiling PerM for Windows,Linux and MacOS
 
-= Introduction =
-
-Add your content here.
-
-
 = Details =
 
 Precompiled executables are available for several platforms in the download section.
