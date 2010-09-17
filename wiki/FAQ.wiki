@@ -96,7 +96,7 @@ BFAST output includes reads that are NOT MAPPED. PerM can optionally output the 
 
 === Q13: Which seed should I use? ===
 
-The seed is the pattern that PerM use to do the indexing. The choice of a seed balances sensitivity and speed. For SOLiD reads, you may be interested in special full sensitivity, ex: one SNP one error (so use S11 seed) or one SNP two errors (so use S12). 
+The seed is the pattern that PerM uses to do the indexing. The choice of a seed balances sensitivity and speed. For SOLiD reads, you may be interested in special full sensitivity, ex: one SNP one error (so use S11 seed) or one SNP two errors (so use S12). 
 For read length 50, S12 is faster than F4 by slightly losing some sensitivity, because its weight is 15 or more, not just 13. For reads shorter than 25 bp and very small reference genomes, use the F1 or F0 seed. 
 
 === Q14: What quality score format does PerM take? ===
