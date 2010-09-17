@@ -66,7 +66,7 @@ For example:
 || *--outputFormat*||_{ sam | mapping }_|| Override the default output mapping format option or specify it explicitly when the output file extension is not .sam or .mapping. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' when reading a FASTA or CSFASTA file. ||
 
-[http://code.google.com/p/perm/wiki/single_end_example Examples]
+[http://code.google.com/p/perm/wiki/Examples Examples]
 
 ==== Options for Paired-end Reads ==== 
 PerM deals with mate-paired reads by mapping each end separately. All combinations of mated pairs mapping to the same reference sequence will be output if their separation are in the allowed ranged as specified by the *-L* and *-U* flags. 
@@ -77,7 +77,7 @@ PerM deals with mate-paired reads by mapping each end separately. All combinatio
 
 The upper bound and lower bound can be negative, which may catch the re-arrangement variations. Use the {{{ -A }}} argument to avoid missing the correct pairs. However, this may greatly increase the running time if both ends are in repetitive regions. 
 
-[http://code.google.com/p/perm/wiki/paired_end_example Examples]
+[http://code.google.com/p/perm/wiki/Examples Examples]
 
 ==== Default settings ====  
 The following are the default settings when the corresponding command line option is not specified. Please specify the option to change the default settings.
