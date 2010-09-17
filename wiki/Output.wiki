@@ -1,47 +1,53 @@
 ==Mapping Summary==
-The summary of the mapping results are printed from stdout. They include the number of reads mapped with each number of mismatches and the running time of each step. 
+The mapping results summary is written to stdout. The summary includes the number of reads mapped with each number of mismatches and the running time of each step. 
 Use " | tee mapping.log" to get the summary and "grep" for the statistics. 
-Ex:
+For example:
 
-{{{ cat stats.txt | tr '\r' '\n' | grep 'Sub' }}}
+ {{{ cat stats.txt | tr '\r' '\n' | grep 'Sub' }}}
 
-{{{ cat stats.txt | tr '\r' '\n' | grep 'Read#' }}}
+ {{{ cat stats.txt | tr '\r' '\n' | grep 'Read#' }}}
 
 You can also use the script 
 [http://perm.googlecode.com/files/PerMStat.sh PerMStat.sh] to get mapping statistics for multiple mapping read sets.
 
 ==Mapping Results==
+
+The mapping output is written in either the [http://samtools.sourceforge.net/SAM1.pdf SAM format] or a tab delimited text format.
+
 === SAM Format ===
-PerM can output in *SAM* format, by specify one of the flags 
+PerM will write the mapping output output in the SAM format if explicitly requested or if the extension of the output filename is .sam.
 
   * {{{--outputFormat sam}}} 
-  * {{{-o <oputputFile>.sam}}}
+  * {{{-o <outputFile>.sam}}}
 
-You can use [http://samtools.sourceforge.net/ samtools] to do downstream analysis,ex: pileup reads, get the consensus seq or get expression level. Check my samtools wrappers that can get the expression levels for RNA-seq, described in the [http://code.google.com/p/perm/wiki/SamExample example] page. You can also use [http://test.g2.bx.psu.edu/ Galaxy] with webpage GUI. The [http://samtools.sourceforge.net/ samtools]' [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage] may also have some information you need. 
+You can use [http://samtools.sourceforge.net/ samtools] to do downstream analysis, for example pileup reads, get the consensus seq or get expression level. Check my samtools wrappers that can get the expression levels for RNA-seq, described in the [http://code.google.com/p/perm/wiki/SamExample example] page. You can also use [http://test.g2.bx.psu.edu/ Galaxy] with webpage GUI. The [http://samtools.sourceforge.net/ samtools]' [http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_protocol#C_APIs_.28SAMtools-C.29 wikipage] may also have some information you need. 
  
 The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. 
 
 === PerM's Mapping Format ===
-In many case, the sam format is harder for me to parse to get the information I need for further analysis. Here I describe the the original output format, which has the ext name `*`.mapping. 
-====Single-end read====
-Each line shows a qualified mapping info in the following order, separated by tab:
-  * Read Id (Extract from the previous line of the reads input file. If the Id is missing, a fake tag will be used.)
-  * The read sequence. For SOLiD reads, the first base from the agent (not in the reference) is eliminated from display. The first color signal is translated into a base for display.
-  * Chromosome Name or ID (begins at 0 and numbered according to the order in the reference list)
-  * Chromosome Locus ID, the most left position on the reference. (Each chromosome has indexes starts from 0). 
-  * The mapped reference sequence. (reversed-complemented if orientation is -). For SOLiD reads, this region is translated into colors for comparison to the read.
+In many case, the SAM format is less convenient than a simple tab delimited format. The original mapping format is tab delimited and written to files with the *.mapping* file extension.
+ 
+==== For single-end reads ====
+Each line represents a single mapping with the following fields:
+
+  * Read Id (extracted from header line of the input read file. If the Id is missing, for example when the read file consists of raw sequences without FASTA headers, a numeric tag will automatically be generated for each read.)
+  * The read sequence. For SOLiD reads, the first base from the agent (not in the reference) is not included. The first color signal is translated into a base for display.
+  * Reference sequence ID (begins at 0 and numbered according to the order in the reference list)
+  * 3' location on the reference sequence (first base is 0). 
+  * The mapped reference sequence, reversed-complemented if the read maps to the reverse strand. For SOLiD reads, this region is translated into colors for comparison to the read.
   * Positive (forward) or negative (backward) strand that the reads mapped to.
   * Number of mismatches or the mismatches score (the sum of quality scores in the mis-matched bases) if available. 
   * Number of mappings that this read aligns to, including the current one. 
-  * Reads qualities, numbers printed in characters with a Illimina Quality score shift. 
+  * Reads qualities, numbers printed in characters with a Illumina Quality score shift. 
 
-The last column for the quality scores will be missed if the input read is in fasta format (no quality scores). To grep the uniquely mapped read, use 
-{{{grep -P '\t1\t[!\t]*\t$' [result].mapping }}} to extract the line with last second column with value 1. 
+The last column for the quality scores will be not be included if the input read is in FASTA format (no quality scores). To grep the uniquely mapped read, use 
+{{{grep -P '\t1\t[!\t]*\t$' [result].mapping }}}. This will extract the lines where the second to last column is 1. 
  
-For Illumina reads with quality scores(fastq file), users can use the tool [http://evolution.sysu.edu.cn/mapview/ MapView] to visualize the single-end result with the [http://perm.googlecode.com/files/MVFmaker_NewFormat.txt configure file] on Windows. 
+For Illumina reads with quality scores (FASTAQ file), Windows users can use the tool [http://evolution.sysu.edu.cn/mapview/ MapView] to visualize the single-end result with the [http://perm.googlecode.com/files/MVFmaker_NewFormat.txt configure file]. 
 
-====Paired-end read====
-  * Read Id (Extract from the previous line of the forward reads input file. If the Id is missing, a fake tag will be used.)
+==== For paired-end reads ====
+
+  * Read Id (extracted from header line of the input read file. If the Id is missing, for example when the read file consists of raw sequences without FASTA headers, a numeric tag will automatically be generated for each read.)
   * The 1st read sequence. 5' to 3'.
   * The 2nd read sequence. 5' to 3'.
   * The 1st read mismatches score.
@@ -50,14 +56,17 @@ For Illumina reads with quality scores(fastq file), users can use the tool [http
   * The ref name of the the 2nd read mapped to.
   * The position of the the 1st read mapped to.
   * The position of the the 2nd read mapped to.
-  * Category, this is the flag defined by ABI, which is a three letter alphabet. 
+  * Category. This is the flag defined by ABI, which is a three letter alphabet. 
   see [http://www3.appliedbiosystems.com/cms/groups/mcb_marketing/documents/generaldocuments/cms_058718.pdf Here 2.2.9 c] to get detail info. 
 
 ==Unmapped reads==
-With arg flag -u specified, PerM output the unmapped reads. The format is in fasta or fastq, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the sam format includes the mapped single-end. 
+With flag *-u* specified, PerM will output the unmapped reads. The format is FASTA or FASTQ, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the SAM format includes the mapped single-end. 
 
 == Index ==
-From version 0.1.8, PerM's index has changed to include reference sequence in binary format. Users can specify the index path, however must keep the ext name as .index
-The default index name has a format {{{<ReadLength>_<Seed>_<ReadType>_<RefFileName>_<Version>.index}}}
+From version 0.1.8, PerM's index format has changed to include reference sequence in binary format. Users can specify the index filename, but must use the *.index* file extension. The default index name has the format
+
+  {{{<ReadLength>_<Seed1>_<ReadType>_<RefFileName>_<Version>.index}}}
+
+where {{{<Seed1>}}} is the seed name stripped of the first character, e.g. 2 for F2, {{{<RefFileName>}}} is the reference file stripped of its file extension, and {{{<Version>}}} is the internal index format version, currently v2.
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
