@@ -64,7 +64,7 @@ For example:
 || *--refFormat* || _{fasta | list | index }_|| Assume references sequence(s) are in the specified format, instead of guessing according to file's extension. ||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_|| Assume reads are in the specified format, instead of guessing according to the file(s)' extension. ||
 || *--outputFormat*||_{ sam | mapping }_|| Override the default output mapping format option or specify it explicitly when the output file extension is not .sam or .mapping. ||
-|| *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' when ready a FASTA or CSFASTA file. ||
+|| *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' when reading a FASTA or CSFASTA file. ||
 
 [http://code.google.com/p/perm/wiki/single_end_example Examples]
 
