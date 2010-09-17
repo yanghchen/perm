@@ -5,13 +5,7 @@
 Add your content here.
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
-
+= Single End Mapping Examples =
 
 ====./PerM ref.fasta reads.fasta -v 5 -o out.mapping ====
  * PerM maps reads in {{{reads.fasta}}} to the reference sequence(s) in {{{ref.fasta}}}
