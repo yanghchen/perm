@@ -1,7 +1,7 @@
 #summary Current Limitations of the PerM algorithm
 #labels Phase-Requirements
 
- * PerM doesn't support reads shorter than 25 base pairs for the F2 seed. It doesn't handle reads shorter than 13 bp for the F0 (exact match) seed.  
+  * PerM doesn't support reads shorter than 25 base pairs for the F2 seed. It doesn't handle reads shorter than 13 bp for the F0 (exact match) seed.  
   * PerM doesn't support SOLiD reads with more than 64 base pairs.
   * PerM doesn't support single-end Illumina reads with more than 128 base pairs.
   * PerM doesn't support mate-paired Illumina reads with more than 64 base pairs in each end. It will cut the pair ended reads into 64-bp by default.
