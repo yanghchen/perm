@@ -30,16 +30,16 @@ Add your content here.
 ====./PerM my.index reads.csfasta -v 5 -o out.sam ====
  * PerM reads in the saved index {{{my.index}}} and does the mapping. 
  * The output will be in [http://samtools.sourceforge.net/ SAM] format, as determined by the file extension (.sam) of the output file. 
-[http://code.google.com/p/perm/wiki/Manual Back to manual]
+
 
 = Paired End Example = 
 
-paired_end_example   
-
-Ex: ./PerM -1 F3.fq -2 R3.fq -L 200 -U 500 -e -A -v 5 -m -s -o out.sam.
+====./PerM -1 F3.fq -2 R3.fq -L 200 -U 500 -e -A -v 5 -m -s -o out.sam ====
 
     * Only paired mapping with separation distance of 200-500 bp will be output (-L and -U switches).
     * Read pairs with multiple qualified mapping locations won't be output (-e switch)
     * For each end, try all mapping locations within 5 mismatches (-v switch).
     * PerM will build the index (even if it already exists, -m flag) and save it (-s flag) to the default path for future mappings.
     * PerM will output the mappings file to out.sam in the SAM format. 
+
+[http://code.google.com/p/perm/wiki/Manual Back to manual]
