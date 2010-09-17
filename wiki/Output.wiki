@@ -1,6 +1,5 @@
 ==Mapping Summary==
-The mapping results summary is written to stdout. The summary includes the number of reads mapped with each number of mismatches and the running time of each step. 
-Use " | tee mapping.log" to get the summary and "grep" for the statistics. 
+The mapping results summary is written to stdout. The summary includes the number of reads mapped with each number of mismatches and the running time of each step. When multiple reads sets are processed, a summary is written for each read set. Use " | tee mapping.log" to get the summary and "grep" for the statistics. 
 For example:
 
  {{{ cat stats.txt | tr '\r' '\n' | grep 'Sub' }}}
@@ -59,10 +58,34 @@ For Illumina reads with quality scores (FASTAQ file), Windows users can use the 
   * Category. This is the flag defined by ABI, which is a three letter alphabet. 
   see [http://www3.appliedbiosystems.com/cms/groups/mcb_marketing/documents/generaldocuments/cms_058718.pdf Here 2.2.9 c] to get detail info. 
 
-==Unmapped reads==
+== Unmapped reads ==
+
 When the *-u* flag is specified, PerM will output the unmapped reads. The format is FASTA or FASTQ, depending on whether the quality score is available. I need to add the .csfasta format in the near future. Note the paired-end mapping result of the SAM format includes the mapped single-end. 
 
-== Index ==
+== Reads with excessive alignments ==
+
+When the *-a* flag is specified, PerM will output the reads which map to too many locations where the maximum number of allowed location is defined by the *-k* switch or the default of 200. The format is FASTA or FASTQ, depending on whether the quality score is available.
+
+== Automatic file naming for multiple read sets ==
+
+When multiple read sets are processed simultaneously, for example to take advantage of multiple CPUs (cores), the output filenames will be automatically generated based on the name of the corresponding read file and index file. The mapping files will be named as follows:
+
+  {{{<idxbase>_B_<Seed1>_<#mm>_<readfile>.mapping}}}
+
+where {{{<idxbase>}}} is the base name of the sequence file used to generate the index, {{{<Seed1>}}} is the seed name stripped of the first character, e.g. 2 for F2, {{{<#mm>}}} is the number of mismatches allowed (via the *-v* switch or according to the default), and {{{<readfile>}}} is the base name of the file for the read set. For example, if {{{myreads_14.fasta}}} is processed using the index {{{64_2_Illumina_myref_v2.index}}} via {{{--seed F2}}} and using the {{{-v 3}}} switch, the corresponding output file will be named:
+
+  {{{myref_B_2_3_myreads_14.mapping}}}
+
+If the *-u* option is specified, the files of unmapped reads will automatically be named as follows:
+
+  {{{myreads_14_miss_myref.fasta}}}
+
+If the *-a* option is specified, the files of reads that mapped to too many locations will automatically be named as follows:
+
+  {{{myreads_14_ambig_myref.fasta}}}
+
+== Index file ==
+
 From version 0.1.8, PerM's index format has changed to include reference sequence in binary format. Users can specify the index filename, but must use the *.index* file extension. The default index name has the format
 
   {{{<ReadLength>_<Seed1>_<ReadType>_<RefFileName>_<Version>.index}}}
