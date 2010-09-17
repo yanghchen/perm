@@ -1,4 +1,5 @@
 #summary Compiling PerM for Windows,Linux and MacOS
+#labels Phase-Deploy
 
 = Details =
 
