@@ -1,6 +1,6 @@
-{{{Ex:  ./PerM -1 F3.fq -2 R3.fq -U 500 -L 200 -e -A -v 5 -m -s -o out.sam.}}}
-  * All Paired mapping with separation outside the 200bp to 500bp range won't be output.
-  * All mapped-paired with multiple qualified mapped pairs won't be output for {{{ -e }}}
-  * For each end, try all mapping locations within 5 mismatches. 
-  * PerM will reconstruct and save the index to the default path for future mappings.
-  * PerM will output the mappings file to out.sam in the sam format.
+{{{Ex:  ./PerM -1 F3.fq -2 R3.fq -L 200 -U 500 -e -A -v 5 -m -s -o out.sam.}}}
+  * Only paired mapping with separation distance of 200-500 bp will be output (*-L* and *-U* switches).
+  * Read pairs with multiple qualified mapping locations won't be output (*-e* switch)
+  * For each end, try all mapping locations within 5 mismatches (*-v* switch). 
+  * PerM will build the index (even if it already exists, *-m* flag)  and save it (*-s* flag) to the default path for future mappings.
+  * PerM will output the mappings file to out.sam in the SAM format.
