@@ -37,34 +37,34 @@ For example:
  # The read file should be in the .fasta, .fastq, .csfasta or .csfastq format. PerM parses a file according to its extension, or the format explicitly specified by the *{{{--readFormat <format>}}}* flag. If there are multiple read files, list each file names in a .txt file, with each row a path of the reads file. PerM takes it as the input and can map multiple read sets in parallel by [http://en.wikipedia.org/wiki/OpenMP OpenMP].
  # The maximum number of mismatches reported ({{{-v}}} flag) can be set to 2 or more. For reads over 64 bp, PerM allows double the number of mismatches specified because reads longer than 64 bp are treated as two separate reads of half the length which must map to adjacent positions in the same direction on the reference, i.e. as a restricted case of the more general pair-end mapping.
 
-==== Options ====
+==== Short Options ====
 || *-A* || || Output all alignments within the mismatch threshold, end-to-end.||
 || *-B* || || Output best alignments in terms of mismatches in the threshold. ||
 || *-E* || || Output only the uniquely mapped reads. ||
 || *-A -E* || || Output only the uniquely mapped reads. Any read with two alignments within the mismatch threshold will be ambiguous. ||
 || *-m* || || Create the reference index without reusing the saved index even if available. ||
-|| *-s* ||_Path_|| Save the reference index to accelerate the mapping in the future. If path _P_ is not specify, the default path will be used. ||  
+|| *-s* || _path_ || Save the reference index to accelerate the mapping in the future. If _path_ is not specified, the default path will be used. ||  
 || *-v* || # || Maximum number of mismatches allowed (or allowed in one end for pair-end reads). ||
 || *-t* || # || Number of bases at the 5' end of each read to ignore. For example, if the first 5 bases are used as a barcode or to index multiple samples together, use -t 5. If not specified, no initial bases will be ignored. ||
 || *-T* || # || Number of bases in each read to use, starting after any bases ignored by -t option. Later bases at the 3' of the read are ignored. For example, -T 30 means use only first 30 bases (signals) after the any bases ignored due to the -t option. ||
 || *-k* || # || Specifies maximum number of alignments to output. The default value is 200 if the -k flag is not given. Alignments for reads mapping to more than the maximum number positions will not be output. Use the -a option to collect reads which exceeded the maximum.||
 
-|| *-o* ||_Path_|| where Path is for output the mapping of one read set. PerM's output will be either the .mapping tab delimited text format or the SAM format as determined by the extension of the output filename. For example {{{-o out.sam}}} will output in SAM format; {{{-o out.mapping}}} will output in .mapping format.||
-|| *-d* ||_Path_|| where Path is the dir for multiple read sets. ||
-|| *-a* ||_Path_|| Create a fasta(fastq) file for reads mapped to more positions than the threshold specified by -k or the default of 200. ||
-|| *-u* ||_Path_|| Create a fasta(fastq) file of unmapped reads. ||
+|| *-o* || _filepath_ || Name of mapping output file when mapping a single read set. The output file format will be either the .mapping tab delimited text format or the SAM format as determined by the extension of the output filename. For example {{{-o out.sam}}} will output in SAM format; {{{-o /path/to/out.mapping}}} will output in .mapping format. Use *--outputFormat* to override this behavior. The *-o* option does not apply when multiple reads sets are being mapped at once to take advantage of multiple CPUs (cores); see the *-d* option for that case. ||
+|| *-d* || _dirpath_ || Output directory for mapping output files when mapping multiple read sets (output files will be named automatically). If the directory specified does not exist, the output directory will be created provided the parent directory exists. Note: if -d _filepath_ is specified when mapping a single read set, _dirpath_ will be prepended to _filepath_; however, this usage is not recommended. ||
+|| *-a* || _filepath_ || Create a FASTA (FASTQ) file for reads mapped to more positions than the threshold specified by -k or the default of 200. ||
+|| *-u* || _filename_ || Create a FASTA (FASTAQ) file of unmapped reads. When a single read set is mapped, _filename_ specifies the name of the output file. When multiple read sets are mapped, _filename_ is irrelevant and should be omitted; the files of unmapped sequences will automatically be named and created in the directory PerM is run from. ||
 
 ====Long Options====
 || *--noSamHeader*|| || Do not include a SAM header. This makes it easier to concatenate multiple SAM output files. ||
 || *--includeReadsWN*|| || Map reads with N or '.' bases by encoding N or '.' as A or 3. Normally such reads are ignored. ||
 || *--statsOnly* || || Output the mapping statistics to stdout only, without saving alignments to files. ||
-|| *--ignoreQS* || || Ignore the quality scores in fastq or QUAL files. ||
-|| *--printNM* || || When quality are available, use this flag to print number of mismatches, instead of mismatch scores in mapping format. ||
-|| *--seed* ||_{F,,0,, | F,,1,, | F,,2,, | F,,3,, | F,,4,,   |     S,,11,, | S,,12,,}_|| Specify the seed pattern, which has a specific full sensitive to 0 to 4 mismatches or one SNP + one or two color mismatches. Check [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for seed patterns to balance the sensitivity and running time.||
+|| *--ignoreQS* || || Ignore the quality scores in FASTQ or QUAL files. ||
+|| *--printNM* || || When quality scores are available, use this flag to print number of mismatches, instead of mismatch scores in mapping format. ||
+|| *--seed* || {F0 | F1 | F2 | F3 | F4 | S11 | S12} || Specify the seed pattern. The F,,0,,, F,,1,,, F,,2,,, F,,3,,, and F,,4,, seeds are fully sensitive to 1-4 mismatches respectively. The S,,11,, and S,,12,, seeds are fully sensitive to one biological mismatch (SNP) and one or two SOLiD color mismatches respectively, i.e. disallowed colorspace transitions that indicate a SOLiD sequencing platform error. See [http://code.google.com/p/perm/wiki/Algorithms the algorithm page] for more information about the seed patterns.||
 || *--refFormat* || _{fasta | list | index }_|| Assume references sequence(s) are in the specified format, instead of guessing according to file's extension. ||
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_|| Assume reads are in the specified format, instead of guessing according to the file(s)' extension. ||
 || *--outputFormat*||_{ sam | mapping }_|| Override the default output mapping format option or specify it explicitly when the output file extension is not .sam or .mapping. ||
-|| *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' in fasta or csfasta. ||
+|| *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' when ready a FASTA or CSFASTA file. ||
 
 [http://code.google.com/p/perm/wiki/single_end_example Examples]
 
