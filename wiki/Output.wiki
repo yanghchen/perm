@@ -1,5 +1,13 @@
 ==Mapping Summary==
-The mapping results summary is written to stdout. The summary includes the number of reads mapped with each number of mismatches and the running time of each step. When multiple reads sets are processed, a summary is written for each read set. Use " | tee mapping.log" to get the summary and "grep" for the statistics. 
+The mapping results summary is written to stdout. The summary includes the number of reads mapped with each number of mismatches and the running time of each step. For example:
+ 
+ ./myreads.fasta, Reads:, Filtered#, 0, Kept#, 23556, Mapped#, 1309, Multimapped#, 1195, Multimapped>199#, 328
+
+ ./myreads.fasta, Sub0, 294, Sub1, 597, Sub2, 239, Sub3, 179,
+
+Here 1309 reads were mapped (1195 to multiple locations) and mappings for 328 reads were not reported because the exceeded the maximum number of mappings per read. The second line indicates that 294 reads matched the reference perfectly (zero substitutions), 597 reads had one mismatch, etc.
+
+When multiple reads sets are processed, a summary is written for each read set. Use " | tee mapping.log" to get the summary and "grep" for the statistics. 
 For example:
 
  {{{ cat stats.txt | tr '\r' '\n' | grep 'Sub' }}}
