@@ -78,11 +78,13 @@ When the *-a* flag is specified, PerM will output the reads which map to too man
 
 When multiple read sets are processed simultaneously, for example to take advantage of multiple CPUs (cores), the output filenames will be automatically generated based on the name of the corresponding read file and index file. The mapping files will be named as follows:
 
-  {{{<idxbase>_B_<Seed1>_<#mm>_<readfile>.mapping}}}
+  {{{<idxbase>_<mode>_<Seed1>_<#mm>_<readfile>.mapping}}}
 
-where {{{<idxbase>}}} is the base name of the sequence file used to generate the index, {{{<Seed1>}}} is the seed name stripped of the first character, e.g. 2 for F2, {{{<#mm>}}} is the number of mismatches allowed (via the *-v* switch or according to the default), and {{{<readfile>}}} is the base name of the file for the read set. For example, if {{{myreads_14.fasta}}} is processed using the index {{{64_2_Illumina_myref_v2.index}}} via {{{--seed F2}}} and using the {{{-v 3}}} switch, the corresponding output file will be named:
+where {{{<idxbase>}}} is the base name of the sequence file used to generate the index, {{{<Seed1>}}} is the seed name stripped of the first character, e.g. 2 for F2, {{{<#mm>}}} is the number of mismatches allowed (via the *-v* switch or according to the default), and {{{<readfile>}}} is the base name of the file for the read set. {{{<mode>}}} is either A (all), B (best), or E (unique only) according to the *-A*, *-B*, and *-E* switches. For example, if {{{myreads_14.fasta}}} is processed using the index {{{64_2_Illumina_myref_v2.index}}} via {{{--seed F2}}} and using the {{{-v 3}}} switch without specifying either *-A*, *-B*, or *-E*, the corresponding output file will be named:
 
   {{{myref_B_2_3_myreads_14.mapping}}}
+
+The output directory of the mapping files can be set with the *-d* option.
 
 If the *-u* option is specified, the files of unmapped reads will automatically be named as follows:
 
@@ -91,6 +93,8 @@ If the *-u* option is specified, the files of unmapped reads will automatically 
 If the *-a* option is specified, the files of reads that mapped to too many locations will automatically be named as follows:
 
   {{{myreads_14_ambig_myref.fasta}}}
+
+These files will be written in the same directory as the input *.txt* containing the sequence filenames.
 
 == Index file ==
 
