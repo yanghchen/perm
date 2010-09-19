@@ -92,6 +92,21 @@ The following are the default settings when the corresponding command line optio
 PerM simultaneously maps multiple reads sets in a list by querying the same index. It will detect how many CPUs (cores) are available and assign each of them a read set. If a read set is done, the next read set in the list will be processed automatically. Each read set will have its own mapping output file. To better utilize all CPUs on a node, large reads set should be split into many small read sets and put in a list. 
 When multiple nodes are used in the same file system, the index should be pre-built first by one node; the other nodes will read the pre-built index without building index again. Without pre-built index, each machine will try to build its own index, wasting CPU time and storage space.
 
+== Exit codes ==
+PerM sets the exit code to 0 upon successful completion, the normal Unix behavior. If the program is terminated via Ctrl-C (SIGINT), the exit code will be 2, the number for SIGINT (see {{{man kill}}}). If you invoke PerM from another language, you can check the return code and do something intelligent. Here is a Perl pseudo-code example:
+
+{{{
+while (... some sort of loop ...) {
+  my $cmd = "PerM ... arguments and switches";
+  my $ec = system($cmd);
+  if ($ec == 2) {
+    print STDERR "PerM terminated via Ctrl-C. Stopping run.\n\n";
+    # Maybe do some cleanup such as deleting the small files the read file was
+    # split into for parallel processing.
+    exit($ec);
+  }
+}
+}}}
 
 == Use PerM on Galaxy == 
 Thanks to Prof Anton Nekrutenko and Kelly Vincent at PSU, you can now use PerM on [http://test.g2.bx.psu.edu/ Galaxy's *test* server]. Follow the hyperlink to Galaxy's page, and click NGS:Mapping in the tool menu. Please choose _Map with PerM for SOLiD and Illumina_. You can upload your own reference or use the pre-built hg19 index in the system. Please email me if you encounter any difficulties. Once the system proves its stability, it will be moved to Galaxy's main server with more pre-built reference index.
