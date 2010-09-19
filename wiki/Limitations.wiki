@@ -14,6 +14,6 @@
 
 For reads longer than 64 bp, it is usually best to use the -T 64 setting to map the first 64 bases because those typically have the lowest error rate. However the -T and -t options may be combined to select any range of positions to map.
 
-We suggest users split reads into one million reads per file so they can mapped in parallel. More generally, try splitting the reads into N files where where N = R / C and R is the total number of reads and C is the total number of cores. PerM has been tested on a 48 core computer (quad CPU with 12 cores / CPU) and shown to perform well.
+We suggest users split reads into one million reads per file so they can mapped in parallel. More generally, try splitting the reads into files of R reads each where where R = N / C, N is the total number of reads and C is the total number of cores. PerM has been tested on a 48 core computer (quad CPU with 12 cores / CPU) and shown to perform well. The PerM run time will be dictated by the last read set to finish. In practice, read set run times seem to be well balanced, but as a further caution one might choose split the reads into even smaller chunks for better load balancing. Preferably the number of chunks should be an integer multiple of the number of CPUs (cores), e.g. 3 `*` C. In this case, PerM will initially process the first C chunks and then begin processing additional chunks as CPUs (cores) become free.
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
