@@ -63,7 +63,7 @@ cat reads.qual | tr '\n' '\t' | tr '>' '\n' | sort -k 1,1 | tr '\n' '>' | tr '\t
 }}}
 Remember to backup your read files before any experiment. Unfortunately, I have seen many quality files that are embedded extra info in the read name.. ex: >readName,blah,blah.. so you need to use `sed` command to remove the blah blah ... first.
 
-=== Q6: How if my reference is a exon which is shorter than a read? ===
+=== Q6: What if my reference is a exon which is shorter than a read? ===
 
 That is fine. Internally, PerM uses 'N' to separate each reference. No reads will mapped 
 across 'N' on the short reference.
