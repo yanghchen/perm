@@ -45,10 +45,9 @@ Each line represents a single mapping with the following fields:
   * Positive (forward) or negative (backward) strand that the reads mapped to.
   * Number of mismatches or the mismatches score (the sum of quality scores in the mis-matched bases) if available. 
   * Number of mappings that this read aligns to, including the current one. 
-  * Reads qualities, numbers printed in characters with a Illumina Quality score shift. 
+  * Reads qualities, numbers printed in characters with a Illumina Quality score shift. An asterisk indicate there were are no quality scores, e.g. when the input is a FASTA file.
 
-The last column for the quality scores will be not be included if the input read is in FASTA format (no quality scores). To grep the uniquely mapped read, use 
-{{{grep -P '\t1\t[!\t]*\t$' [result].mapping }}}. This will extract the lines where the second to last column is 1. 
+To grep the uniquely mapped read, use {{{grep -P '\t1\t[!\t]*\t$' [result].mapping }}}. This will extract the lines where the second to last column is 1. 
  
 For Illumina reads with quality scores (FASTAQ file), Windows users can use the tool [http://evolution.sysu.edu.cn/mapview/ MapView] to visualize the single-end result with the [http://perm.googlecode.com/files/MVFmaker_NewFormat.txt configure file]. 
 
