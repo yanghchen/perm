@@ -32,7 +32,7 @@ You can use [http://samtools.sourceforge.net/ samtools] to do downstream analysi
 The GUI tool [http://bioinf.scri.ac.uk/tablet/ Tablet] can be used to visualize the *sorted* sam output. 
 
 === PerM's Mapping Format ===
-In many case, the SAM format is less convenient than a simple tab delimited format. The original mapping format is tab delimited and written to files with the *.mapping* file extension.
+In many cases, the SAM format is less convenient than a simple tab delimited format. The original mapping format is tab delimited and written to files with the *.mapping* file extension.
  
 ==== For single-end reads ====
 Each line represents a single mapping with the following fields:
