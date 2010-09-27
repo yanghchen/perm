@@ -56,6 +56,7 @@ For example:
 || *-u* || _filepath_ || Create a FASTA (FASTAQ) file of unmapped reads. When a single read set is mapped, _filename_ specifies the name of the output file. When multiple read sets are mapped, _filename_ is irrelevant and should be omitted; the files of unmapped sequences will automatically be named and created in the directory PerM is run from. ||
 
 ====Long Options====
+|| *--ambiguosReadOnly*|| || Output only ambiguous mapping to find repeats (similar regions within substitution threshold). When this option is specified, reads that mapped to over mapping number threshold that specified by -k will still be printed. ||
 || *--noSamHeader*|| || Do not include a SAM header. This makes it easier to concatenate multiple SAM output files. ||
 || *--includeReadsWN*|| || Map reads with N or '.' bases by encoding N or '.' as A or 3. Normally such reads are ignored. ||
 || *--statsOnly* || || Output the mapping statistics to stdout only, without saving alignments to files. ||
@@ -66,6 +67,7 @@ For example:
 || *--readFormat*||_{fasta | fastq | csfasta | csfastq}_|| Assume reads are in the specified format, instead of guessing according to the file(s)' extension. ||
 || *--outputFormat*||_{ sam | mapping }_|| Override the default output mapping format option or specify it explicitly when the output file extension is not .sam or .mapping. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' when reading a FASTA or CSFASTA file. ||
+|| *--log*||_filepath_|| _filepath_ specifies the name of the log file which contains the mapping statistics that will also be printed on the screen. ||
 
 [http://code.google.com/p/perm/wiki/Examples Examples]
 
