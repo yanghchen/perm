@@ -70,7 +70,7 @@ across 'N' on the short reference.
 
 === Q7: What happens if I have multiple reference sequences with the same reference name? ===
 
-PerM barks by listing the error messages to warn you. Internally, PerM still map them to each reference separately. However, the output will print the same reference name, and the index of the reference will be messed up. 
+PerM barks by listing the error messages to warn you. Internally, PerM still maps the reads to each reference sequence separately. However, the output will print the same reference name, and the index of the reference will be messed up. 
 
 === Q8: Should I save the index first and then do the mapping? ===
 
@@ -78,7 +78,7 @@ It's up to you. By default, PerM won't save the index. I can build hg18 index wi
 
 === Q9: If my input reads have different read lengths, can they be mapped it together? ===
 
-Unfortunately, PerM's index is for fixed read length. It uses the first read length to build the index. PerM will print warning message when it encounters a read with unexpected length and keep mapping the rest of reads. To check how many reads are thrown away, use wc -l command and check the different read length in the final report. 
+Unfortunately, a PerM index is for a fixed read length. If a pre-built index is not being used and neither the *-T* or *-t* options has been specified, PerM builds an index for the length of the first read. PerM will print warning message when it encounters a read with unexpected length and keep mapping the rest of reads. To check how many reads are thrown away, use wc -l command and check the different read length in the final report. 
 
 To handle reads with different length, split the reads according to their lengths into different files and map each of them independently. This is fairly easy to do using Perl.
 
