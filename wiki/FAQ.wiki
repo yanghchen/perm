@@ -63,10 +63,9 @@ cat reads.qual | tr '\n' '\t' | tr '>' '\n' | sort -k 1,1 | tr '\n' '>' | tr '\t
 }}}
 Remember to backup your read files before any experiment. Unfortunately, I have seen many quality files that are embedded extra info in the read name.. ex: >readName,blah,blah.. so you need to use `sed` command to remove the blah blah ... first.
 
-=== Q6: What if my reference is a exon which is shorter than a read? ===
+=== Q6: What if I have reference sequence(s) shorter than the read length? ===
 
-That is fine. Internally, PerM uses 'N' to separate each reference. No reads will mapped 
-across 'N' on the short reference.
+That is fine. Internally, PerM uses 'N' to separate each reference. No reads will be mapped across an 'N'.
 
 === Q7: What happens if I have multiple reference sequences with the same reference name? ===
 
@@ -74,7 +73,11 @@ PerM barks by listing the error messages to warn you. Internally, PerM still map
 
 === Q8: Should I save the index first and then do the mapping? ===
 
-It's up to you. By default, PerM won't save the index. I can build hg18 index with 16 CPUs for PerM in half hour. You may think it is small trade off compared to storing a 14GB index file. Be careful if you change the reference, delete or rebuild the index to avoid confusion.
+It's up to you. By default, PerM won't save the index. I can build hg18 index with 16 CPUs for PerM in half hour. You may think it is small trade off compared to storing a 14 GB index file.
+
+Also, since a PerM index is always at least 256 MB, you may not wish keep the index if the reference sequence is quite small because PerM can rebuild it very quickly.
+
+If you do keep the index, be careful if you change the reference. Delete or rebuild the index to avoid confusion.
 
 === Q9: If my input reads have different read lengths, can they be mapped it together? ===
 
