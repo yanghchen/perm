@@ -108,5 +108,14 @@ There are two type of FASTQ scores (Phred [http://maq.sourceforge.net/fastq.shtm
 For SOLiD reads, PerM assumes the the format with the highest score represented in ';'
 For Illumina reads, PerM assumes the quality score with the highest score represented in 'I'. PerM currently unable to recognize the score if you use the Illumina format for SOLiD or vice-versa.
 
+=== Q15: Why other mapping program has more "exact matching" than PerM? ===
+That is a misunderstanding. PerM is "Full sensitive" to the threshold it set.
+We had a user reported Bowtie reported more "exact matching" for SOLiD read. I think the reason is bowtie first "correct" the single mismatches as error and report the "Base" difference. That is ok but could be misunderstanding.
+Other programs use only the prefix.. say first 28 or 32 bp by default. That is, the mismatches at the tail are "Don't cared". If you choose their other options to match PerM, the mapping should be the same, if they are also full sensitive. Oh, by default, PerM eliminate reads with '.' and 'N'. One may encode '.' as '3' and 'N' as 'A'. However, it is misleading and not recommended. 
+
+
+
+
+
 
 [http://code.google.com/p/perm/wiki/Manual Back to manual]
