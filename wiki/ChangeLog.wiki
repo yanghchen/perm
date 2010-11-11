@@ -1,0 +1,14 @@
+#summary Changes to the ComB software package.
+
+= Version 1.1 = 
+
+== Changes in command line arguments. ==
+
+ * The argument order to {{{mapcand}}} has changed to be consistent with the rest of the comb commands.  Now give the reference, followed by the file produced by {{{mapcount}}}.
+  {{{comb mapcount reference.fa reads.map_cnt}}}
+
+ * The arguments to {{{snpcall}}} have changed.  The callrates file is now optional.  If given it is passed in with {{{-r/--call-rates}}}.
+
+== Changes in command line options == 
+
+ * There is a new option to {{{view}}} and {{{easyrun}}} for hiding SNPs which were called back to the reference base.  {{{--hide-unchanged}}} will not output these SNPs in the text view.
