@@ -1,6 +1,6 @@
-#summary Changes to the ComB software package.
+#summary of changes to PerM.
 
-= Version 1.1 = 
+= Version 0.3.1 = 
 
 == Changes in command line arguments. ==
 
