@@ -1,4 +1,16 @@
 == PerM Changelog == 
 
-|| Version || Summary of changes ||
-|| *0.3.1* || Fixed bug introduced in PerM 0.3.0 where reference sequence was not reverse complemented in .mapping output if read file was in FASTA format. ||
+*Version 0.3.1.0*
+
+ * Fixed bug introduced in PerM 0.3.0.0 where reference sequence was not reverse complemented in .mapping output if read file was in FASTA format.
+
+*Version 0.2.9.9*
+
+ * Alignments for reads mapped to more positions than the threshold set by the *-k* switch (default 200) are no longer included in the mapping output. The new *-a* _filename_ option can be used to collect such reads. Previously, the first 200 (or *-k* specified) alignments were output to the mapping file.
+
+ * Fixed issue with reads longer than 64 bp. Last bases was not mapped for reads with an odd number of bases.
+
+*Version 0.2.9.7*
+
+ * 6 mismatches limit for SOLID reads removed.
+
