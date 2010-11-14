@@ -8,9 +8,8 @@
 
  * Alignments for reads mapped to more positions than the threshold set by the *-k* switch (default 200) are no longer included in the mapping output. The new *-a* _filename_ option can be used to collect such reads. Previously, the first 200 (or *-k* specified) alignments were output to the mapping file.
 
- * Fixed issue with reads longer than 64 bp. Last bases was not mapped for reads with an odd number of bases.
+ * Fixed issue with reads longer than 64 bp. Last base was ignored for reads with an odd number of bases.
 
 *Version 0.2.9.7*
 
  * 6 mismatches limit for SOLID reads removed.
-
