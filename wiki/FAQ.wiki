@@ -73,7 +73,7 @@ PerM barks by listing the error messages to warn you. Internally, PerM still map
 
 === Q8: Should I save the index first and then do the mapping? ===
 
-It's up to you. By default, PerM won't save the index. I can build hg18 index with 16 CPUs for PerM in half hour. You may think it is small trade off compared to storing a 14 GB index file.
+It's up to you. By default, PerM won't save the index. I can build hg18 index with 16 CPUs for PerM in half hour. For some users rebuilding the an index may be a small trade off compared to storing a 14 GB index file.
 
 Also, since a PerM index is always at least 256 MB, you may not wish keep the index if the reference sequence is quite small because PerM can rebuild it very quickly.
 
@@ -108,12 +108,11 @@ There are two type of FASTQ scores (Phred [http://maq.sourceforge.net/fastq.shtm
 For SOLiD reads, PerM assumes the the format with the highest score represented in ';'
 For Illumina reads, PerM assumes the quality score with the highest score represented in 'I'. PerM currently unable to recognize the score if you use the Illumina format for SOLiD or vice-versa.
 
-=== Q15: It is a misunderstanding that other mapping program has more "exact matching" than PerM ===
-PerM is "Full sensitive" to the threshold it set. One user reported Bowtie found more "exact matching" for SOLiD read, because bowtie "corrected" the single mismatches as error and report only the "Base" difference. Therefore, the result caused some confusion.
-Other programs use only read prefix.. say first 28 or 32 bp by default. That is, the mismatches at the tail are "Don't cared". If you choose their other options to match PerM, the mapping should be the same, if they are also full sensitive. Oh, by default, PerM eliminate reads with '.' and 'N'. One may encode '.' as '3' and 'N' as 'A'. However, it is misleading and not recommended. 
+=== Q15: Do other mapping programs find more exact matches than PerM? ===
 
+No. PerM is fully sensitive to the threshold selected. One user reported Bowtie found more "exact matches" for SOLiD reads, because Bowtie "corrects" the single mismatches as errors and reports only the "nucleotide" difference. Therefore, the result caused some confusion. Other programs only match the first N nucleotide of read prefix, say first 28 or 32 bp, by default, i.e. mismatched at the tail are ignored. If you choose program options in those programs to match PerM or conversely set the *-T* PerM option appropriately, the mapping should be the same, provided the the other mapper is also fully sensitive.
 
-
+Finally, by default, PerM eliminate reads with '.' and 'N'. In PerM, one may encode '.' as '3' and 'N' as 'A' using the *--includeReadsWN* switch; however, it is misleading and not recommended. If other mappers treat reads with '.' and 'N' differently, the results may be different.
 
 
 
