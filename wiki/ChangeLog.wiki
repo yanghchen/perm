@@ -1,5 +1,13 @@
 == PerM Changelog == 
 
+*Version 0.3.2.0*
+
+ * Changed definition of *-k* parameter to mean alignments will not be output if there are more than # alignments rather than # or more alignments. The current definition is the same as the meaning of the -k in Bowtie. To convert from using an older version of PerM, change -k # to -k #-1, e.g. -k 5 to -k 4.
+
+ * Fixed a segmentation fault that occurred when *-k 1* or *-k 2* was used with the *-a* switch.
+
+ * The default read file names 'F3' and 'R3; are changed to 'F'; and 'R', meaning forward and reverse, in order to avoid confusion of with seed F3. 
+
 *Version 0.3.1.0*
 
  * Fixed bug introduced in PerM 0.3.0.0 where reference sequence was not reverse complemented in .mapping output if read file was in FASTA format.
