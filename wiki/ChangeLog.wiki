@@ -1,10 +1,19 @@
 == PerM Changelog == 
 
+
+*Version 0.3.3.0*
+
+ * Allow mapping to shorter reads with F1 and F2 seed. Low limit for F1 seed is now 15-bp and 20-bp reads for the F1 and F2 seed respectively. Note: mapping to such short reads can be slow. Closes Issue [http://code.google.com/p/perm/issues/detail?id=40 40].
+
+ * -m -s $dir now saves index in the assigned directory with the default index name. Previously -s $dir caused a segmentation fault. Closes Issue [http://code.google.com/p/perm/issues/detail?id=41 41].
+
+ * Cleaned up some messages. Closes Issue [http://code.google.com/p/perm/issues/detail?id=37 37].
+
 *Version 0.3.2.0*
 
  * Changed definition of *-k* parameter to mean alignments will not be output if there are more than # alignments rather than # or more alignments. The current definition is the same as the meaning of the *-k* switch in Bowtie. To convert from using an older version of PerM, change -k # to -k #-1, e.g. *-k 5* to *-k 4*.
 
- * Fixed a segmentation fault that occurred when *-k 1* or *-k 2* was used with the *-a* switch.
+ * Fixed a segmentation fault that occurred when *-k 1* or *-k 2* was used with the *-a* switch. Closes Issue [http://code.google.com/p/perm/issues/detail?id=39 39].
 
  * The default read file names 'F3' and 'R3; are changed to 'F'; and 'R', meaning forward and reverse, in order to avoid confusion of with seed F3. 
 
@@ -16,8 +25,8 @@
 
  * Alignments for reads mapped to more positions than the threshold set by the *-k* switch (default 200) are no longer included in the mapping output. The new *-a* _filename_ option can be used to collect such reads. Previously, the first 200 (or *-k* specified) alignments were output to the mapping file.
 
- * Fixed issue with reads longer than 64 bp. Last base was ignored for reads with an odd number of bases.
+ * Fixed issue with reads longer than 64 bp. Last base was ignored for reads with an odd number of bases. Closes Issue [http://code.google.com/p/perm/issues/detail?id=35 35].
 
 *Version 0.2.9.7*
 
- * 6 mismatches limit for SOLID reads removed.
+ * 6 mismatches limit for SOLID reads removed. Closes Issue [http://code.google.com/p/perm/issues/detail?id=34 34].
