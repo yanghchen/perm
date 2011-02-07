@@ -31,7 +31,7 @@ Only ACGT and N are allowed in the reference file. Degenerate nucleotide symbols
 Internally, PerM concatenates all the references sequence and separates them by "N" so that reads will never be aligned across multiple reference sequences in a single alignment record.
 
 ==== Index file ====
-Use the {{{-s}}} or {{{-s /path/to/your/filename.index }}} option to save the preprocessed reference as a binary index file to speed up future processing. If an index name is not specified, the default index file name, {{{<read_length>_<Seed>_<Read type>_<RefName>_v2.index}}}, is used, where v2 indicates the version of the internal format of the index. The {{{-m}}} causes the index to be rebuilt even if an existing index file is available.
+Use the {{{-s}}}, {{{-s /some/directory}}}, or {{{-s /path/to/your/filename.index }}} option to save the preprocessed reference as a binary index file to speed up future processing. If an index name is not specified as in the first two cases, the default index file name is used. The default index name is {{{<read_length>_<seed>_<Read type>_<RefName>_v2.index}}}, where {{{<seed>}}} is the seed stripped of the leading character, e.g. 2 instead of F2, and v2 indicates the version of the internal format of the index. The {{{-m}}} causes the index to be rebuilt even if an existing index file is available.
 
 Note: OS limitations may limit the maximum length of a file name or file path.
 
