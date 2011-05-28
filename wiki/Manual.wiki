@@ -58,7 +58,7 @@ For example:
 ====Long Options====
 || *--ambiguosReadOnly*|| || Output only ambiguous mapping to find repeats (similar regions within substitution threshold). When this option is specified, reads that mapped to over mapping number threshold that specified by -k will still be printed. ||
 || *--noSamHeader*|| || Do not include a SAM header. This makes it easier to concatenate multiple SAM output files. ||
-|| *--includeReadsWN*|| # || Map reads with given threshold number of N or '.' bases by encoding N or '.' as A or 3. Excluded reads with more 'N'. The default setting ignores read with any 'N' or '.'. ||
+|| *--includeReadsWN*|| # || Map reads with equal or fewer N or '.' bases than the specified threshold by encoding N or '.' as A or 3. Reads with more 'N' will be discarded. The default setting discards read with any 'N'. ||
 || *--statsOnly* || || Output the mapping statistics to stdout only, without saving alignments to files. ||
 || *--ignoreQS* || || Ignore the quality scores in FASTQ or QUAL files. ||
 || *--printNM* || || When quality scores are available, use this flag to print number of mismatches, instead of mismatch scores in mapping format. ||
