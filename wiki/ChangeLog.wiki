@@ -1,5 +1,16 @@
 == PerM Changelog == 
 
+*Version 0.3.6.0*
+
+ * Fixed an error in reading reference sequence(s) with unknown (N) bases.
+
+*Version 0.3.5.0*
+
+ * Increased maximum number of alignments per read (-k switch) from 2,000 to 1,000,000. Default remains 200. Closes Issue [http://code.google.com/p/perm/issues/detail?id=42 42].
+
+ * Closed Issue [http://code.google.com/p/perm/issues/detail?id=43 43].
+
+ * Added new --includeReadsWN switch to refine handling of reads with Ns. Previously the only options were to exclude reads with Ns or to arbitrarily substitute A for the unknown nucleotide. The new switch allows the substitution to be limited to only reads with up to a specified number of unknown bases; reads with a higher number of bases are discarded. Closes Issue [http://code.google.com/p/perm/issues/detail?id=44 44]
 
 *Version 0.3.3.0*
 
