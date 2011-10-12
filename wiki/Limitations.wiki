@@ -5,7 +5,7 @@
   * PerM doesn't support SOLiD reads with more than 64 base pairs.
   * PerM doesn't support single-end Illumina reads with more than 128 base pairs.
   * PerM doesn't support mate-paired Illumina reads with more than 64 base pairs in each end. It will cut the pair ended reads into 64-bp by default.
-  * A maximum of 200 mappings per read (end) will written to the output file. 
+  * A maximum of 1 million mappings per read (end) will written to the output file. (Default is 200).
   * The reference sequences(s) can't be more than 4 GB in aggregate.
   * A single reference sequence should be larger than the read length. 
   * PerM will ignore any reads with 'N' by default. 
