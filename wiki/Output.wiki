@@ -56,8 +56,8 @@ For Illumina reads with quality scores (FASTAQ file), Windows users can use the 
   * Read Id (extracted from header line of the input read file. If the Id is missing, for example when the read file consists of raw sequences without FASTA headers, a numeric tag will automatically be generated for each read.)
   * The 1st read sequence. 5' to 3'.
   * The 2nd read sequence. 5' to 3'.
-  * The 1st read mismatches score (or mismatch number when score not available.)
-  * The 2nd read mismatches score (or mismatch number when score not available.)
+  * The 1st read mismatches score (or number of mismatches when score not available.)
+  * The 2nd read mismatches score (or number of mismatches when score not available.)
   * The total mismatch scores or number of mismatches.
   * The ref name of the the 1st read mapped to.
   * The ref name of the the 2nd read mapped to.
