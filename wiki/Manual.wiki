@@ -68,6 +68,10 @@ For example:
 || *--outputFormat*||_{ sam | mapping }_|| Override the default output mapping format option or specify it explicitly when the output file extension is not .sam or .mapping. ||
 || *--delimiter*||_char_|| _char_ is a character used as the delimiter to separate the the read id, and the additional info in the line with '>' when reading a FASTA or CSFASTA file. ||
 || *--log*||_filepath_|| _filepath_ specifies the name of the log file which contains the mapping statistics that will also be printed on the screen. ||
+|| *--forwardOnly*|| || Map reads to the forward strand only: (This is for SOLiD Strand specific sequencing). ||
+|| *--reverseOnly*|| || Map reads to the reverse strand only: (This is for SOLiD Strand specific sequencing) ||
+
+
 
 [http://code.google.com/p/perm/wiki/Examples Examples]
 
