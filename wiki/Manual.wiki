@@ -83,6 +83,9 @@ PerM deals with mate-paired reads by mapping each end separately. All combinatio
 || *-U * / *--upperBound * ||_Int_|| upper bound for mate-paired separation distance ||
 
 The upper bound and lower bound can be negative, which may catch the re-arrangement variations. Use the {{{ -A }}} argument to avoid missing the correct pairs. However, this may greatly increase the running time if both ends are in repetitive regions. 
+|| *--fr* || || Map paired-end reads to different strand only ||
+|| *--ff* || || Map paired-end reads to the same strand only ||
+The default option output mapping in both the same or different strand.
 
 [http://code.google.com/p/perm/wiki/Examples Examples]
 
