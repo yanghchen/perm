@@ -1,13 +1,51 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
+= Iterative SNP Calling with ComB =
 
-Add your content here.
+The SNP-Calling program ComB was designed to perform accurately by being run iteratively with PerM.  This is accomplished by using PerM for alignment and then ComB for SNP-calling to produce an updated reference file.  The process can be repeated to produce very accurate results.  In tests results are most accurate when SNP-Calling and Mapping criteria being conservatively and are relaxed in later iterations. 
 
 
-= Details =
+= Example =
+
+Here we present an example command line for iterative SNP Calling on the ecoli genome.  In this example the reads are assumed to be 50bp (reads.fastq) and the reference file is "ecoli.fa".  
+
+Step 1 (Mapping and SNP-Calling)  
+
+./PerM  ecoli.fa  reads.fastq --seed F2 -v 2 -A -E -o iter1.mapping > iter1.log 
+
+./ComB easyrun ecoli.fa iter1.mapping --cover 10,0.5 --priors H --consensus iter1.fa > iter1.snps 
+
+*** Repeat with new files *** 
+
+./Perm iter1.fa reads.fastq -seed F2 -v 2 -A -E -o iter2.mapping > iter2.log
+
+./ComB easyrun iter1.fa iter2.mapping --cover 10,0.5 --priors H --consensus iter2.fa > iter2.snps 
+
+*In these step, ComB uses the results of the mapping accomplished with only unique reads (allowing two mismatches) to produce SNP-Calling results with requirements 
+that SNPs have at least 10 reads covering and a mismatch threshold of 0.5. The priors are set to high ("H").  
+
+*This step can be repeated until the number of SNPs called or the number of reads mapped exactly to the reference goes not increase. At this point the iterative process can be finished OR the user can relax parameters to find more SNPs.  For example: 
+
+./PerM iterK.fa reads.fastq --seed F4 -v 5 -A -o iter(K+1).mapping > iter(K+1).log 
+
+./ComB easyrun iterK.fa iter(K+1).mapping --cover 5,0.25 --priors L --consensus iter(K+1).fa > iter(K+1).snps 
+
+*In this step the criteria is relaxed: Mapping now allows five mismatches and allows ambiguous maps and SNP-Calling requires only 5 covering reads and a 0.25 mismatch rate.  The priors are also relaxed to low "L". 
+
+*To maximize accuracy we recommend the user use a similar protocol as the one described.  If criteria are relaxed initially fewer iterations are required but the likelihood of incorrect SNP calling is increased. Note, after all the iterations are complete, the user should concatenate the .snps files to create one large file which contains all the called SNPS.  
+
+ 
+ 
+
+
+
+
+
+
+
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * Automatic links to other wiki page
