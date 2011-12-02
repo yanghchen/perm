@@ -35,10 +35,10 @@ that SNPs have at least 10 reads covering and a mismatch threshold of 0.5. The p
 
 *To maximize accuracy we recommend the user use a similar protocol as the one described.  If criteria are relaxed initially fewer iterations are required but the likelihood of incorrect SNP calling is increased. Note, after all the iterations are complete, the user should concatenate the .snps files to create one large file which contains all the called SNPS.  
 
+*Note: This example is on the Ecoli genome.  If the genome is larger the user may want to run the SNP-Calling in parallel in a step-by-step fashion.  Explanation of how to do this is on the ComB website: http://code.google.com/p/comb/wiki/Manual.
+
  
  
-
-
 
 
 
