@@ -2,15 +2,10 @@
 * Please download the latest version especially if you encounter similar issues that have been reported and fixed.* For details, please check the [http://code.google.com/p/perm/issues/list issue] pages.
  
   # Version 0.4.0 solved the issue that stop parsing reads when encounter reads that shorter than expected.
-
   # Version 0.3.9 can map 128x128 paired-end Illumina reads. 
-
   # The updated version with OpenMP are released on Nov 28. 
-
   # The source released in Nov 28 is a false one. The correct source is released. Please download it again.
-
   # Version 0.3.6 fix defect that has error in reading nucleotide 'n' in reference.
-
   # Version 0.3.5 make 3 enhancements  
 (Issue [http://code.google.com/p/perm/issues/detail?id=42 42] and [http://code.google.com/p/perm/issues/detail?id=43 43] and 
 [http://code.google.com/p/perm/issues/detail?id=44 44])
