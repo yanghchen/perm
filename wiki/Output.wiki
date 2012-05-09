@@ -56,6 +56,11 @@ For Illumina reads with quality scores (FASTAQ file), Windows users can use the 
   * Read Id (extracted from header line of the input read file. If the Id is missing, for example when the read file consists of raw sequences without FASTA headers, a numeric tag will automatically be generated for each read.)
   * The 1st read sequence. 5' to 3'.
   * The 2nd read sequence. 5' to 3'.
+
+  * The quality score sequence of the first end, if available.
+  * The quality score sequence of the second end, if available.
+  If the quality scores are not available, the above two columns will be printed.
+
   * The 1st read mismatches score (or number of mismatches when score not available.)
   * The 2nd read mismatches score (or number of mismatches when score not available.)
   * The total mismatch scores or number of mismatches.
@@ -65,8 +70,8 @@ For Illumina reads with quality scores (FASTAQ file), Windows users can use the 
   * The position of the the 2nd read mapped to.
 
 One can use option *--printRefSeq* to print out the mapped paired reference sequence for Illumina paired reads as the extra two columns.
-  * The reference sequences mapped by the first end.
-  * The reference sequences mapped by the second end. 
+  * The reference sequence mapped by the first end.
+  * The reference sequence mapped by the second end. 
 
   <wiki:comment>
   # Category. This is the flag defined by ABI, which is a three letter alphabet. 
