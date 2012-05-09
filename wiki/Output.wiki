@@ -63,8 +63,9 @@ For Illumina reads with quality scores (FASTAQ file), Windows users can use the 
   * The ref name of the the 2nd read mapped to.
   * The position of the the 1st read mapped to.
   * The position of the the 2nd read mapped to.
-  * Category. This is the flag defined by ABI, which is a three letter alphabet. 
-  see [http://www3.appliedbiosystems.com/cms/groups/mcb_marketing/documents/generaldocuments/cms_058718.pdf Here 2.2.9 c] to get detail info. 
+
+  # Category. This is the flag defined by ABI, which is a three letter alphabet. 
+  # see  [http://www3.appliedbiosystems.com/cms/groups/mcb_marketing/documents/generaldocuments/cms_058718.pdf Here 2.2.9 c] to get detail info. 
 
 One can use option *--printRefSeq* to print out the mapped paired reference sequence for Illumina paired reads as the extra two columns.
 
