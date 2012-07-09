@@ -65,8 +65,8 @@ For Illumina reads with quality scores (FASTAQ file), Windows users can use the 
   * The ref name of the the 2nd read mapped to.
   * The position of the the 1st read mapped to.
   * The position of the the 2nd read mapped to.
-  * The foward '+' or backward '-'strand that the 1st read mapped to.
-  * The foward '+' or backward '-'strand that the 2nd read mapped to.
+  * The foward (+) or backward (-)strand that the 1st read mapped to.
+  * The foward (+) or backward (-)strand that the 2nd read mapped to.
 
 One can use option *--printRefSeq* to print out the mapped paired reference sequence for Illumina paired reads as the extra two columns.
   * The reference sequence mapped by the first end.
